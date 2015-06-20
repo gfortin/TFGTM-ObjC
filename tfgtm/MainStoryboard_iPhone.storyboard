@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="870" y="158"/>
         </scene>
-        <!--View Controller-->
+        <!--Connect View Controller-->
         <scene sceneID="IZN-N3-8rC">
             <objects>
-                <viewController id="HmY-dh-Qqw" sceneMemberID="viewController">
+                <viewController id="HmY-dh-Qqw" customClass="ConnectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WXF-UL-NMa"/>
                         <viewControllerLayoutGuide type="bottom" id="Im0-Gn-yQz"/>
@@ -107,6 +107,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="connect_Facebook:" destination="HmY-dh-Qqw" eventType="touchUpInside" id="YIy-vV-hDZ"/>
                                     <segue destination="zVE-5o-13N" kind="show" id="36o-Qq-IQZ"/>
                                 </connections>
                             </button>
@@ -118,6 +119,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="connect_Google:" destination="HmY-dh-Qqw" eventType="touchUpInside" id="89L-9b-nHP"/>
                                     <segue destination="zVE-5o-13N" kind="show" identifier="GoogleSegue" id="X13-9c-cmG"/>
                                 </connections>
                             </button>
@@ -129,19 +131,20 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="connect_Windows:" destination="HmY-dh-Qqw" eventType="touchUpInside" id="eLt-dZ-7yY"/>
                                     <segue destination="zVE-5o-13N" kind="show" identifier="FacebookSegue" id="H6z-K5-qin"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TFGTM-1024x1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="SRJ-bN-WBr">
                                 <rect key="frame" x="0.0" y="28" width="124" height="138"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gp.png" translatesAutoresizingMaskIntoConstraints="NO" id="HaS-Nc-gZN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo_GooglePlus.png" translatesAutoresizingMaskIntoConstraints="NO" id="HaS-Nc-gZN">
                                 <rect key="frame" x="71" y="431" width="51" height="63"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="windows.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnZ-aI-IiP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo_Windows.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnZ-aI-IiP">
                                 <rect key="frame" x="75" y="494" width="42" height="43"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="F_icon.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-v4-fjr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo_Facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-v4-fjr">
                                 <rect key="frame" x="75" y="380" width="42" height="59"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Se connecter avec :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0L-zb-104">
@@ -160,6 +163,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="btn_Facebook" destination="6FP-pE-Dpr" id="cnJ-1V-Dvh"/>
+                        <outlet property="btn_Google" destination="5Dt-dc-Jn5" id="MMf-9z-OpN"/>
+                        <outlet property="btn_Windows" destination="wlt-UJ-Fxl" id="hix-8d-SQC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlF-Le-eTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,10 +192,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="F_icon.svg.png" width="267" height="267"/>
+        <image name="Logo_Facebook.png" width="267" height="267"/>
+        <image name="Logo_GooglePlus.png" width="512" height="512"/>
+        <image name="Logo_Windows.png" width="1121" height="1229"/>
         <image name="TFGTM-1024x1024.png" width="1024" height="1024"/>
-        <image name="gp.png" width="512" height="512"/>
-        <image name="windows.png" width="1121" height="1229"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="36o-Qq-IQZ"/>
