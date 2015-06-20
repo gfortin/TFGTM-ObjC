@@ -64,8 +64,8 @@
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
         
         // Create an MSSyncTable instance to allow us to work with the TodoItem table
-        self.syncTable = [_client syncTableWithName:@"TodoItem"];
-//        self.syncTable = [_client syncTableWithName:@"Categories"];
+//        self.syncTable = [_client syncTableWithName:@"TodoItem"];
+        self.syncTable = [_client syncTableWithName:@"Categories"];
 
     }
     

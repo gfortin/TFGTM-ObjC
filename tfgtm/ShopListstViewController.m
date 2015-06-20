@@ -81,8 +81,8 @@
     NSManagedObjectContext *context = delegate.managedObjectContext;
     
 //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
-//    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
+//    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
     
     // show only non-completed items
 //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
@@ -166,7 +166,9 @@
     // Set the label on the cell and make sure the label color is black (in case this cell
     // has been reused and was previously greyed out
     cell.textLabel.textColor = [UIColor blackColor];
-    cell.textLabel.text = [item valueForKey:@"text"];
+//    cell.textLabel.text = [item valueForKey:@"text"];
+    cell.textLabel.text = [item valueForKey:@"name_Category"];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
