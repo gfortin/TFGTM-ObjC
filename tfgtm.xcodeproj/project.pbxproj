@@ -13,8 +13,8 @@
 		03D1002816EC579A0005A1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D1002616EC579A0005A1A9 /* InfoPlist.strings */; };
 		03D1002A16EC579A0005A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002916EC579A0005A1A9 /* main.m */; };
 		03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */; };
-		03D1004716EC58300005A1A9 /* QSTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* QSTodoListViewController.m */; };
-		03D1004A16EC58490005A1A9 /* QSTodoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004916EC58490005A1A9 /* QSTodoService.m */; };
+		03D1004716EC58300005A1A9 /* ShopListstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* ShopListstViewController.m */; };
+		03D1004A16EC58490005A1A9 /* TFGTMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004916EC58490005A1A9 /* TFGTMService.m */; };
 		03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */; };
 		689C609F1A5F3F4D00E96D29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689C609E1A5F3F4D00E96D29 /* CoreData.framework */; };
 		689C60A41A5F4D1B00E96D29 /* QSTodoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 689C60A21A5F4D1B00E96D29 /* QSTodoDataModel.xcdatamodeld */; };
@@ -31,6 +31,7 @@
 		932D71541B35E9F90067BE48 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D71531B35E9F90067BE48 /* ConnectViewController.m */; };
 		932D71571B3604820067BE48 /* AuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D71561B3604820067BE48 /* AuthService.m */; };
 		932D715A1B3604C70067BE48 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D71591B3604C70067BE48 /* KeychainItemWrapper.m */; };
+		932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,10 +45,10 @@
 		03D1002B16EC579A0005A1A9 /* tfgtm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tfgtm-Prefix.pch"; sourceTree = "<group>"; };
 		03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSAppDelegate.h; sourceTree = "<group>"; };
 		03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSAppDelegate.m; sourceTree = "<group>"; };
-		03D1004516EC58300005A1A9 /* QSTodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSTodoListViewController.h; sourceTree = "<group>"; };
-		03D1004616EC58300005A1A9 /* QSTodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSTodoListViewController.m; sourceTree = "<group>"; };
-		03D1004816EC58490005A1A9 /* QSTodoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSTodoService.h; sourceTree = "<group>"; };
-		03D1004916EC58490005A1A9 /* QSTodoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSTodoService.m; sourceTree = "<group>"; };
+		03D1004516EC58300005A1A9 /* ShopListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsViewController.h; sourceTree = "<group>"; };
+		03D1004616EC58300005A1A9 /* ShopListstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListstViewController.m; sourceTree = "<group>"; };
+		03D1004816EC58490005A1A9 /* TFGTMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFGTMService.h; sourceTree = "<group>"; };
+		03D1004916EC58490005A1A9 /* TFGTMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFGTMService.m; sourceTree = "<group>"; };
 		03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		689C609E1A5F3F4D00E96D29 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		689C60A31A5F4D1B00E96D29 /* QSTodoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QSTodoDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -69,6 +70,8 @@
 		932D71561B3604820067BE48 /* AuthService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthService.m; sourceTree = "<group>"; };
 		932D71581B3604C70067BE48 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		932D71591B3604C70067BE48 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		932D715B1B3615A20067BE48 /* ShopListsItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsItemsViewController.h; sourceTree = "<group>"; };
+		932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsItemsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,15 +129,17 @@
 			isa = PBXGroup;
 			children = (
 				689C60A21A5F4D1B00E96D29 /* QSTodoDataModel.xcdatamodeld */,
+				03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */,
 				932D71521B35E9F90067BE48 /* ConnectViewController.h */,
 				932D71531B35E9F90067BE48 /* ConnectViewController.m */,
+				03D1004516EC58300005A1A9 /* ShopListsViewController.h */,
+				03D1004616EC58300005A1A9 /* ShopListstViewController.m */,
+				932D715B1B3615A20067BE48 /* ShopListsItemsViewController.h */,
+				932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */,
+				03D1004816EC58490005A1A9 /* TFGTMService.h */,
+				03D1004916EC58490005A1A9 /* TFGTMService.m */,
 				932D71551B3604820067BE48 /* AuthService.h */,
 				932D71561B3604820067BE48 /* AuthService.m */,
-				03D1004816EC58490005A1A9 /* QSTodoService.h */,
-				03D1004916EC58490005A1A9 /* QSTodoService.m */,
-				03D1004516EC58300005A1A9 /* QSTodoListViewController.h */,
-				03D1004616EC58300005A1A9 /* QSTodoListViewController.m */,
-				03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */,
 				03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */,
 				03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */,
 				932D71581B3604C70067BE48 /* KeychainItemWrapper.h */,
@@ -248,11 +253,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D1002A16EC579A0005A1A9 /* main.m in Sources */,
+				932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */,
 				03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */,
-				03D1004716EC58300005A1A9 /* QSTodoListViewController.m in Sources */,
+				03D1004716EC58300005A1A9 /* ShopListstViewController.m in Sources */,
 				932D71541B35E9F90067BE48 /* ConnectViewController.m in Sources */,
 				9325D8A01B34AE5700F491C9 /* SSKeychainQuery.m in Sources */,
-				03D1004A16EC58490005A1A9 /* QSTodoService.m in Sources */,
+				03D1004A16EC58490005A1A9 /* TFGTMService.m in Sources */,
 				932D71571B3604820067BE48 /* AuthService.m in Sources */,
 				689C60A41A5F4D1B00E96D29 /* QSTodoDataModel.xcdatamodeld in Sources */,
 				932D715A1B3604C70067BE48 /* KeychainItemWrapper.m in Sources */,

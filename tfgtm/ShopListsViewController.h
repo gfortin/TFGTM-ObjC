@@ -16,7 +16,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QSTodoListViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface ShopListsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
 - (IBAction)onAdd:(id)sender;

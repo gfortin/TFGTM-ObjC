@@ -25,11 +25,11 @@ typedef void (^QSCompletionBlock) ();
 #pragma mark * TodoService public interface
 
 
-@interface QSTodoService : NSObject
+@interface TFGTMService : NSObject
 
 @property (nonatomic, strong)   MSClient *client;
 
-+ (QSTodoService *)defaultService;
++ (TFGTMService *)defaultService;
 
 - (void)addItem:(NSDictionary *)item
      completion:(QSCompletionBlock)completion;

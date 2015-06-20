@@ -15,14 +15,14 @@
 //
 
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
-#import "QSTodoService.h"
+#import "TFGTMService.h"
 #import "QSAppDelegate.h"
 
 
 #pragma mark * Private interace
 
 
-@interface QSTodoService()
+@interface TFGTMService()
 
 @property (nonatomic, strong)   MSSyncTable *syncTable;
 
@@ -32,22 +32,22 @@
 #pragma mark * Implementation
 
 
-@implementation QSTodoService
+@implementation TFGTMService
 
 
-+ (QSTodoService *)defaultService
++ (TFGTMService *)defaultService
 {
-    // Create a singleton instance of QSTodoService
-    static QSTodoService* service;
+    // Create a singleton instance of TFGTMService
+    static TFGTMService* service;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        service = [[QSTodoService alloc] init];
+        service = [[TFGTMService alloc] init];
     });
     
     return service;
 }
 
--(QSTodoService *)init
+-(TFGTMService *)init
 {
     self = [super init];
     

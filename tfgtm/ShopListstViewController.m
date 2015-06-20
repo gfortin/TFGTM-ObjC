@@ -16,8 +16,8 @@
 
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-#import "QSTodoListViewController.h"
-#import "QSTodoService.h"
+#import "ShopListsViewController.h"
+#import "TFGTMService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
@@ -27,10 +27,10 @@
 #pragma mark * Private Interface
 
 
-@interface QSTodoListViewController ()
+@interface ShopListsViewController ()
 
 // Private properties
-@property (strong, nonatomic) QSTodoService *todoService;
+@property (strong, nonatomic) TFGTMService *todoService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -39,7 +39,7 @@
 #pragma mark * Implementation
 
 
-@implementation QSTodoListViewController
+@implementation ShopListsViewController
 
 #pragma mark * UIView methods
 
@@ -49,7 +49,7 @@
     [super viewDidLoad];
     
     // Create the todoService - this creates the Mobile Service client inside the wrapped service
-    self.todoService = [QSTodoService defaultService];
+    self.todoService = [TFGTMService defaultService];
     
     // Let's load the user ID and token when the app starts.
     [self loadAuthInfo];
