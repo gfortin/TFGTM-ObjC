@@ -65,6 +65,8 @@
         
         // Create an MSSyncTable instance to allow us to work with the TodoItem table
         self.syncTable = [_client syncTableWithName:@"TodoItem"];
+//        self.syncTable = [_client syncTableWithName:@"Categories"];
+
     }
     
     return self;

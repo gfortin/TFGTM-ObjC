@@ -30,7 +30,7 @@
 @interface ShopListsViewController ()
 
 // Private properties
-@property (strong, nonatomic) TFGTMService *todoService;
+@property (strong, nonatomic) TFGTMService *tfgtmService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -48,8 +48,8 @@
 {
     [super viewDidLoad];
     
-    // Create the todoService - this creates the Mobile Service client inside the wrapped service
-    self.todoService = [TFGTMService defaultService];
+    // Create the tfgtmService - this creates the Mobile Service client inside the wrapped service
+    self.tfgtmService = [TFGTMService defaultService];
     
     // Let's load the user ID and token when the app starts.
     [self loadAuthInfo];
@@ -79,11 +79,13 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
-
+    
+//    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
+//    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
     fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
     
     // show only non-completed items
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -110,7 +112,7 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.todoService syncData:^
+    [self.tfgtmService syncData:^
     {
          [self.refreshControl endRefreshing];
     }];
@@ -132,8 +134,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.textColor = [UIColor grayColor];
     
-    // Ask the todoService to set the item's complete value to YES
-    [self.todoService completeItem:dict completion:nil];
+    // Ask the tfgtmService to set the item's complete value to YES
+    [self.tfgtmService completeItem:dict completion:nil];
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -153,8 +155,8 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Customize the Delete button to say "complete"
-    return @"complete";
+    // Customize the Delete button to say "complete" / "Supprimer"
+    return @"Supprimer";
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -209,7 +211,7 @@
     }
     
     NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
-    [self.todoService addItem:item completion:nil];
+    [self.tfgtmService addItem:item completion:nil];
     self.itemText.text = @"";
 }
 
@@ -301,7 +303,7 @@
 
 - (void) loginAndGetData
 {
-    MSClient *client = self.todoService.client;
+    MSClient *client = self.tfgtmService.client;
     if (client.currentUser != nil) {
         return;
     }
@@ -320,7 +322,7 @@
 
 
 - (void) saveAuthInfo {
-    [SSKeychain setPassword:self.todoService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.todoService.client.currentUser.userId];
+    [SSKeychain setPassword:self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.tfgtmService.client.currentUser.userId];
 }
 
 
@@ -328,8 +330,8 @@
     NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
     if (userid) {
         NSLog(@"userid: %@", userid);
-        self.todoService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
-        self.todoService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+        self.tfgtmService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
+        self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
         
     }
 }
