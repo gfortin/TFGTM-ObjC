@@ -8,6 +8,21 @@
         <attribute name="ms_updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name_Category" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="id_Item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Items" inverseName="r_id_User" inverseEntity="Items" syncable="YES"/>
+    </entity>
+    <entity name="Items" syncable="YES">
+        <attribute name="emoji_Item" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_Category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_User" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ms_updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_Item" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type_Item" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="r_id_ShopListItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopListsItems" inverseName="linkItems" inverseEntity="ShopListsItems" syncable="YES"/>
+        <relationship name="r_id_User" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories" inverseName="id_Item" inverseEntity="Categories" syncable="YES"/>
     </entity>
     <entity name="MS_TableConfig" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,6 +44,38 @@
         <attribute name="table" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tableKind" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="ShopLists" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ms_updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name_ShopList" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="id_ShopList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopListsItems" inverseName="linkShopLists" inverseEntity="ShopListsItems" syncable="YES"/>
+        <relationship name="id_ShopListUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopListsUsers" inverseName="linkShopLists" inverseEntity="ShopListsUsers" syncable="YES"/>
+    </entity>
+    <entity name="ShopListsItems" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_Item" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_ShopList" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ms_updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="linkItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Items" inverseName="r_id_ShopListItems" inverseEntity="Items" syncable="YES"/>
+        <relationship name="linkShopLists" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopLists" inverseName="id_ShopList" inverseEntity="ShopLists" syncable="YES"/>
+    </entity>
+    <entity name="ShopListsUsers" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_ShopList" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_User" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ms_updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="linkShopLists" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopLists" inverseName="id_ShopListUser" inverseEntity="ShopLists" syncable="YES"/>
+        <relationship name="linkUsers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="id_User" inverseEntity="Users" syncable="YES"/>
+    </entity>
     <entity name="TodoItem" syncable="YES">
         <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,11 +85,28 @@
         <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Users" syncable="YES">
+        <attribute name="email_User" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ms_updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="ms_version" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password_User" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pseudo_User" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tel_User" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="id_User" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopListsUsers" inverseName="linkUsers" inverseEntity="ShopListsUsers" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="MS_TableConfig" positionX="-72" positionY="18" width="128" height="30"/>
-        <element name="MS_TableOperationErrors" positionX="63" positionY="-54" width="128" height="30"/>
-        <element name="MS_TableOperations" positionX="-72" positionY="54" width="128" height="30"/>
-        <element name="TodoItem" positionX="-414" positionY="-51" width="128" height="150"/>
-        <element name="Categories" positionX="-254" positionY="-49" width="128" height="148"/>
+        <element name="MS_TableConfig" positionX="-135" positionY="-45" width="128" height="30"/>
+        <element name="MS_TableOperationErrors" positionX="-279" positionY="-45" width="128" height="30"/>
+        <element name="MS_TableOperations" positionX="9" positionY="-45" width="128" height="30"/>
+        <element name="TodoItem" positionX="-441" positionY="-45" width="128" height="150"/>
+        <element name="Categories" positionX="-83" positionY="81" width="128" height="163"/>
+        <element name="Items" positionX="-81" positionY="288" width="128" height="223"/>
+        <element name="ShopLists" positionX="-434" positionY="378" width="128" height="163"/>
+        <element name="ShopListsItems" positionX="-270" positionY="371" width="128" height="178"/>
+        <element name="ShopListsUsers" positionX="-432" positionY="162" width="128" height="178"/>
+        <element name="Users" positionX="-270" positionY="162" width="128" height="193"/>
     </elements>
 </model>
