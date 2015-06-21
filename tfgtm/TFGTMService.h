@@ -22,7 +22,7 @@
 
 typedef void (^QSCompletionBlock) ();
 
-#pragma mark * TodoService public interface
+#pragma mark * TFGTMService public interface
 
 
 @interface TFGTMService : NSObject

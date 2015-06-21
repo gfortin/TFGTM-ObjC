@@ -1,14 +1,14 @@
 //
 //  ConnectViewController.h
-//  tfgtm
+//  TFGTM
 //
 //  Created by Ghislain Fortin on 20/06/2015.
-//  Copyright (c) 2015 MobileServices. All rights reserved.
+//  Copyright (c) 2015 Ghislain FORTIN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ConnectViewController : UIViewController
+@interface ConnectViewController : UIViewController<NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btn_Facebook;
 @property (weak, nonatomic) IBOutlet UIButton *btn_Google;

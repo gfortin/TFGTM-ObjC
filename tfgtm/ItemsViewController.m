@@ -1,33 +1,33 @@
 //
-//  ShopListsItemsViewController.m
+//  ItemsViewController.m
 //  tfgtm
 //
-//  Created by Ghislain Fortin on 20/06/2015.
+//  Created by Ghislain Fortin on 21/06/2015.
 //  Copyright (c) 2015 MobileServices. All rights reserved.
 //
 
+
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-#import "ShopListsItemsViewController.h"
-#import "ShopListsItemsService.h"
+#import "ItemsViewController.h"
+#import "ItemsService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
 #import "SSKeychainQuery.h"
 
 
-@interface ShopListsItemsViewController ()
+#pragma mark * Private Interface
 
-@property (strong, nonatomic) ShopListsItemsService *shoplistsitemsService;
+@interface ItemsViewController ()
+
+// Private properties
+@property (strong, nonatomic) ItemsService *itemsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-
 
 @end
 
-#pragma mark * Implementation
-
-
-@implementation ShopListsItemsViewController
+@implementation ItemsViewController
 
 #pragma mark * UIView methods
 
@@ -36,8 +36,8 @@
 {
     [super viewDidLoad];
     
-    // Create the shoplistsitemsService - this creates the Mobile Service client inside the wrapped service
-    self.shoplistsitemsService = [ShopListsItemsService defaultService];
+    // Create the shoplistsService - this creates the Mobile Service client inside the wrapped service
+    self.itemsService = [ItemsService defaultService];
     
     // Let's load the user ID and token when the app starts.
     [self loadAuthInfo];
@@ -68,14 +68,11 @@
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
     
-    //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
-    //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
-    //    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopListsItems" inManagedObjectContext:context];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
     
     
     // show only non-completed items
-    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -102,7 +99,7 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.shoplistsitemsService syncData:^
+    [self.itemsService syncData:^
      {
          [self.refreshControl endRefreshing];
      }];
@@ -124,8 +121,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.textColor = [UIColor grayColor];
     
-    // Ask the shoplistsitemsService to set the item's complete value to YES
-    [self.shoplistsitemsService completeItem:dict completion:nil];
+    // Ask the shoplistsService to set the item's complete value to YES
+    [self.itemsService completeItem:dict completion:nil];
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,14 +155,14 @@
     cell.textLabel.textColor = [UIColor blackColor];
     //    cell.textLabel.text = [item valueForKey:@"text"];
     //    cell.textLabel.text = [item valueForKey:@"name_Category"];
-    cell.textLabel.text = [item valueForKey:@"id_ShopList"];
+    cell.textLabel.text = [item valueForKey:@"name_Item"];
+    cell.detailTextLabel.text = [item valueForKey:@"emoji_Item"];
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -205,10 +202,167 @@
     }
     
     //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
-    NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
-    [self.shoplistsitemsService addItem:item completion:nil];
+    NSDictionary *item = @{ @"type_Item" : @YES,
+                            @"name_Item" : self.itemText.text,
+                            @"emoji_Item" : @"🍴",
+                            @"id_Category" : @"Fruits et légumes",
+                            @"id_User" : @"ghislain.fortin@hotmail.fr" };
+    [self.itemsService addItem:item completion:nil];
     self.itemText.text = @"";
 }
+
+- (IBAction)onAddINIT:(id)sender
+{
+    if (self.itemText.text.length  == 0)
+    {
+        return;
+    }
+    
+    //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
+
+    NSDictionary *item = @{ @"type_Item" : @YES,
+                            @"name_Item" : @"Tomate",
+                            @"emoji_Item" : @"🍅",
+                            @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                            @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item completion:nil];
+    sleep(5);
+
+    NSDictionary *item2 = @{ @"type_Item" : @YES,
+                            @"name_Item" : @"Aubergine",
+                            @"emoji_Item" : @"🍆",
+                            @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                            @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item2 completion:nil];sleep(5);
+    sleep(5);
+    
+    NSDictionary *item3 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Maïs",
+                             @"emoji_Item" : @"🌽",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item3 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item4 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Patate douce",
+                             @"emoji_Item" : @"🍠",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item4 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item5 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Raisins",
+                             @"emoji_Item" : @"🍇",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item5 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item6 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Melon",
+                             @"emoji_Item" : @"🍈",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item6 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item7 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Pastèque",
+                             @"emoji_Item" : @"🍉",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item7 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item8 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Tangerine",
+                             @"emoji_Item" : @"🍊",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item8 completion:nil];
+    sleep(5);
+    
+    
+    NSDictionary *item9 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Citron",
+                             @"emoji_Item" : @"🍋",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item9 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item10 = @{ @"type_Item" : @YES,
+                             @"name_Item" : @"Banane",
+                             @"emoji_Item" : @"🍌",
+                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                             @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item10 completion:nil];
+    sleep(5);
+    
+    
+    NSDictionary *item11 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Pomme rouge",
+                              @"emoji_Item" : @"🍎",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item11 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item12 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Pomme verte",
+                              @"emoji_Item" : @"🍏",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item12 completion:nil];
+    sleep(5);
+    
+    
+    NSDictionary *item13 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Poire",
+                              @"emoji_Item" : @"🍐",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item13 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item14 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Pêche",
+                              @"emoji_Item" : @"🍑",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item14 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item15 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Cerises",
+                              @"emoji_Item" : @"🍒",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item15 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item16 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Fraises",
+                              @"emoji_Item" : @"🍓",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item16 completion:nil];
+    sleep(5);
+    
+    NSDictionary *item17 = @{ @"type_Item" : @YES,
+                              @"name_Item" : @"Ananas",
+                              @"emoji_Item" : @"🍍",
+                              @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
+                              @"id_User" : @"TFGTM_Admin" };
+    [self.itemsService addItem:item17 completion:nil];
+    sleep(10);
+    
+    
+    self.itemText.text = @"";
+}
+
 
 
 - (void)onRefresh:(id) sender
@@ -298,12 +452,12 @@
 
 - (void) loginAndGetData
 {
-    MSClient *client = self.shoplistsitemsService.client;
+    MSClient *client = self.itemsService.client;
     if (client.currentUser != nil) {
         return;
     }
     
-    [client loginWithProvider:@"google" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
         
         // Sauvegarde de l'authentification
         [self saveAuthInfo];
@@ -317,7 +471,7 @@
 
 
 - (void) saveAuthInfo {
-    [SSKeychain setPassword:self.shoplistsitemsService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.shoplistsitemsService.client.currentUser.userId];
+    [SSKeychain setPassword:self.itemsService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.itemsService.client.currentUser.userId];
 }
 
 
@@ -325,8 +479,8 @@
     NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
     if (userid) {
         NSLog(@"userid: %@", userid);
-        self.shoplistsitemsService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
-        self.shoplistsitemsService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+        self.itemsService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
+        self.itemsService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
         
     }
 }

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShopListsItemsViewController : UIViewController
+@interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *itemText;
+- (IBAction)onAdd:(id)sender;
 
 @end

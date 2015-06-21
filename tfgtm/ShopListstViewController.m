@@ -1,23 +1,13 @@
-// ----------------------------------------------------------------------------
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// ----------------------------------------------------------------------------
+//  TFGTM
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+//  Created by Ghislain Fortin on 20/06/2015.
+//  Copyright (c) 2015 Ghislain FORTIN. All rights reserved.
 //
 
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 #import "ShopListsViewController.h"
-#import "TFGTMService.h"
+#import "ShopListsService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
@@ -30,7 +20,7 @@
 @interface ShopListsViewController ()
 
 // Private properties
-@property (strong, nonatomic) TFGTMService *tfgtmService;
+@property (strong, nonatomic) ShopListsService *shoplistsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -48,8 +38,8 @@
 {
     [super viewDidLoad];
     
-    // Create the tfgtmService - this creates the Mobile Service client inside the wrapped service
-    self.tfgtmService = [TFGTMService defaultService];
+    // Create the shoplistsService - this creates the Mobile Service client inside the wrapped service
+    self.shoplistsService = [ShopListsService defaultService];
     
     // Let's load the user ID and token when the app starts.
     [self loadAuthInfo];
@@ -66,8 +56,8 @@
     }
     
     // load the data
-    [self loginAndGetData];
-    //[self refresh];
+    //[self loginAndGetData];
+    [self refresh];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
@@ -79,13 +69,15 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
-    
-//    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
+
 //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
+//    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
+//    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
+
     
     // show only non-completed items
-//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -112,7 +104,7 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.tfgtmService syncData:^
+    [self.shoplistsService syncData:^
     {
          [self.refreshControl endRefreshing];
     }];
@@ -134,8 +126,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.textColor = [UIColor grayColor];
     
-    // Ask the tfgtmService to set the item's complete value to YES
-    [self.tfgtmService completeItem:dict completion:nil];
+    // Ask the shoplistsService to set the item's complete value to YES
+    [self.shoplistsService completeItem:dict completion:nil];
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,7 +159,8 @@
     // has been reused and was previously greyed out
     cell.textLabel.textColor = [UIColor blackColor];
 //    cell.textLabel.text = [item valueForKey:@"text"];
-    cell.textLabel.text = [item valueForKey:@"name_Category"];
+//    cell.textLabel.text = [item valueForKey:@"name_Category"];
+    cell.textLabel.text = [item valueForKey:@"name_ShopList"];
 
 }
 
@@ -212,8 +205,9 @@
         return;
     }
     
-    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
-    [self.tfgtmService addItem:item completion:nil];
+//    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
+    NSDictionary *item = @{ @"name_ShopList" : self.itemText.text };
+    [self.shoplistsService addItem:item completion:nil];
     self.itemText.text = @"";
 }
 
@@ -305,12 +299,12 @@
 
 - (void) loginAndGetData
 {
-    MSClient *client = self.tfgtmService.client;
+    MSClient *client = self.shoplistsService.client;
     if (client.currentUser != nil) {
         return;
     }
     
-    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+    [client loginWithProvider:@"google" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
         
         // Sauvegarde de l'authentification
         [self saveAuthInfo];
@@ -324,7 +318,7 @@
 
 
 - (void) saveAuthInfo {
-    [SSKeychain setPassword:self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.tfgtmService.client.currentUser.userId];
+    [SSKeychain setPassword:self.shoplistsService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.shoplistsService.client.currentUser.userId];
 }
 
 
@@ -332,8 +326,8 @@
     NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
     if (userid) {
         NSLog(@"userid: %@", userid);
-        self.tfgtmService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
-        self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+        self.shoplistsService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
+        self.shoplistsService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
         
     }
 }

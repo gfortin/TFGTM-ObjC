@@ -10,9 +10,21 @@
 #import "ConnectViewController.h"
 #import "AuthService.h"
 
+#import "ShopListsViewController.h"
+#import "TFGTMService.h"
+#import "QSAppDelegate.h"
+#import "SSKeychain.h"
+#import "SSKeychainQuery.h"
+
+
 @interface ConnectViewController ()
 
-@property (strong, nonatomic) AuthService *authService;
+//@property (strong, nonatomic) AuthService *authService;
+
+// Private properties
+@property (strong, nonatomic) TFGTMService *tfgtmService;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 
 @end
 
@@ -21,6 +33,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    // Create the tfgtmService - this creates the Mobile Service client inside the wrapped service
+    self.tfgtmService = [TFGTMService defaultService];
+    
+    // Let's load the user ID and token when the app starts.
+    [self loadAuthInfo];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,36 +49,6 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
-/*
-- (void) loginAndGetData
-{
-    MSClient *client = self.todoService.client;
-    if (client.currentUser != nil) {
-        return;
-    }
-    
-    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-        
-        // Sauvegarde de l'authentification
-//        [self saveAuthInfo];
-        
-//        [self refresh];
-    }];
-
-}
-*/
-
 -(void) loginWithProvider:(NSString *)provider
 {
     //Save the provider in case we need to reauthorize them
@@ -80,25 +70,100 @@
      }];
     [self presentViewController:controller animated:YES completion:nil];
 }
-
+*/
 
 - (IBAction)connect_Facebook:(id)sender {
     NSLog(@"Facebook");
     //[self loginWithProvider:@"facebook"];
+    [self loginAndGetData:@"facebook"];
+    
 }
 
 - (IBAction)connect_Google:(id)sender {
     NSLog(@"Google");
     //[self loginWithProvider:@"google"];
+    [self loginAndGetData:@"google"];
+
 }
 
 - (IBAction)connect_Windows:(id)sender {
     NSLog(@"Windows");
     //[self loginWithProvider:@"microsoftaccount"];
+    [self loginAndGetData:@"microsoftaccount"];
+
 }
 
 
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    
+    //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
+    //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
+    
+    // sort by item text
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
+    
+    // Note: if storing a lot of data, you should specify a cache for the last parameter
+    // for more information, see Apple's documentation: http://go.microsoft.com/fwlink/?LinkId=524591&clcid=0x409
+    NSFetchedResultsController *theFetchedResultsController =
+    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                        managedObjectContext:context sectionNameKeyPath:nil
+                                                   cacheName:nil];
+    self.fetchedResultsController = theFetchedResultsController;
+    
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+    
+}
 
+- (void)viewDidUnload {
+    self.fetchedResultsController = nil;
+}
+
+#pragma mark * NSFetchedResultsController methods
+
+
+- (void) loginAndGetData:(NSString *)provider
+{
+    MSClient *client = self.tfgtmService.client;
+    if (client.currentUser != nil) {
+        return;
+    }
+    
+    [client loginWithProvider:provider controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+        // Sauvegarde de l'authentification
+        [self saveAuthInfo];
+
+    }];
+}
+
+// Store Authentication Tokens in App
+// https://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/
+
+
+- (void) saveAuthInfo {
+    [SSKeychain setPassword:self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.tfgtmService.client.currentUser.userId];
+}
+
+
+- (void)loadAuthInfo {
+    NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
+    if (userid) {
+        NSLog(@"userid: %@", userid);
+        self.tfgtmService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
+        self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+        
+    }
+}
 
 
 @end
