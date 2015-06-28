@@ -155,8 +155,13 @@
     cell.textLabel.textColor = [UIColor blackColor];
     //    cell.textLabel.text = [item valueForKey:@"text"];
     //    cell.textLabel.text = [item valueForKey:@"name_Category"];
-    cell.textLabel.text = [item valueForKey:@"name_Item"];
-    cell.detailTextLabel.text = [item valueForKey:@"emoji_Item"];
+    
+    //cell.textLabel.text = [item valueForKey:@"name_Item"];
+    //cell.detailTextLabel.text = [item valueForKey:@"emoji_Item"];
+
+    cell.detailTextLabel.text = [item valueForKey:@"name_Item"];
+    cell.textLabel.text = [item valueForKey:@"emoji_Item"];
+
     
 }
 

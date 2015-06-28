@@ -160,8 +160,13 @@
     cell.textLabel.textColor = [UIColor blackColor];
 //    cell.textLabel.text = [item valueForKey:@"text"];
 //    cell.textLabel.text = [item valueForKey:@"name_Category"];
+//    cell.textLabel.text = [item valueForKey:@"name_ShopList"];
+//    cell.detailTextLabel.text = [item valueForKey:@"name_ShopList"];
+//    cell.textLabel.text = @"🍴";
     cell.textLabel.text = [item valueForKey:@"name_ShopList"];
 
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
