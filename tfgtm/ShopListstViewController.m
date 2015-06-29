@@ -7,7 +7,8 @@
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 #import "ShopListsViewController.h"
-#import "ShopListsService.h"
+#import "TFGTMService.h"
+//#import "ShopListsService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
@@ -20,7 +21,8 @@
 @interface ShopListsViewController ()
 
 // Private properties
-@property (strong, nonatomic) ShopListsService *shoplistsService;
+//@property (strong, nonatomic) ShopListsService *shoplistsService;
+@property (strong, nonatomic) TFGTMService *shoplistsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -39,10 +41,10 @@
     [super viewDidLoad];
     
     // Create the shoplistsService - this creates the Mobile Service client inside the wrapped service
-    self.shoplistsService = [ShopListsService defaultService];
+    self.shoplistsService = [TFGTMService defaultService];
     
     // Let's load the user ID and token when the app starts.
-    [self loadAuthInfo];
+    //[self loadAuthInfo];
     
     // have refresh control reload all data from server
     [self.refreshControl addTarget:self
@@ -104,7 +106,7 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.shoplistsService syncData:^
+    [self.shoplistsService syncDataShopLists:^
     {
          [self.refreshControl endRefreshing];
     }];
@@ -127,7 +129,7 @@
     cell.textLabel.textColor = [UIColor grayColor];
     
     // Ask the shoplistsService to set the item's complete value to YES
-    [self.shoplistsService completeItem:dict completion:nil];
+    [self.shoplistsService completeShopList:dict completion:nil];
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,8 +166,6 @@
 //    cell.detailTextLabel.text = [item valueForKey:@"name_ShopList"];
 //    cell.textLabel.text = @"🍴";
     cell.textLabel.text = [item valueForKey:@"name_ShopList"];
-
-    
     
 }
 
@@ -212,7 +212,7 @@
     
 //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
     NSDictionary *item = @{ @"name_ShopList" : self.itemText.text };
-    [self.shoplistsService addItem:item completion:nil];
+    [self.shoplistsService addShopList:item completion:nil];
     self.itemText.text = @"";
 }
 
@@ -301,7 +301,7 @@
     });
 }
 
-
+/*
 - (void) loginAndGetData
 {
     MSClient *client = self.shoplistsService.client;
@@ -335,6 +335,7 @@
         self.shoplistsService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
         
     }
-}
+ }
+ */
 
 @end
