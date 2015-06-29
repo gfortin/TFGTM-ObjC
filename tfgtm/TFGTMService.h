@@ -31,12 +31,64 @@ typedef void (^QSCompletionBlock) ();
 
 + (TFGTMService *)defaultService;
 
+- (void)addShopList:(NSDictionary *)shopList
+     completion:(QSCompletionBlock)completion;
+
+- (void)completeShopList:(NSDictionary *)shopList
+          completion:(QSCompletionBlock)completion;
+
+- (void)syncDataShopLists:(QSCompletionBlock)completion;
+
+
+- (void)addUser:(NSDictionary *)user
+         completion:(QSCompletionBlock)completion;
+
+- (void)completeUser:(NSDictionary *)user
+              completion:(QSCompletionBlock)completion;
+
+- (void)syncDataUsers:(QSCompletionBlock)completion;
+
+
+
 - (void)addItem:(NSDictionary *)item
      completion:(QSCompletionBlock)completion;
 
 - (void)completeItem:(NSDictionary *)item
           completion:(QSCompletionBlock)completion;
 
-- (void)syncData:(QSCompletionBlock)completion;
+- (void)syncDataItems:(QSCompletionBlock)completion;
+
+
+
+- (void)addCategory:(NSDictionary *)category
+     completion:(QSCompletionBlock)completion;
+
+- (void)completeCategory:(NSDictionary *)category
+          completion:(QSCompletionBlock)completion;
+
+- (void)syncDataCategories:(QSCompletionBlock)completion;
+
+
+
+- (void)addShopListItem:(NSDictionary *)shopListItem
+         completion:(QSCompletionBlock)completion;
+
+- (void)completeShopListItem:(NSDictionary *)shopListItem
+              completion:(QSCompletionBlock)completion;
+
+- (void)syncDataShopListsItems:(QSCompletionBlock)completion;
+
+
+
+- (void)addShopListUser:(NSDictionary *)shopListUser
+             completion:(QSCompletionBlock)completion;
+
+- (void)completeShopListUser:(NSDictionary *)shopListUser
+                  completion:(QSCompletionBlock)completion;
+
+- (void)syncDataShopListsUsers:(QSCompletionBlock)completion;
+
+
+//- (void)syncData:(QSCompletionBlock)completion;
 
 @end
