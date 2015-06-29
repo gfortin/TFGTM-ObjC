@@ -32,10 +32,7 @@
 		932D71571B3604820067BE48 /* AuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D71561B3604820067BE48 /* AuthService.m */; };
 		932D715A1B3604C70067BE48 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D71591B3604C70067BE48 /* KeychainItemWrapper.m */; };
 		932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */; };
-		93D5AE391B36EA37003E31FE /* ShopListsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D5AE381B36EA37003E31FE /* ShopListsService.m */; };
-		93D5AE3C1B36F3C4003E31FE /* ItemsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D5AE3B1B36F3C4003E31FE /* ItemsService.m */; };
 		93D5AE3F1B36F68F003E31FE /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D5AE3E1B36F68F003E31FE /* ItemsViewController.m */; };
-		93D5AE421B373528003E31FE /* ShopListsItemsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D5AE411B373528003E31FE /* ShopListsItemsService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,14 +73,8 @@
 		932D71591B3604C70067BE48 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		932D715B1B3615A20067BE48 /* ShopListsItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsItemsViewController.h; sourceTree = "<group>"; };
 		932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsItemsViewController.m; sourceTree = "<group>"; };
-		93D5AE371B36EA37003E31FE /* ShopListsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsService.h; sourceTree = "<group>"; };
-		93D5AE381B36EA37003E31FE /* ShopListsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsService.m; sourceTree = "<group>"; };
-		93D5AE3A1B36F3C4003E31FE /* ItemsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsService.h; sourceTree = "<group>"; };
-		93D5AE3B1B36F3C4003E31FE /* ItemsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsService.m; sourceTree = "<group>"; };
 		93D5AE3D1B36F68F003E31FE /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		93D5AE3E1B36F68F003E31FE /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
-		93D5AE401B373528003E31FE /* ShopListsItemsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsItemsService.h; sourceTree = "<group>"; };
-		93D5AE411B373528003E31FE /* ShopListsItemsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsItemsService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,16 +139,10 @@
 				03D1004916EC58490005A1A9 /* TFGTMService.m */,
 				03D1004516EC58300005A1A9 /* ShopListsViewController.h */,
 				03D1004616EC58300005A1A9 /* ShopListstViewController.m */,
-				93D5AE371B36EA37003E31FE /* ShopListsService.h */,
-				93D5AE381B36EA37003E31FE /* ShopListsService.m */,
 				932D715B1B3615A20067BE48 /* ShopListsItemsViewController.h */,
 				932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */,
-				93D5AE401B373528003E31FE /* ShopListsItemsService.h */,
-				93D5AE411B373528003E31FE /* ShopListsItemsService.m */,
 				93D5AE3D1B36F68F003E31FE /* ItemsViewController.h */,
 				93D5AE3E1B36F68F003E31FE /* ItemsViewController.m */,
-				93D5AE3A1B36F3C4003E31FE /* ItemsService.h */,
-				93D5AE3B1B36F3C4003E31FE /* ItemsService.m */,
 				932D71551B3604820067BE48 /* AuthService.h */,
 				932D71561B3604820067BE48 /* AuthService.m */,
 				03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */,
@@ -283,10 +268,7 @@
 				689C60A41A5F4D1B00E96D29 /* DataModel.xcdatamodeld in Sources */,
 				93D5AE3F1B36F68F003E31FE /* ItemsViewController.m in Sources */,
 				932D715A1B3604C70067BE48 /* KeychainItemWrapper.m in Sources */,
-				93D5AE421B373528003E31FE /* ShopListsItemsService.m in Sources */,
 				9325D89F1B34AE5700F491C9 /* SSKeychain.m in Sources */,
-				93D5AE3C1B36F3C4003E31FE /* ItemsService.m in Sources */,
-				93D5AE391B36EA37003E31FE /* ShopListsService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

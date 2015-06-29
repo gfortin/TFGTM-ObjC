@@ -9,7 +9,7 @@
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 #import "ShopListsItemsViewController.h"
-#import "ShopListsItemsService.h"
+#import "TFGTMService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
@@ -18,7 +18,7 @@
 
 @interface ShopListsItemsViewController ()
 
-@property (strong, nonatomic) ShopListsItemsService *shoplistsitemsService;
+@property (strong, nonatomic) TFGTMService *shoplistsitemsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 
@@ -37,10 +37,10 @@
     [super viewDidLoad];
     
     // Create the shoplistsitemsService - this creates the Mobile Service client inside the wrapped service
-    self.shoplistsitemsService = [ShopListsItemsService defaultService];
+    self.shoplistsitemsService = [TFGTMService defaultService];
     
     // Let's load the user ID and token when the app starts.
-    [self loadAuthInfo];
+    //[self loadAuthInfo];
     
     // have refresh control reload all data from server
     [self.refreshControl addTarget:self
@@ -102,7 +102,7 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.shoplistsitemsService syncData:^
+    [self.shoplistsitemsService syncDataShopListsItems:^
      {
          [self.refreshControl endRefreshing];
      }];
@@ -125,7 +125,7 @@
     cell.textLabel.textColor = [UIColor grayColor];
     
     // Ask the shoplistsitemsService to set the item's complete value to YES
-    [self.shoplistsitemsService completeItem:dict completion:nil];
+    [self.shoplistsitemsService completeShopListItem:dict completion:nil];
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -206,7 +206,7 @@
     
     //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
     NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
-    [self.shoplistsitemsService addItem:item completion:nil];
+    [self.shoplistsitemsService addShopListItem:item completion:nil];
     self.itemText.text = @"";
 }
 
@@ -295,7 +295,7 @@
     });
 }
 
-
+/*
 - (void) loginAndGetData
 {
     MSClient *client = self.shoplistsitemsService.client;
@@ -330,5 +330,6 @@
         
     }
 }
+*/
 
 @end

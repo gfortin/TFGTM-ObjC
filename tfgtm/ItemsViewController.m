@@ -10,7 +10,7 @@
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 #import "ItemsViewController.h"
-#import "ItemsService.h"
+#import "TFGTMService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
@@ -22,7 +22,7 @@
 @interface ItemsViewController ()
 
 // Private properties
-@property (strong, nonatomic) ItemsService *itemsService;
+@property (strong, nonatomic) TFGTMService *itemsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
@@ -37,7 +37,7 @@
     [super viewDidLoad];
     
     // Create the shoplistsService - this creates the Mobile Service client inside the wrapped service
-    self.itemsService = [ItemsService defaultService];
+    self.itemsService = [TFGTMService defaultService];
     
     // Let's load the user ID and token when the app starts.
     [self loadAuthInfo];
@@ -99,7 +99,7 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.itemsService syncData:^
+    [self.itemsService syncDataItems:^
      {
          [self.refreshControl endRefreshing];
      }];

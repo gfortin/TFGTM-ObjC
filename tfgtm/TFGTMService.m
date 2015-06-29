@@ -206,6 +206,255 @@
     }];
 }
 
+-(void)addItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+{
+    // Insert the user into the Users table and add to the users array on completion
+    [self.syncItems insert:item completion:^(NSDictionary *result, NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataItems: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)completeItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+{
+    // Set the item to be complete (we need a mutable copy)
+    NSMutableDictionary *mutable = [item mutableCopy];
+    [mutable setObject:@YES forKey:@"complete"];
+    
+    // Update the item in the TodoItem table and remove from the items array on completion
+    [self.syncUsers update:mutable completion:^(NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataItems: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)syncDataItems:(QSCompletionBlock)completion
+{
+    // push all changes in the sync context, then pull new data
+    [self.client.syncContext pushWithCompletion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        [self pullDataItems:completion];
+    }];
+}
+
+-(void)pullDataItems:(QSCompletionBlock)completion
+{
+    MSQuery *query = [self.syncItems query];
+    
+    // Pulls data from the remote server into the local table.
+    // We're pulling all items and filtering in the view
+    // query ID is used for incremental sync
+    [self.syncItems pullWithQuery:query queryId:@"allItems" completion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        
+        // Let the caller know that we have finished
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    }];
+}
+
+-(void)addCategory:(NSDictionary *)category completion:(QSCompletionBlock)completion
+{
+    // Insert the user into the Users table and add to the users array on completion
+    [self.syncUsers insert:category completion:^(NSDictionary *result, NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataCategories: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)completeCategory:(NSDictionary *)category completion:(QSCompletionBlock)completion
+{
+    // Set the item to be complete (we need a mutable copy)
+    NSMutableDictionary *mutable = [category mutableCopy];
+    [mutable setObject:@YES forKey:@"complete"];
+    
+    // Update the item in the TodoItem table and remove from the items array on completion
+    [self.syncCategories update:mutable completion:^(NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataCategories: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)syncDataCategories:(QSCompletionBlock)completion
+{
+    // push all changes in the sync context, then pull new data
+    [self.client.syncContext pushWithCompletion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        [self pullDataCategories:completion];
+    }];
+}
+
+-(void)pullDataCategories:(QSCompletionBlock)completion
+{
+    MSQuery *query = [self.syncCategories query];
+    
+    // Pulls data from the remote server into the local table.
+    // We're pulling all items and filtering in the view
+    // query ID is used for incremental sync
+    [self.syncCategories pullWithQuery:query queryId:@"allCategories" completion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        
+        // Let the caller know that we have finished
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    }];
+}
+
+-(void)addShopListItem:(NSDictionary *)shopListItem completion:(QSCompletionBlock)completion
+{
+    // Insert the shopList into the ShopLists table and add to the shopLists array on completion
+    [self.syncShopListsItems insert:shopListItem completion:^(NSDictionary *result, NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataShopListsItems: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)completeShopListItem:(NSDictionary *)shopListItem completion:(QSCompletionBlock)completion
+{
+    // Set the item to be complete (we need a mutable copy)
+    NSMutableDictionary *mutable = [shopListItem mutableCopy];
+    [mutable setObject:@YES forKey:@"complete"];
+    
+    // Update the item in the TodoItem table and remove from the items array on completion
+    [self.syncShopListsItems update:mutable completion:^(NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataShopListsItems: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)syncDataShopListsItems:(QSCompletionBlock)completion
+{
+    // push all changes in the sync context, then pull new data
+    [self.client.syncContext pushWithCompletion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        [self pullDataShopListsItems:completion];
+    }];
+}
+
+-(void)pullDataShopListsItems:(QSCompletionBlock)completion
+{
+    MSQuery *query = [self.syncShopListsItems query];
+    
+    // Pulls data from the remote server into the local table.
+    // We're pulling all items and filtering in the view
+    // query ID is used for incremental sync
+    [self.syncShopListsItems pullWithQuery:query queryId:@"allShopListsItems" completion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        
+        // Let the caller know that we have finished
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    }];
+}
+
+-(void)addShopListUser:(NSDictionary *)shopListUser completion:(QSCompletionBlock)completion
+{
+    // Insert the shopList into the ShopLists table and add to the shopLists array on completion
+    [self.syncShopListsUsers insert:shopListUser completion:^(NSDictionary *result, NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataShopListsUsers: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)completeShopListUser:(NSDictionary *)shopListUser completion:(QSCompletionBlock)completion
+{
+    // Set the item to be complete (we need a mutable copy)
+    NSMutableDictionary *mutable = [shopListUser mutableCopy];
+    [mutable setObject:@YES forKey:@"complete"];
+    
+    // Update the item in the TodoItem table and remove from the items array on completion
+    [self.syncShopListsUsers update:mutable completion:^(NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncDataShopListsUsers: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)syncDataShopListsUsers:(QSCompletionBlock)completion
+{
+    // push all changes in the sync context, then pull new data
+    [self.client.syncContext pushWithCompletion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        [self pullDataShopListsUsers:completion];
+    }];
+}
+
+-(void)pullDataShopListsUsers:(QSCompletionBlock)completion
+{
+    MSQuery *query = [self.syncShopListsUsers query];
+    
+    // Pulls data from the remote server into the local table.
+    // We're pulling all items and filtering in the view
+    // query ID is used for incremental sync
+    [self.syncShopListsUsers pullWithQuery:query queryId:@"allShopListsUsers" completion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        
+        // Let the caller know that we have finished
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    }];
+}
+
+
 
 - (void)logErrorIfNotNil:(NSError *) error
 {
