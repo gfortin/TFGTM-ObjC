@@ -19,6 +19,7 @@
 		689C609F1A5F3F4D00E96D29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689C609E1A5F3F4D00E96D29 /* CoreData.framework */; };
 		689C60A41A5F4D1B00E96D29 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 689C60A21A5F4D1B00E96D29 /* DataModel.xcdatamodeld */; };
 		68C7C4421A5F3ED900AD97AE /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C7C4411A5F3ED900AD97AE /* WindowsAzureMobileServices.framework */; };
+		930558681B4AF429005646C2 /* ShopBasket.png in Resources */ = {isa = PBXBuildFile; fileRef = 930558671B4AF429005646C2 /* ShopBasket.png */; };
 		9325D8981B34AD4A00F491C9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */; };
 		9325D89A1B34AD6000F491C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9325D8991B34AD6000F491C9 /* Security.framework */; };
 		9325D89F1B34AE5700F491C9 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325D89C1B34AE5700F491C9 /* SSKeychain.m */; };
@@ -54,6 +55,7 @@
 		689C609E1A5F3F4D00E96D29 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		689C60A31A5F4D1B00E96D29 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		68C7C4411A5F3ED900AD97AE /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
+		930558671B4AF429005646C2 /* ShopBasket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShopBasket.png; sourceTree = "<group>"; };
 		9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9325D8991B34AD6000F491C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9325D89B1B34AE5700F491C9 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = tfgtm/SSKeychain.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				932D714A1B35DAC00067BE48 /* Logo_Facebook.png */,
 				932D714B1B35DAC00067BE48 /* Logo_GooglePlus.png */,
 				932D714C1B35DAC00067BE48 /* Logo_Windows.png */,
+				930558671B4AF429005646C2 /* ShopBasket.png */,
 				9325D8A31B34BC0300F491C9 /* TFGTM-1024x1024.png */,
 			);
 			name = Images;
@@ -245,6 +248,7 @@
 				9325D8A61B34BEA500F491C9 /* Images.xcassets in Resources */,
 				932D714E1B35DAC00067BE48 /* Logo_GooglePlus.png in Resources */,
 				932D714D1B35DAC00067BE48 /* Logo_Facebook.png in Resources */,
+				930558681B4AF429005646C2 /* ShopBasket.png in Resources */,
 				932D714F1B35DAC00067BE48 /* Logo_Windows.png in Resources */,
 				03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
