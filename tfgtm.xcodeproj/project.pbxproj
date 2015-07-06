@@ -20,6 +20,8 @@
 		689C60A41A5F4D1B00E96D29 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 689C60A21A5F4D1B00E96D29 /* DataModel.xcdatamodeld */; };
 		68C7C4421A5F3ED900AD97AE /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C7C4411A5F3ED900AD97AE /* WindowsAzureMobileServices.framework */; };
 		930558681B4AF429005646C2 /* ShopBasket.png in Resources */ = {isa = PBXBuildFile; fileRef = 930558671B4AF429005646C2 /* ShopBasket.png */; };
+		9305586B1B4AF706005646C2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9305586A1B4AF706005646C2 /* AboutViewController.swift */; };
+		930558A31B4B1ACF005646C2 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 930558A21B4B1ACF005646C2 /* web */; };
 		9325D8981B34AD4A00F491C9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */; };
 		9325D89A1B34AD6000F491C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9325D8991B34AD6000F491C9 /* Security.framework */; };
 		9325D89F1B34AE5700F491C9 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325D89C1B34AE5700F491C9 /* SSKeychain.m */; };
@@ -56,6 +58,9 @@
 		689C60A31A5F4D1B00E96D29 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		68C7C4411A5F3ED900AD97AE /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		930558671B4AF429005646C2 /* ShopBasket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShopBasket.png; sourceTree = "<group>"; };
+		930558691B4AF706005646C2 /* tfgtm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tfgtm-Bridging-Header.h"; sourceTree = "<group>"; };
+		9305586A1B4AF706005646C2 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		930558A21B4B1ACF005646C2 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = tfgtm/web; sourceTree = "<group>"; };
 		9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9325D8991B34AD6000F491C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9325D89B1B34AE5700F491C9 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = tfgtm/SSKeychain.h; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 		03D1001116EC579A0005A1A9 = {
 			isa = PBXGroup;
 			children = (
+				930558A21B4B1ACF005646C2 /* web */,
 				9325D8A21B34BBE500F491C9 /* Images */,
 				9325D8A11B34B33000F491C9 /* SSKeychain */,
 				03D1002316EC579A0005A1A9 /* tfgtm */,
@@ -135,6 +141,7 @@
 			children = (
 				689C60A21A5F4D1B00E96D29 /* DataModel.xcdatamodeld */,
 				03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */,
+				9305586A1B4AF706005646C2 /* AboutViewController.swift */,
 				932D71521B35E9F90067BE48 /* ConnectViewController.h */,
 				932D71531B35E9F90067BE48 /* ConnectViewController.m */,
 				03D1004816EC58490005A1A9 /* TFGTMService.h */,
@@ -153,6 +160,7 @@
 				932D71591B3604C70067BE48 /* KeychainItemWrapper.m */,
 				9325D8A51B34BEA500F491C9 /* Images.xcassets */,
 				03D1002416EC579A0005A1A9 /* Supporting Files */,
+				930558691B4AF706005646C2 /* tfgtm-Bridging-Header.h */,
 			);
 			path = tfgtm;
 			sourceTree = "<group>";
@@ -243,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930558A31B4B1ACF005646C2 /* web in Resources */,
 				03D1002816EC579A0005A1A9 /* InfoPlist.strings in Resources */,
 				9325D8A41B34BC0300F491C9 /* TFGTM-1024x1024.png in Resources */,
 				9325D8A61B34BEA500F491C9 /* Images.xcassets in Resources */,
@@ -265,6 +274,7 @@
 				932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */,
 				03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */,
 				03D1004716EC58300005A1A9 /* ShopListstViewController.m in Sources */,
+				9305586B1B4AF706005646C2 /* AboutViewController.swift in Sources */,
 				932D71541B35E9F90067BE48 /* ConnectViewController.m in Sources */,
 				9325D8A01B34AE5700F491C9 /* SSKeychainQuery.m in Sources */,
 				03D1004A16EC58490005A1A9 /* TFGTMService.m in Sources */,
@@ -355,6 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -364,7 +375,10 @@
 				GCC_PREFIX_HEADER = "tfgtm/tfgtm-Prefix.pch";
 				INFOPLIST_FILE = "tfgtm/tfgtm-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tfgtm/tfgtm-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -375,6 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -384,7 +399,9 @@
 				GCC_PREFIX_HEADER = "tfgtm/tfgtm-Prefix.pch";
 				INFOPLIST_FILE = "tfgtm/tfgtm-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "tfgtm/tfgtm-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
