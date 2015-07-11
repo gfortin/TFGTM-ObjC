@@ -593,7 +593,7 @@
                                         <outlet property="delegate" destination="XUL-MP-1HA" id="HlH-De-tUl"/>
                                     </connections>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCf-nP-NpL">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCf-nP-NpL">
                                     <rect key="frame" x="280" y="6" width="33" height="39"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="C60-4E-yy2"/>
@@ -606,9 +606,8 @@
                                             <exclude reference="C60-4E-yy2"/>
                                         </mask>
                                     </variation>
-                                    <variation key="widthClass=compact" misplaced="YES">
+                                    <variation key="widthClass=compact">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <rect key="frame" x="253" y="7" width="44" height="39"/>
                                         <mask key="constraints">
                                             <include reference="C60-4E-yy2"/>
                                         </mask>
@@ -654,12 +653,12 @@
                                     <exclude reference="FCf-nP-NpL"/>
                                 </mask>
                                 <mask key="constraints">
-                                    <exclude reference="2Pi-uz-fHn"/>
-                                    <exclude reference="FW3-Vf-bqR"/>
-                                    <exclude reference="umb-4e-msp"/>
                                     <exclude reference="1Tr-y8-Ahu"/>
                                     <exclude reference="5Ew-dw-rii"/>
                                     <exclude reference="dBF-2y-uYM"/>
+                                    <exclude reference="2Pi-uz-fHn"/>
+                                    <exclude reference="FW3-Vf-bqR"/>
+                                    <exclude reference="umb-4e-msp"/>
                                     <exclude reference="3iB-P1-R8g"/>
                                     <exclude reference="IRO-LF-KZX"/>
                                     <exclude reference="LJu-Iz-W3Y"/>
@@ -672,12 +671,12 @@
                                     <include reference="FCf-nP-NpL"/>
                                 </mask>
                                 <mask key="constraints">
-                                    <include reference="2Pi-uz-fHn"/>
-                                    <include reference="FW3-Vf-bqR"/>
-                                    <include reference="umb-4e-msp"/>
                                     <include reference="1Tr-y8-Ahu"/>
                                     <include reference="5Ew-dw-rii"/>
                                     <include reference="dBF-2y-uYM"/>
+                                    <include reference="2Pi-uz-fHn"/>
+                                    <include reference="FW3-Vf-bqR"/>
+                                    <include reference="umb-4e-msp"/>
                                     <include reference="3iB-P1-R8g"/>
                                     <include reference="IRO-LF-KZX"/>
                                     <include reference="LJu-Iz-W3Y"/>
@@ -762,6 +761,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JCi-wu-ojn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="F8e-M1-yqy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xin-Gu-3Yh">
