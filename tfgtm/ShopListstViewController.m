@@ -56,11 +56,16 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1);  // Fail
     }
+
+    // Set this in every view controller so that the back button displays back instead of the root view controller name
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     // load the data
     //[self loginAndGetData];
     [self refresh];
 }
+
+
 
 - (NSFetchedResultsController *)fetchedResultsController {
     

@@ -22,6 +22,7 @@
 		930558681B4AF429005646C2 /* ShopBasket.png in Resources */ = {isa = PBXBuildFile; fileRef = 930558671B4AF429005646C2 /* ShopBasket.png */; };
 		9305586B1B4AF706005646C2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9305586A1B4AF706005646C2 /* AboutViewController.swift */; };
 		930558A31B4B1ACF005646C2 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 930558A21B4B1ACF005646C2 /* web */; };
+		9308451C1B52728400CCF38A /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 9308451B1B52728400CCF38A /* info.png */; };
 		9325D8981B34AD4A00F491C9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */; };
 		9325D89A1B34AD6000F491C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9325D8991B34AD6000F491C9 /* Security.framework */; };
 		9325D89F1B34AE5700F491C9 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9325D89C1B34AE5700F491C9 /* SSKeychain.m */; };
@@ -62,6 +63,7 @@
 		930558691B4AF706005646C2 /* tfgtm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tfgtm-Bridging-Header.h"; sourceTree = "<group>"; };
 		9305586A1B4AF706005646C2 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		930558A21B4B1ACF005646C2 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; name = web; path = tfgtm/web; sourceTree = "<group>"; };
+		9308451B1B52728400CCF38A /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		9325D8991B34AD6000F491C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9325D89B1B34AE5700F491C9 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = tfgtm/SSKeychain.h; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		9325D8A21B34BBE500F491C9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9308451B1B52728400CCF38A /* info.png */,
 				932D714A1B35DAC00067BE48 /* Logo_Facebook.png */,
 				932D714B1B35DAC00067BE48 /* Logo_GooglePlus.png */,
 				932D714C1B35DAC00067BE48 /* Logo_Windows.png */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				930558A31B4B1ACF005646C2 /* web in Resources */,
+				9308451C1B52728400CCF38A /* info.png in Resources */,
 				03D1002816EC579A0005A1A9 /* InfoPlist.strings in Resources */,
 				9325D8A41B34BC0300F491C9 /* TFGTM-1024x1024.png in Resources */,
 				9325D8A61B34BEA500F491C9 /* Images.xcassets in Resources */,
