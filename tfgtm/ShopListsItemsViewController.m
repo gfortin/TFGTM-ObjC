@@ -29,12 +29,20 @@
 
 @implementation ShopListsItemsViewController
 
+@synthesize shopListLabel;
+@synthesize shopListName;
+
 #pragma mark * UIView methods
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    shopListLabel.text = shopListName;
+    self.title = shopListName;
+    
+    //shopListLabel.text = @"Ma liste";
     
     // Create the shoplistsitemsService - this creates the Mobile Service client inside the wrapped service
     self.shoplistsitemsService = [TFGTMService defaultService];
@@ -71,11 +79,12 @@
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopListsItems" inManagedObjectContext:context];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+
+    //fetchRequest.entity = [NSEntityDescription entityForName:@"ShopListsItems" inManagedObjectContext:context];
     
-    
-    // show only non-completed items
-    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    // show only Ananas with id
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -158,7 +167,9 @@
     cell.textLabel.textColor = [UIColor blackColor];
     //    cell.textLabel.text = [item valueForKey:@"text"];
     //    cell.textLabel.text = [item valueForKey:@"name_Category"];
-    cell.textLabel.text = [item valueForKey:@"id_ShopList"];
+    //cell.textLabel.text = [item valueForKey:@"id_ShopList"];
+    cell.textLabel.text = @"id_ShopList";
+
     
 }
 
@@ -331,5 +342,12 @@
     }
 }
 */
+
+- (IBAction)inviteAction:(id)sender {
+
+    NSLog(@"Test");
+
+}
+
 
 @end

@@ -8,6 +8,8 @@
 
 @interface ShopListsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
+@property (nonatomic, strong) NSString *shopListSelect;
+
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
 - (IBAction)onAdd:(id)sender;
 

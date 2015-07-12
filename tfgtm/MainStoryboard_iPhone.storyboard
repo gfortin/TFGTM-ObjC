@@ -52,7 +52,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="d3u-QI-9cK" imageView="LJV-vy-DfG" rowHeight="72" style="IBUITableViewCellStyleDefault" id="ShM-8Z-sXJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="d3u-QI-9cK" imageView="LJV-vy-DfG" rowHeight="72" style="IBUITableViewCellStyleDefault" id="ShM-8Z-sXJ">
                                 <rect key="frame" x="0.0" y="139" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="72" tableViewCell="ShM-8Z-sXJ" id="xGq-Lx-MgI">
@@ -73,7 +73,7 @@
                                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="XUL-MP-1HA" kind="show" id="fmR-kh-1vh"/>
+                                    <segue destination="XUL-MP-1HA" kind="push" identifier="showShopListItems" id="fmR-kh-1vh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +90,6 @@
                                 <segue destination="nn3-DA-8zF" kind="show" id="Dj9-0U-BKv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RXl-In-Six"/>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="hNe-LF-0Sj">
                         <autoresizingMask key="autoresizingMask"/>
@@ -148,7 +147,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="connect_Facebook:" destination="HmY-dh-Qqw" eventType="touchUpInside" id="YIy-vV-hDZ"/>
-                                    <segue destination="zVE-5o-13N" kind="show" id="36o-Qq-IQZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Dt-dc-Jn5">
@@ -176,7 +174,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="connect_Google:" destination="HmY-dh-Qqw" eventType="touchUpInside" id="89L-9b-nHP"/>
-                                    <segue destination="zVE-5o-13N" kind="show" identifier="GoogleSegue" id="X13-9c-cmG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlt-UJ-Fxl">
@@ -201,7 +198,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="connect_Windows:" destination="HmY-dh-Qqw" eventType="touchUpInside" id="eLt-dZ-7yY"/>
-                                    <segue destination="zVE-5o-13N" kind="show" identifier="FacebookSegue" id="H6z-K5-qin"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="TFGTM-1024x1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="SRJ-bN-WBr">
@@ -287,6 +283,18 @@
                             <imageView userInteractionEnabled="NO" alpha="0.099999999999999686" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="TFGTM-1024x1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="PYA-jf-kH5">
                                 <rect key="frame" x="-102" y="-39" width="702" height="706"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAr-jS-3Ob">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="168" y="540" width="30" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="zVE-5o-13N" kind="show" identifier="" id="q2Y-au-RRG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -326,6 +334,9 @@
                             <constraint firstItem="5Dt-dc-Jn5" firstAttribute="leading" secondItem="HaS-Nc-gZN" secondAttribute="trailing" constant="13" id="tuH-Zi-RWr"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qAr-jS-3Ob"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="DQv-n6-vTF"/>
                                 <exclude reference="rR6-ap-lo9"/>
@@ -359,6 +370,9 @@
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qAr-jS-3Ob"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="DQv-n6-vTF"/>
                                 <include reference="rR6-ap-lo9"/>
@@ -557,7 +571,7 @@
         <!--ShopListsItems-->
         <scene sceneID="sBD-vZ-fdi">
             <objects>
-                <tableViewController id="XUL-MP-1HA" userLabel="ShopListsItems" customClass="ItemsViewController" sceneMemberID="viewController">
+                <tableViewController id="XUL-MP-1HA" userLabel="ShopListsItems" customClass="ShopListsItemsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="wbL-m0-Fh1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -571,7 +585,7 @@
                                     <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     <variation key="widthClass=compact" misplaced="YES">
-                                        <rect key="frame" x="8" y="11" width="218" height="30"/>
+                                        <rect key="frame" x="16" y="14" width="115" height="30"/>
                                     </variation>
                                     <connections>
                                         <outlet property="delegate" destination="XUL-MP-1HA" id="HlH-De-tUl"/>
@@ -590,8 +604,9 @@
                                             <exclude reference="C60-4E-yy2"/>
                                         </mask>
                                     </variation>
-                                    <variation key="widthClass=compact">
+                                    <variation key="widthClass=compact" misplaced="YES">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <rect key="frame" x="236" y="7" width="61" height="30"/>
                                         <mask key="constraints">
                                             <include reference="C60-4E-yy2"/>
                                         </mask>
@@ -614,6 +629,15 @@
                                         <action selector="onAdd:" destination="XUL-MP-1HA" eventType="touchUpInside" id="5zR-gF-Hak"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4u-D2-msB">
+                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                        <rect key="frame" x="0.0" y="0.0" width="173" height="21"/>
+                                    </variation>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -635,6 +659,7 @@
                             <variation key="default">
                                 <mask key="subviews">
                                     <exclude reference="FCf-nP-NpL"/>
+                                    <exclude reference="p4u-D2-msB"/>
                                 </mask>
                                 <mask key="constraints">
                                     <exclude reference="1Tr-y8-Ahu"/>
@@ -653,6 +678,7 @@
                             <variation key="widthClass=compact">
                                 <mask key="subviews">
                                     <include reference="FCf-nP-NpL"/>
+                                    <include reference="p4u-D2-msB"/>
                                 </mask>
                                 <mask key="constraints">
                                     <include reference="1Tr-y8-Ahu"/>
@@ -699,21 +725,10 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Liste des articles" id="bk4-92-zTh" userLabel="Articles">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="quf-Bg-37s">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nfm-IH-I4T">
-                                <rect key="frame" x="313" y="8" width="33" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="gH0-lS-f4H"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="@">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onAddINIT:" destination="XUL-MP-1HA" eventType="touchUpInside" id="uE2-he-l36"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="qOH-3m-yIR" userLabel="invite">
+                            <connections>
+                                <action selector="inviteAction:" destination="XUL-MP-1HA" id="4yo-Nb-UOV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -730,6 +745,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="itemText" destination="JrP-K4-McO" id="xuk-kM-3Ot"/>
+                        <outlet property="shopListLabel" destination="p4u-D2-msB" id="w3c-gD-lpA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O19-Tz-fc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -868,7 +884,4 @@
         <image name="TFGTM-1024x1024.png" width="1024" height="1024"/>
         <image name="info.png" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="X13-9c-cmG"/>
-    </inferredMetricsTieBreakers>
 </document>

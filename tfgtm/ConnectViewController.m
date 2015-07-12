@@ -134,10 +134,18 @@
 
 - (void) loginAndGetData:(NSString *)provider
 {
+    
+    NSLog(@"LoginAndGetData provider: %@", provider);
+    
     MSClient *client = self.tfgtmService.client;
+    
+    
     if (client.currentUser != nil) {
-        return;
+       NSLog(@"client.currentUser %@ :", client.currentUser);
+       return;
     }
+
+    NSLog(@"client.currentUser = nil");
     
     [client loginWithProvider:provider controller:self animated:YES completion:^(MSUser *user, NSError *error) {
         // Sauvegarde de l'authentification

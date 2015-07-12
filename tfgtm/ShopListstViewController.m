@@ -7,6 +7,7 @@
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 #import "ShopListsViewController.h"
+#import "ShopListsItemsViewController.h"
 #import "TFGTMService.h"
 //#import "ShopListsService.h"
 #import "QSAppDelegate.h"
@@ -32,6 +33,9 @@
 
 
 @implementation ShopListsViewController
+
+@synthesize shopListSelect;
+
 
 #pragma mark * UIView methods
 
@@ -78,13 +82,12 @@
     NSManagedObjectContext *context = delegate.managedObjectContext;
 
 //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
-//    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
-//    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
+
     fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
 
     
-    // show only non-completed items
-    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    // show only picnic and repas pour demain
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '263E498C-81D4-4B9B-B928-EBBA45F16EC0' OR id == '43EB2B10-4410-42DE-B8C4-D3A13EB8F727'"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -157,6 +160,17 @@
     // Customize the Delete button to say "complete" / "Supprimer"
     return @"Supprimer";
 }
+
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    shopListSelect = [item valueForKey:@"name_ShopList"];
+
+    NSLog(@"Select indexPath %@", shopListSelect);
+    return true;
+}
+
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -304,6 +318,16 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView endUpdates];
     });
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    if ([segue.identifier isEqualToString:@"showShopListItems"]) {
+        ShopListsItemsViewController *destViewController = segue.destinationViewController;
+        destViewController.shopListName = shopListSelect;
+
+    }
 }
 
 /*

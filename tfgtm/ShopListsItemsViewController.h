@@ -10,6 +10,12 @@
 
 @interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
+@property (nonatomic, strong) IBOutlet UILabel *shopListLabel;
+@property (nonatomic, strong) NSString *shopListName;
+
+
+- (IBAction)inviteAction:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
 - (IBAction)onAdd:(id)sender;
 
