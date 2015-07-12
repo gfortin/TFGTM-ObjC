@@ -142,6 +142,7 @@
     
     if (client.currentUser != nil) {
        NSLog(@"client.currentUser %@ :", client.currentUser);
+        [self performSegueWithIdentifier:@"showShopLists" sender:self];
        return;
     }
 
@@ -166,7 +167,7 @@
 - (void)loadAuthInfo {
     NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
     if (userid) {
-        NSLog(@"userid: %@", userid);
+        NSLog(@"GFO => userid: %@", userid);
         self.tfgtmService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
         self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
         

@@ -29,7 +29,6 @@
 
 @implementation ShopListsItemsViewController
 
-@synthesize shopListLabel;
 @synthesize shopListName;
 
 #pragma mark * UIView methods
@@ -39,7 +38,6 @@
 {
     [super viewDidLoad];
     
-    shopListLabel.text = shopListName;
     self.title = shopListName;
     
     //shopListLabel.text = @"Ma liste";
@@ -345,7 +343,17 @@
 
 - (IBAction)inviteAction:(id)sender {
 
-    NSLog(@"Test");
+    NSLog(@"GFO => email");
+    
+    NSString *recipients = @"mailto:ghislain.fortin@hotmail.fr?cc=second@example.com,third@example.com&subject=TFGTM : Invitation à ma liste de course";
+    
+    NSString *body = @"&body=Je t'invite à ma liste de course à l'aide de l'application TheFirstGetTheMilk!";
+    
+    NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
+    
+    email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
 
 }
 

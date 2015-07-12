@@ -73,7 +73,7 @@
                                     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="XUL-MP-1HA" kind="push" identifier="showShopListItems" id="fmR-kh-1vh"/>
+                                    <segue destination="XUL-MP-1HA" kind="show" identifier="showShopListItems" id="fmR-kh-1vh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -283,18 +283,6 @@
                             <imageView userInteractionEnabled="NO" alpha="0.099999999999999686" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="TFGTM-1024x1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="PYA-jf-kH5">
                                 <rect key="frame" x="-102" y="-39" width="702" height="706"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAr-jS-3Ob">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="168" y="540" width="30" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="zVE-5o-13N" kind="show" identifier="" id="q2Y-au-RRG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -334,9 +322,6 @@
                             <constraint firstItem="5Dt-dc-Jn5" firstAttribute="leading" secondItem="HaS-Nc-gZN" secondAttribute="trailing" constant="13" id="tuH-Zi-RWr"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="qAr-jS-3Ob"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="DQv-n6-vTF"/>
                                 <exclude reference="rR6-ap-lo9"/>
@@ -370,9 +355,6 @@
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="qAr-jS-3Ob"/>
-                            </mask>
                             <mask key="constraints">
                                 <include reference="DQv-n6-vTF"/>
                                 <include reference="rR6-ap-lo9"/>
@@ -416,6 +398,7 @@
                         <outlet property="btn_Facebook" destination="6FP-pE-Dpr" id="cnJ-1V-Dvh"/>
                         <outlet property="btn_Google" destination="5Dt-dc-Jn5" id="MMf-9z-OpN"/>
                         <outlet property="btn_Windows" destination="wlt-UJ-Fxl" id="hix-8d-SQC"/>
+                        <segue destination="zVE-5o-13N" kind="show" identifier="showShopLists" id="3sV-HW-tR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlF-Le-eTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -426,6 +409,7 @@
         <scene sceneID="0n8-is-8KE">
             <objects>
                 <navigationController id="zVE-5o-13N" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="igO-jS-w2H"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aeA-IS-Tg9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -585,7 +569,7 @@
                                     <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     <variation key="widthClass=compact" misplaced="YES">
-                                        <rect key="frame" x="16" y="14" width="115" height="30"/>
+                                        <rect key="frame" x="16" y="14" width="223" height="30"/>
                                     </variation>
                                     <connections>
                                         <outlet property="delegate" destination="XUL-MP-1HA" id="HlH-De-tUl"/>
@@ -629,15 +613,6 @@
                                         <action selector="onAdd:" destination="XUL-MP-1HA" eventType="touchUpInside" id="5zR-gF-Hak"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4u-D2-msB">
-                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="0.0" width="173" height="21"/>
-                                    </variation>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -659,7 +634,6 @@
                             <variation key="default">
                                 <mask key="subviews">
                                     <exclude reference="FCf-nP-NpL"/>
-                                    <exclude reference="p4u-D2-msB"/>
                                 </mask>
                                 <mask key="constraints">
                                     <exclude reference="1Tr-y8-Ahu"/>
@@ -678,7 +652,6 @@
                             <variation key="widthClass=compact">
                                 <mask key="subviews">
                                     <include reference="FCf-nP-NpL"/>
-                                    <include reference="p4u-D2-msB"/>
                                 </mask>
                                 <mask key="constraints">
                                     <include reference="1Tr-y8-Ahu"/>
@@ -745,7 +718,6 @@
                     </refreshControl>
                     <connections>
                         <outlet property="itemText" destination="JrP-K4-McO" id="xuk-kM-3Ot"/>
-                        <outlet property="shopListLabel" destination="p4u-D2-msB" id="w3c-gD-lpA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O19-Tz-fc4" userLabel="First Responder" sceneMemberID="firstResponder"/>

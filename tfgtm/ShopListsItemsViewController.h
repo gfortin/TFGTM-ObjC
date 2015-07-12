@@ -10,7 +10,6 @@
 
 @interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) IBOutlet UILabel *shopListLabel;
 @property (nonatomic, strong) NSString *shopListName;
 
 
