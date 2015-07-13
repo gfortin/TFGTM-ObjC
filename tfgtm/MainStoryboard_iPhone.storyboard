@@ -590,7 +590,7 @@
                                     </variation>
                                     <variation key="widthClass=compact" misplaced="YES">
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                        <rect key="frame" x="236" y="7" width="61" height="30"/>
+                                        <rect key="frame" x="351" y="7" width="33" height="30"/>
                                         <mask key="constraints">
                                             <include reference="C60-4E-yy2"/>
                                         </mask>
