@@ -343,18 +343,30 @@
 
 - (IBAction)inviteAction:(id)sender {
 
+    /*
     NSLog(@"GFO => email");
     
-    NSString *recipients = @"mailto:ghislain.fortin@hotmail.fr?cc=second@example.com,third@example.com&subject=TFGTM : Invitation à ma liste de course";
+    NSString *recipients = @"mailto:?cc=ghislain.fortin@hotmail.fr&subject=TFGTM : Invitation à ma liste de course";
     
-    NSString *body = @"&body=Je t'invite à ma liste de course à l'aide de l'application TheFirstGetTheMilk!";
+    NSString *body = [NSString stringWithFormat:@"&body=Bonjour, Je t'invite à ma liste de course %@  à l'aide de l'application TheFirstGetTheMilk!", shopListName];
     
     NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
     
     email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+     */
+     
+    NSLog(@"GFO => SMS");
+    
+    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Attention!" message:@"Petit message d'alerte!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [warningAlert show];
+    
+    
+    
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"sms:0648162995"]];
 
+    
 }
 
 
