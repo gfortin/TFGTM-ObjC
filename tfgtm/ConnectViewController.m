@@ -41,6 +41,7 @@
     // Let's load the user ID and token when the app starts.
     [self loadAuthInfo];
     
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,11 +105,9 @@
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
     
-    //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
-    //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
-    
-    // sort by item text
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Users" inManagedObjectContext:context];
+
+    // sort by date
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
     
     // Note: if storing a lot of data, you should specify a cache for the last parameter
@@ -135,13 +134,13 @@
 - (void) loginAndGetData:(NSString *)provider
 {
     
-    NSLog(@"LoginAndGetData provider: %@", provider);
+    NSLog(@"GFO => LoginAndGetData provider: %@", provider);
     
     MSClient *client = self.tfgtmService.client;
     
     
     if (client.currentUser != nil) {
-       NSLog(@"client.currentUser %@ :", client.currentUser);
+       NSLog(@"GFO => client.currentUser %@ :", client.currentUser);
         [self performSegueWithIdentifier:@"showShopLists" sender:self];
        return;
     }
@@ -153,6 +152,8 @@
         [self saveAuthInfo];
 
     }];
+    [self performSegueWithIdentifier:@"showShopLists" sender:self];
+
 }
 
 // Store Authentication Tokens in App
@@ -173,6 +174,8 @@
         
     }
 }
+
+
 
 
 @end

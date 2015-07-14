@@ -61,7 +61,7 @@
         exit(-1);  // Fail
     }
 
-    // Set this in every view controller so that the back button displays back instead of the root view controller name
+    // Set this in every view controller so that the back button displays < instead of the root view controller name
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     // load the data
@@ -70,6 +70,8 @@
 }
 
 
+// Requête principale
+//====================
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
@@ -81,13 +83,10 @@
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
 
-//    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
-
     fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
-
     
     // show only picnic and repas pour demain
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '263E498C-81D4-4B9B-B928-EBBA45F16EC0' OR id == '43EB2B10-4410-42DE-B8C4-D3A13EB8F727'"];
+    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '263E498C-81D4-4B9B-B928-EBBA45F16EC0' OR id == '43EB2B10-4410-42DE-B8C4-D3A13EB8F727'"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -146,7 +145,7 @@
     NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
  
     // If the item is complete, then this is just pending upload. Editing is not allowed
-    if ([[item valueForKey:@"complete"] boolValue])
+        if ([[item valueForKey:@"complete"] boolValue])
     {
         return UITableViewCellEditingStyleNone;
     }
@@ -230,7 +229,7 @@
     }
     
 //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
-    NSDictionary *item = @{ @"name_ShopList" : self.itemText.text };
+    NSDictionary *item = @{ @"name_ShopList" : self.itemText.text, @"complete" : @NO };
     [self.shoplistsService addShopList:item completion:nil];
     self.itemText.text = @"";
 }

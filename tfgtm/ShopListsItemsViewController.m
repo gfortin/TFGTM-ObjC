@@ -48,6 +48,10 @@
     // Let's load the user ID and token when the app starts.
     //[self loadAuthInfo];
     
+    // Set this in every view controller so that the back button displays < instead of the root view controller name
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    
     // have refresh control reload all data from server
     [self.refreshControl addTarget:self
                             action:@selector(onRefresh:)
@@ -82,7 +86,7 @@
     //fetchRequest.entity = [NSEntityDescription entityForName:@"ShopListsItems" inManagedObjectContext:context];
     
     // show only Ananas with id
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
+    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];

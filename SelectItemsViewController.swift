@@ -54,7 +54,8 @@ class SelectItemsViewController: UIViewController,UIPickerViewDataSource,UIPicke
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryName.text = "Articles de" + pickerData[row] + " :"
+        //categoryName.text = "Articles de" + pickerData[row] + " :"
+        self.title = pickerData[row]
     }
     
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView!) -> UIView {
