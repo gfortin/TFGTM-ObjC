@@ -35,6 +35,7 @@
 @implementation ShopListsViewController
 
 @synthesize shopListSelect;
+@synthesize strUserID;
 
 
 #pragma mark * UIView methods
@@ -49,6 +50,8 @@
     
     // Let's load the user ID and token when the app starts.
     //[self loadAuthInfo];
+    
+    NSLog(@"GFO => strUserID : %@", strUserID );
     
     // have refresh control reload all data from server
     [self.refreshControl addTarget:self

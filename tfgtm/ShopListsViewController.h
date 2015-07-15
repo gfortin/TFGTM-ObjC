@@ -9,6 +9,9 @@
 @interface ShopListsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSString *shopListSelect;
+@property (nonatomic, strong) NSString *strUserID;
+
+
 
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
 - (IBAction)onAdd:(id)sender;

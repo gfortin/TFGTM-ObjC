@@ -167,11 +167,11 @@
     // Set the label on the cell and make sure the label color is black (in case this cell
     // has been reused and was previously greyed out
     cell.textLabel.textColor = [UIColor blackColor];
-    //    cell.textLabel.text = [item valueForKey:@"text"];
-    //    cell.textLabel.text = [item valueForKey:@"name_Category"];
+    //cell.textLabel.text = [item valueForKey:@"text"];
     //cell.textLabel.text = [item valueForKey:@"id_ShopList"];
-    cell.textLabel.text = @"id_ShopList";
-
+    //cell.textLabel.text = @"id_ShopList";
+    cell.detailTextLabel.text = [item valueForKey:@"name_Item"];
+    cell.textLabel.text = [item valueForKey:@"emoji_Item"];
     
 }
 

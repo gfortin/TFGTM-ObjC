@@ -30,6 +30,10 @@
 
 @implementation ConnectViewController
 
+@synthesize strUserID;
+@synthesize strConnectClient;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -141,6 +145,7 @@
     
     if (client.currentUser != nil) {
        NSLog(@"GFO => client.currentUser %@ :", client.currentUser);
+
         [self performSegueWithIdentifier:@"showShopLists" sender:self];
        return;
     }
@@ -168,13 +173,41 @@
 - (void)loadAuthInfo {
     NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
     if (userid) {
-        NSLog(@"GFO => userid: %@", userid);
+        strUserID = userid;
+        NSLog(@"GFO => loadAuthInfo strUserID: %@", strUserID);
+        
         self.tfgtmService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
         self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+
+    
+        MSClient *client = self.tfgtmService.client;
+        
+        
+        
+        if (client.currentUser != nil) {
+            
+        //[self performSegueWithIdentifier:@"showShopLists" sender:self];
+    
+        NSString *alertMessage = [NSString stringWithFormat: @"Connection avec %@ ", strUserID];
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];
+
+        }
+        
+
+    }
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"showShopListItems"]) {
+        ShopListsViewController *destViewController = segue.destinationViewController;
+        NSLog(@"GFO => prepareForSegue strUserID %@", strUserID);
+        destViewController.strUserID = strUserID;
         
     }
 }
-
 
 
 

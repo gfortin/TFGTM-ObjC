@@ -10,6 +10,12 @@
 
 @interface ConnectViewController : UIViewController<NSFetchedResultsControllerDelegate>
 
+
+@property (nonatomic, strong) NSString *strUserID;
+@property (nonatomic, strong) NSString *strConnectClient;
+
+
+
 @property (weak, nonatomic) IBOutlet UIButton *btn_Facebook;
 @property (weak, nonatomic) IBOutlet UIButton *btn_Google;
 @property (weak, nonatomic) IBOutlet UIButton *btn_Windows;
