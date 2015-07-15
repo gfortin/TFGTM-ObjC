@@ -16,6 +16,8 @@
 - (IBAction)inviteAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
+@property (weak, nonatomic) NSString *itemEmoji;
+
 - (IBAction)onAdd:(id)sender;
 
 @end

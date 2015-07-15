@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectItemsVC : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface SelectItemsVC : UIViewController<UITableViewDelegate,UITableViewDataSource,UIPickerViewDataSource, UIPickerViewDelegate> {
+    NSMutableArray *items;
+}
 
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchItem;
+@property (weak, nonatomic) IBOutlet UITableView *tableViewItems;
+
+- (IBAction)addItem:(id)sender;
 
 
 @end
