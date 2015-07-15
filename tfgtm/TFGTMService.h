@@ -89,6 +89,6 @@ typedef void (^QSCompletionBlock) ();
 - (void)syncDataShopListsUsers:(QSCompletionBlock)completion;
 
 
-//- (void)syncData:(QSCompletionBlock)completion;
+- (void)syncData:(QSCompletionBlock)completion;
 
 @end

@@ -117,7 +117,8 @@
     [self.refreshControl beginRefreshing];
     
     [self.shoplistsService syncDataShopLists:^
-    {
+
+     {
          [self.refreshControl endRefreshing];
     }];
 }

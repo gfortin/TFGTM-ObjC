@@ -25,11 +25,15 @@
 @interface TFGTMService()
 
 @property (nonatomic, strong)   MSSyncTable *syncShopLists;
+
 @property (nonatomic, strong)   MSSyncTable *syncUsers;
 @property (nonatomic, strong)   MSSyncTable *syncItems;
 @property (nonatomic, strong)   MSSyncTable *syncCategories;
 @property (nonatomic, strong)   MSSyncTable *syncShopListsItems;
 @property (nonatomic, strong)   MSSyncTable *syncShopListsUsers;
+
+@property (nonatomic, strong)   MSSyncTable *syncTable;
+
 
 
 @end
@@ -70,17 +74,92 @@
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
         
         // Create MSSyncTable instances to allow us to work with the tables
+ 
+
         self.syncShopLists  = [_client syncTableWithName:@"ShopLists"];
+/*
         self.syncUsers      = [_client syncTableWithName:@"Users"];
         self.syncItems      = [_client syncTableWithName:@"Items"];
         self.syncCategories = [_client syncTableWithName:@"Categories"];
         self.syncShopListsItems = [_client syncTableWithName:@"ShopListsItems"];
         self.syncShopListsUsers = [_client syncTableWithName:@"ShopListsUsers"];
+*/
+        self.syncTable = [_client syncTableWithName:@"TodoItem"];
 
+        
     }
     
     return self;
 }
+
+
+-(void)addItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+{
+    // Insert the item into the TodoItem table and add to the items array on completion
+    [self.syncTable insert:item completion:^(NSDictionary *result, NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncData: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)completeItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+{
+    // Set the item to be complete (we need a mutable copy)
+    NSMutableDictionary *mutable = [item mutableCopy];
+    [mutable setObject:@YES forKey:@"complete"];
+    
+    // Update the item in the TodoItem table and remove from the items array on completion
+    [self.syncTable update:mutable completion:^(NSError *error)
+     {
+         [self logErrorIfNotNil:error];
+         
+         [self syncData: ^{
+             // Let the caller know that we finished
+             if (completion != nil) {
+                 dispatch_async(dispatch_get_main_queue(), completion);
+             }
+         }];
+     }];
+}
+
+-(void)syncData:(QSCompletionBlock)completion
+{
+    // push all changes in the sync context, then pull new data
+    [self.client.syncContext pushWithCompletion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        [self pullData:completion];
+    }];
+}
+
+-(void)pullData:(QSCompletionBlock)completion
+{
+    MSQuery *query = [self.syncTable query];
+    
+    // Pulls data from the remote server into the local table.
+    // We're pulling all items and filtering in the view
+    // query ID is used for incremental sync
+    [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+        [self logErrorIfNotNil:error];
+        
+        // Let the caller know that we have finished
+        if (completion != nil) {
+            dispatch_async(dispatch_get_main_queue(), completion);
+        }
+    }];
+}
+
+
+//=========================================
+
+
+
 
 -(void)addShopList:(NSDictionary *)shopList completion:(QSCompletionBlock)completion
 {
@@ -144,6 +223,8 @@
     }];
 }
 
+/*
+
 -(void)addUser:(NSDictionary *)user completion:(QSCompletionBlock)completion
 {
     // Insert the user into the Users table and add to the users array on completion
@@ -205,6 +286,10 @@
         }
     }];
 }
+
+*/ 
+ 
+/*
 
 -(void)addItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
 {
@@ -454,7 +539,7 @@
     }];
 }
 
-
+*/
 
 - (void)logErrorIfNotNil:(NSError *) error
 {

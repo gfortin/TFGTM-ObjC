@@ -78,10 +78,10 @@
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
     
-    //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
+        fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
-    fetchRequest.entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+    //fetchRequest.entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
 
     //fetchRequest.entity = [NSEntityDescription entityForName:@"ShopListsItems" inManagedObjectContext:context];
     
@@ -113,7 +113,9 @@
 {
     [self.refreshControl beginRefreshing];
     
-    [self.shoplistsitemsService syncDataShopListsItems:^
+//    [self.shoplistsitemsService syncDataShopListsItems:^
+    [self.shoplistsitemsService syncData:^
+
      {
          [self.refreshControl endRefreshing];
      }];
@@ -136,7 +138,9 @@
     cell.textLabel.textColor = [UIColor grayColor];
     
     // Ask the shoplistsitemsService to set the item's complete value to YES
-    [self.shoplistsitemsService completeShopListItem:dict completion:nil];
+//    [self.shoplistsitemsService completeShopListItem:dict completion:nil];
+    [self.shoplistsitemsService completeItem:dict completion:nil];
+
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,11 +171,11 @@
     // Set the label on the cell and make sure the label color is black (in case this cell
     // has been reused and was previously greyed out
     cell.textLabel.textColor = [UIColor blackColor];
-    //cell.textLabel.text = [item valueForKey:@"text"];
+    cell.textLabel.text = [item valueForKey:@"text"];
     //cell.textLabel.text = [item valueForKey:@"id_ShopList"];
     //cell.textLabel.text = @"id_ShopList";
-    cell.detailTextLabel.text = [item valueForKey:@"name_Item"];
-    cell.textLabel.text = [item valueForKey:@"emoji_Item"];
+    //cell.detailTextLabel.text = [item valueForKey:@"name_Item"];
+    //cell.textLabel.text = [item valueForKey:@"emoji_Item"];
     
 }
 
@@ -217,9 +221,10 @@
         return;
     }
     
-    //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
-    NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
-    [self.shoplistsitemsService addShopListItem:item completion:nil];
+    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
+    //NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
+    //    [self.shoplistsitemsService addShopListItem:item completion:nil];
+    [self.shoplistsitemsService addItem:item completion:nil];
     self.itemText.text = @"";
 }
 
@@ -308,42 +313,7 @@
     });
 }
 
-/*
-- (void) loginAndGetData
-{
-    MSClient *client = self.shoplistsitemsService.client;
-    if (client.currentUser != nil) {
-        return;
-    }
-    
-    [client loginWithProvider:@"google" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-        
-        // Sauvegarde de l'authentification
-        [self saveAuthInfo];
-        
-        [self refresh];
-    }];
-}
 
-// Store Authentication Tokens in App
-// https://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/
-
-
-- (void) saveAuthInfo {
-    [SSKeychain setPassword:self.shoplistsitemsService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.shoplistsitemsService.client.currentUser.userId];
-}
-
-
-- (void)loadAuthInfo {
-    NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
-    if (userid) {
-        NSLog(@"userid: %@", userid);
-        self.shoplistsitemsService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
-        self.shoplistsitemsService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
-        
-    }
-}
-*/
 
 - (IBAction)inviteAction:(id)sender {
 
