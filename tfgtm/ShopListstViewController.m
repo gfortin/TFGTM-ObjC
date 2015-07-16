@@ -92,6 +92,8 @@
     
     // show only picnic and repas pour demain
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '263E498C-81D4-4B9B-B928-EBBA45F16EC0' OR id == '43EB2B10-4410-42DE-B8C4-D3A13EB8F727'"];
+    // show only non-completed items
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];

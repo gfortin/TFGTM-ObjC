@@ -87,6 +87,9 @@
     
     // show only Ananas with id
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
+    // show only non-completed items
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];
@@ -319,7 +322,7 @@
 
 - (IBAction)inviteAction:(id)sender {
 
-    /*
+    
     NSLog(@"GFO => email");
     
     NSString *recipients = @"mailto:?cc=ghislain.fortin@hotmail.fr&subject=TFGTM : Invitation à ma liste de course";
@@ -331,11 +334,11 @@
     email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
-     */
+     
      
     NSLog(@"GFO => SMS");
     
-    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Attention!" message:@"Petit message d'alerte!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Invitation!" message:@"Invitation envoyée par email." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [warningAlert show];
     
     

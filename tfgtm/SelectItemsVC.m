@@ -10,7 +10,16 @@
 
 @interface SelectItemsVC ()
 {
-    NSArray *_pickerData;
+    NSArray *_categories,
+            *_fruitsLegumes,
+            *_viandesPoissons,
+            *_painsPatisseries,
+            *_produitsLaitiers,
+            *_patesRiz,
+            *_epices,
+            *_boissons,
+            *_snacks,
+            *_autres;
 }
 @end
 
@@ -26,8 +35,8 @@
     // Initialize Data
     
     items = [NSMutableArray new];
-    
-    _pickerData = @[        @"  🍎  Fruits et légumes",
+
+    _categories = @[        @"  🍎  Fruits et légumes",
                             @"  🍗  Viandes et poissons",
                             @"  🍞  Pains et pâtisseries",
                             @"  🍦  Produits laitiers",
@@ -40,27 +49,40 @@
     // Connect data
     self.categoryPicker.dataSource = self;
     self.categoryPicker.delegate = self;
+    self.tableViewItems.dataSource = self;
+    self.tableViewItems.delegate = self;
 
+    self.tableViewItems.beginUpdates;
+    
     // Fruits et légumes
     //===================
     
-    NSDictionary *item1 = @{ @"type_Item" : @YES,
+    
+    _fruitsLegumes = @ [        @"🍎", @"Fruits et légumes",
+                                @"🍗", @"Viandes et poissons",
+                                @"🍞", @"Pains et pâtisseries",
+                                @"🍦", @"Produits laitiers",
+                                @"🍚", @"Pâtes, riz et céréales",
+                                @"🌱", @"Épices et condiments",
+                                @"🍵", @"Boissons",
+                                @"🍭", @"Snacks et friandises",
+                                @"❓", @"Autres"];
+
+    
+    //tableViewItems.reloadData;
+    
+    
+    /*
                             @"name_Item" : @"Tomate",
                             @"emoji_Item" : @"🍅",
-                            @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
-                            @"id_User" : @"TFGTM_Admin" };
-    
-    NSDictionary *item2 = @{ @"type_Item" : @YES,
+
+
                              @"name_Item" : @"Aubergine",
                              @"emoji_Item" : @"🍆",
-                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
-                             @"id_User" : @"TFGTM_Admin" };
-    
-    NSDictionary *item3 = @{ @"type_Item" : @YES,
+
                              @"name_Item" : @"Maïs",
                              @"emoji_Item" : @"🌽",
-                             @"id_Category" : @"E05DAA91-6E26-4394-B3AC-5ED08AFDF1E0",
-                             @"id_User" : @"TFGTM_Admin" };
+
     
     NSDictionary *item4 = @{ @"type_Item" : @YES,
                              @"name_Item" : @"Patate douce",
@@ -386,6 +408,7 @@
                               @"emoji_Item" : @"🍟",
                               @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
                               @"id_User" : @"TFGTM_Admin" };
+  */
     
 }
 
@@ -413,17 +436,17 @@
 // The number of rows of data
 - (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return _pickerData.count;
+    return _categories.count;
 }
 
 // The data to return for the row and component (column) that's being passed in
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return _pickerData[row];
+    return _categories[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;{
-    self.title = _pickerData[row];
+    self.title = _categories[row];
 }
 
 
@@ -435,11 +458,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [items count];
+    NSLog(@"_fruitsLegumes count %lu", (unsigned long)[_fruitsLegumes count] );
+    return [_fruitsLegumes count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath        *)indexPath
 {
+    
+    NSLog(@"tableView cellForRowAtIndexPath");
+    
     static NSString *simpleTableIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableViewItems  dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -448,9 +476,34 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [items objectAtIndex:indexPath.row];
+    cell.textLabel.text = @"Test textlabel";
+    cell.detailTextLabel.text = @"Test detail";
+    
+    
+    //[_fruitsLegumes objectAtIndex:indexPath.row];
     return cell;
 }
+
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    
+    // Set the label on the cell and make sure the label color is black (in case this cell
+    // has been reused and was previously greyed out
+    cell.textLabel.textColor = [UIColor blackColor];
+    //    cell.textLabel.text = [item valueForKey:@"text"];
+    //    cell.textLabel.text = [item valueForKey:@"name_Category"];
+    //    cell.textLabel.text = [item valueForKey:@"name_ShopList"];
+    //    cell.detailTextLabel.text = [item valueForKey:@"name_ShopList"];
+    //    cell.textLabel.text = @"🍴";
+    cell.textLabel.text =  @"Test textlabel";
+    cell.detailTextLabel.text = @"Test detail";
+
+    
+}
+
+
+
 
 
 - (IBAction)addFav:(id)sender {
