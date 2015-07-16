@@ -24,6 +24,9 @@
 
 @interface TFGTMService()
 
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
 @property (nonatomic, strong)   MSSyncTable *syncShopLists;
 
 @property (nonatomic, strong)   MSSyncTable *syncUsers;
@@ -223,7 +226,7 @@
     }];
 }
 
-/*
+
 
 -(void)addUser:(NSDictionary *)user completion:(QSCompletionBlock)completion
 {
@@ -287,7 +290,7 @@
     }];
 }
 
-*/ 
+
  
 /*
 
@@ -415,6 +418,8 @@
     }];
 }
 
+*/
+ 
 -(void)addShopListItem:(NSDictionary *)shopListItem completion:(QSCompletionBlock)completion
 {
     // Insert the shopList into the ShopLists table and add to the shopLists array on completion
@@ -539,7 +544,7 @@
     }];
 }
 
-*/
+
 
 - (void)logErrorIfNotNil:(NSError *) error
 {

@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSString *strUserID;
 @property (nonatomic, strong) NSString *strConnectClient;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 
 

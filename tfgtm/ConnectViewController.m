@@ -23,7 +23,7 @@
 
 // Private properties
 @property (strong, nonatomic) TFGTMService *tfgtmService;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 
 @end
@@ -155,6 +155,7 @@
     [client loginWithProvider:provider controller:self animated:YES completion:^(MSUser *user, NSError *error) {
         // Sauvegarde de l'authentification
         [self saveAuthInfo];
+        [self saveUser];
 
     }];
     [self performSegueWithIdentifier:@"showShopLists" sender:self];
@@ -166,6 +167,10 @@
 
 
 - (void) saveAuthInfo {
+    [SSKeychain setPassword:self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.tfgtmService.client.currentUser.userId];
+}
+
+- (void) saveUser {
     [SSKeychain setPassword:self.tfgtmService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.tfgtmService.client.currentUser.userId];
 }
 
@@ -201,7 +206,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"showShopListItems"]) {
+    NSLog(@"GFO => Prepare for Segue");
+    
+    if ([segue.identifier isEqualToString:@"showShopLists"]) {
         ShopListsViewController *destViewController = segue.destinationViewController;
         NSLog(@"GFO => prepareForSegue strUserID %@", strUserID);
         destViewController.strUserID = strUserID;
@@ -209,6 +216,14 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
 
 @end
