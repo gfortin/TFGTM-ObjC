@@ -40,8 +40,7 @@
     // Connect data
     self.categoryPicker.dataSource = self;
     self.categoryPicker.delegate = self;
-    
-    
+
     // Fruits et légumes
     //===================
     

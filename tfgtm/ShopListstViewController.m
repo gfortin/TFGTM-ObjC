@@ -232,8 +232,12 @@
         return;
     }
     
-//    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
-    NSDictionary *item = @{ @"name_ShopList" : self.itemText.text, @"complete" : @NO };
+    NSString *UUID_ShopList = [[NSUUID UUID] UUIDString];
+    
+    NSLog(@"GFO => UUID id_ShopList %@", UUID_ShopList);
+
+    //    NSDictionary *item = @{ @"text" : self.itemText.text, @"complete" : @NO };
+    NSDictionary *item = @{ @"id": UUID_ShopList, @"name_ShopList" : self.itemText.text, @"complete" : @NO };
     [self.shoplistsService addShopList:item completion:nil];
     self.itemText.text = @"";
 }
