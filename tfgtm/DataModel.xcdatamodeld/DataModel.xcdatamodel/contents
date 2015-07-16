@@ -45,6 +45,7 @@
         <attribute name="tableKind" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="ShopLists" syncable="YES">
+        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -104,7 +105,7 @@
         <element name="MS_TableConfig" positionX="-135" positionY="-45" width="128" height="30"/>
         <element name="MS_TableOperationErrors" positionX="-279" positionY="-45" width="128" height="30"/>
         <element name="MS_TableOperations" positionX="9" positionY="-45" width="128" height="30"/>
-        <element name="ShopLists" positionX="-434" positionY="378" width="128" height="163"/>
+        <element name="ShopLists" positionX="-434" positionY="378" width="128" height="180"/>
         <element name="ShopListsItems" positionX="-270" positionY="371" width="128" height="178"/>
         <element name="ShopListsUsers" positionX="-432" positionY="162" width="128" height="178"/>
         <element name="TodoItem" positionX="-441" positionY="-45" width="128" height="165"/>

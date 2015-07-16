@@ -88,6 +88,8 @@
 
     fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
     
+    // A mettre en place une liste de ShopListsUsers
+    
     // show only picnic and repas pour demain
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '263E498C-81D4-4B9B-B928-EBBA45F16EC0' OR id == '43EB2B10-4410-42DE-B8C4-D3A13EB8F727'"];
     
