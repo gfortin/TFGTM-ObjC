@@ -19,6 +19,8 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        self.title = "TheFirstGetTheMilk!"
+        
         var tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("webTFGTM", ofType:"html",inDirectory: "web")!)
         
         let reqPage = NSURLRequest(URL: tryPage!)

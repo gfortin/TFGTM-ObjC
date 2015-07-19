@@ -355,6 +355,14 @@
                             </subviews>
                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
+                        <toolbar key="tableFooterView" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pM2-7A-ECg">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Email" id="bhG-mV-ieP"/>
+                                <barButtonItem title="SMS" id="lz1-7a-opo"/>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Gzk-Zi-bCq" detailTextLabel="HbN-Dc-fxJ" style="IBUITableViewCellStyleValue2" id="hn0-xS-9r5">
                                 <rect key="frame" x="0.0" y="139" width="320" height="50"/>
