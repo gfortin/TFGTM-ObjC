@@ -224,7 +224,305 @@
         return;
     }
     
-    NSDictionary *item = @{ @"emoji": @"🍴", @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
+    
+    
+    NSMutableDictionary *itemsEmoji=[[NSMutableDictionary alloc] init];
+    [itemsEmoji setValue:@"🍅" forKey:@"Tomate"];
+    [itemsEmoji setValue:@"🍆" forKey:@"Aubergine"];
+    [itemsEmoji setValue:@"🌽" forKey:@"Maï"];
+    [itemsEmoji setValue:@"🍠" forKey:@"Patatedouce"];
+    [itemsEmoji setValue:@"🍇" forKey:@"Melon"];
+    [itemsEmoji setValue:@"🍉" forKey:@"Pastèque"];
+    [itemsEmoji setValue:@"🍊" forKey:@"Tangerine"];
+    [itemsEmoji setValue:@"🍊" forKey:@"Orange"];
+    [itemsEmoji setValue:@"🍋" forKey:@"Citron"];
+    [itemsEmoji setValue:@"🍌" forKey:@"Banane"];
+    [itemsEmoji setValue:@"🍎" forKey:@"Pomme"];
+    [itemsEmoji setValue:@"🍏" forKey:@"Pommeverte"];
+    [itemsEmoji setValue:@"🍏" forKey:@"Pommesverte"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍑" forKey:@"Pêche"];
+    [itemsEmoji setValue:@"🍒" forKey:@"Cerise"];
+    [itemsEmoji setValue:@"🍓" forKey:@"Fraise"];
+    [itemsEmoji setValue:@"🍍" forKey:@"Anana"];
+    [itemsEmoji setValue:@"🍦" forKey:@"Glace"];
+    [itemsEmoji setValue:@"🍼" forKey:@"Lait"];
+    [itemsEmoji setValue:@"🍨" forKey:@"Sorbet"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Pain"];
+    [itemsEmoji setValue:@"🍪" forKey:@"Biscuit"];
+    [itemsEmoji setValue:@"🍮" forKey:@"Flan"];
+    [itemsEmoji setValue:@"🍩" forKey:@"Beignet"];
+    [itemsEmoji setValue:@"🍰" forKey:@"Fraisier"];
+    [itemsEmoji setValue:@"🍫" forKey:@"Chocolat"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    
+    
+    
+    
+    
+    
+/*
+     
+
+ 
+     
+     // Snacks et friandises
+     
+     NSDictionary *item27 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Chocolat",
+     @"emoji_Item" : @"🍫",
+     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item28 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Friandise",
+     @"emoji_Item" : @"🍬",
+     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item29 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Chocolat",
+     @"emoji_Item" : @"🍫",
+     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item30 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Sucette",
+     @"emoji_Item" : @"🍭",
+     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     // Viandes et poissons
+     //===================
+     
+     NSDictionary *item31 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Boeuf",
+     @"emoji_Item" : @"🐂",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item32 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Porc",
+     @"emoji_Item" : @"🐖",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item33 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Mouton",
+     @"emoji_Item" : @"🐑",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item34 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Lapin",
+     @"emoji_Item" : @"🐇",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item35 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Cuisses de grenouille",
+     @"emoji_Item" : @"🐸",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item36 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Poulet",
+     @"emoji_Item" : @"🐓",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item37 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Poisson",
+     @"emoji_Item" : @"🐟",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item38 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Crevette",
+     @"emoji_Item" : @"🍤",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item39 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Oeuf",
+     @"emoji_Item" : @"🐣",
+     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     // Epices et condiments
+     //===================
+     
+     NSDictionary *item40 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Miel",
+     @"emoji_Item" : @"🍯",
+     @"id_Category" : @"6D7BC989-2D17-4C28-8ADA-61DC692254A5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item41 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Sel",
+     @"emoji_Item" : @"🍴",
+     @"id_Category" : @"6D7BC989-2D17-4C28-8ADA-61DC692254A5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item42 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Poivre",
+     @"emoji_Item" : @"🍴",
+     @"id_Category" : @"6D7BC989-2D17-4C28-8ADA-61DC692254A5",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     // Pâtes, riz et céréales
+     //===================
+     
+     NSDictionary *item43 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Riz",
+     @"emoji_Item" : @"🍚",
+     @"id_Category" : @"A1DB608C-D0A6-4B86-922D-7FC2AED5D939",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item44 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Pâtes",
+     @"emoji_Item" : @"🍝",
+     @"id_Category" : @"A1DB608C-D0A6-4B86-922D-7FC2AED5D939",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item45 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Sushi",
+     @"emoji_Item" : @"🍣",
+     @"id_Category" : @"A1DB608C-D0A6-4B86-922D-7FC2AED5D939",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     // Boissons
+     //===================
+     
+     NSDictionary *item46 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Eau",
+     @"emoji_Item" : @"💧",
+     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item47 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Vin",
+     @"emoji_Item" : @"🍷",
+     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item48 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Bière",
+     @"emoji_Item" : @"🍺",
+     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item49 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Mousseux",
+     @"emoji_Item" : @"🍸",
+     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item50 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Café",
+     @"emoji_Item" : @"☕️",
+     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item51 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Thé",
+     @"emoji_Item" : @"🍵",
+     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     // Autres
+     
+     NSDictionary *item52 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Soupe",
+     @"emoji_Item" : @"🍜",
+     @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item53 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Pizza",
+     @"emoji_Item" : @"🍕",
+     @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
+     @"id_User" : @"TFGTM_Admin" };
+     
+     NSDictionary *item54 = @{ @"type_Item" : @YES,
+     @"name_Item" : @"Frites",
+     @"emoji_Item" : @"🍟",
+     @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
+     @"id_User" : @"TFGTM_Admin" };
+     */
+    
+    
+    
+    
+    NSString *capItemText = [self.itemText.text capitalizedString];
+
+    NSString *keyValue = capItemText;
+    
+    //Remove spaces
+     keyValue = [keyValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    //Remove numeric values
+    //keyValue = [keyValue stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [keyValue length])];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"1" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"2" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"3" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"4" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"5" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"6" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"7" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"8" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"9" withString:@""];
+    keyValue = [keyValue stringByReplacingOccurrencesOfString:@"0" withString:@""];
+    
+    NSLog(@"Remove numeric %@", keyValue);
+    
+    keyValue = [keyValue capitalizedString];
+    
+    NSLog(@"Capitalized %@", keyValue);
+
+    //Remove the plurial "s"
+    if([keyValue hasSuffix:@"s"])
+    {keyValue = [keyValue substringToIndex:[keyValue length]-1];}
+
+    NSLog(@"Last s removed %@", keyValue);
+    
+    
+    NSString *emojiItem = [itemsEmoji valueForKey:keyValue];
+
+    if ([itemsEmoji objectForKey:keyValue]) {
+        NSLog(@"There's an object set for key %@", keyValue);
+        NSLog(@"value for key %@", emojiItem);
+    } else {
+        NSLog(@"No object set for key %@",keyValue);
+        emojiItem = @"🍴";
+    }
+
+    
+    //for (NSString* key in itemsEmoji) {
+    //    id value = [itemsEmoji objectForKey:key];
+    //    NSLog(
+    //}
+
+    
+    NSDictionary *item = @{ @"emoji": emojiItem, @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
     //NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
     //    [self.shoplistsitemsService addShopListItem:item completion:nil];
     [self.shoplistsitemsService addItem:item completion:nil];
