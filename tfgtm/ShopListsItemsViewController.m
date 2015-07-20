@@ -230,6 +230,7 @@
     [itemsEmoji setValue:@"🍅" forKey:@"Tomate"];
     [itemsEmoji setValue:@"🍆" forKey:@"Aubergine"];
     [itemsEmoji setValue:@"🌽" forKey:@"Maï"];
+    [itemsEmoji setValue:@"🌽" forKey:@"Mai"];
     [itemsEmoji setValue:@"🍠" forKey:@"Patatedouce"];
     [itemsEmoji setValue:@"🍇" forKey:@"Melon"];
     [itemsEmoji setValue:@"🍉" forKey:@"Pastèque"];
@@ -254,13 +255,13 @@
     [itemsEmoji setValue:@"🍩" forKey:@"Beignet"];
     [itemsEmoji setValue:@"🍰" forKey:@"Fraisier"];
     [itemsEmoji setValue:@"🍫" forKey:@"Chocolat"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍬" forKey:@"Friandise"];
+    [itemsEmoji setValue:@"🍬" forKey:@"Bonbon"];
+    [itemsEmoji setValue:@"🍭" forKey:@"Sucette"];
+    [itemsEmoji setValue:@"🐟" forKey:@"Poisson"];
+    [itemsEmoji setValue:@"🍤" forKey:@"Crevette"];
+    [itemsEmoji setValue:@"🍗" forKey:@"Poulet"];
+    [itemsEmoji setValue:@"🐓" forKey:@"Coqauvin"];
     [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
     [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
     [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
@@ -285,30 +286,8 @@
  
      
      // Snacks et friandises
-     
-     NSDictionary *item27 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Chocolat",
-     @"emoji_Item" : @"🍫",
-     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item28 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Friandise",
-     @"emoji_Item" : @"🍬",
-     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item29 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Chocolat",
-     @"emoji_Item" : @"🍫",
-     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item30 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Sucette",
-     @"emoji_Item" : @"🍭",
-     @"id_Category" : @"493C4435-E189-445D-BC9B-07772E30F6B5",
-     @"id_User" : @"TFGTM_Admin" };
+ 
+ 
      
      // Viandes et poissons
      //===================
@@ -349,17 +328,9 @@
      @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
      @"id_User" : @"TFGTM_Admin" };
      
-     NSDictionary *item37 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Poisson",
-     @"emoji_Item" : @"🐟",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
+
      
-     NSDictionary *item38 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Crevette",
-     @"emoji_Item" : @"🍤",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
+
      
      NSDictionary *item39 = @{ @"type_Item" : @YES,
      @"name_Item" : @"Oeuf",
