@@ -31,6 +31,9 @@ typedef void (^QSCompletionBlock) ();
 
 + (TFGTMService *)defaultService;
 
+// ShopLists
+//----------
+
 - (void)addShopList:(NSDictionary *)shopList
      completion:(QSCompletionBlock)completion;
 
@@ -39,6 +42,8 @@ typedef void (^QSCompletionBlock) ();
 
 - (void)syncDataShopLists:(QSCompletionBlock)completion;
 
+// Users
+//----------
 
 - (void)addUser:(NSDictionary *)user
          completion:(QSCompletionBlock)completion;
@@ -48,6 +53,9 @@ typedef void (^QSCompletionBlock) ();
 
 - (void)syncDataUsers:(QSCompletionBlock)completion;
 
+
+// Items
+//----------
 
 
 - (void)addItem:(NSDictionary *)item
@@ -59,6 +67,8 @@ typedef void (^QSCompletionBlock) ();
 - (void)syncDataItems:(QSCompletionBlock)completion;
 
 
+// Categories
+//-------------
 
 - (void)addCategory:(NSDictionary *)category
      completion:(QSCompletionBlock)completion;
@@ -69,6 +79,8 @@ typedef void (^QSCompletionBlock) ();
 - (void)syncDataCategories:(QSCompletionBlock)completion;
 
 
+// ShopListItems
+//---------------
 
 - (void)addShopListItem:(NSDictionary *)shopListItem
          completion:(QSCompletionBlock)completion;
@@ -79,6 +91,8 @@ typedef void (^QSCompletionBlock) ();
 - (void)syncDataShopListsItems:(QSCompletionBlock)completion;
 
 
+// ShopListUsers
+//---------------
 
 - (void)addShopListUser:(NSDictionary *)shopListUser
              completion:(QSCompletionBlock)completion;

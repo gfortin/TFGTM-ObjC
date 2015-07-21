@@ -78,17 +78,18 @@
     QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = delegate.managedObjectContext;
     
-        fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
+    //    fetchRequest.entity = [NSEntityDescription entityForName:@"TodoItem" inManagedObjectContext:context];
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"ShopLists" inManagedObjectContext:context];
     //    fetchRequest.entity = [NSEntityDescription entityForName:@"Categories" inManagedObjectContext:context];
-    //fetchRequest.entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"Items" inManagedObjectContext:context];
 
     //fetchRequest.entity = [NSEntityDescription entityForName:@"ShopListsItems" inManagedObjectContext:context];
     
     // show only Ananas with id
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
     // show only non-completed items
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     
     
     // sort by item text
@@ -117,8 +118,8 @@
     [self.refreshControl beginRefreshing];
     
 //    [self.shoplistsitemsService syncDataShopListsItems:^
-    [self.shoplistsitemsService syncData:^
-
+//    [self.shoplistsitemsService syncData:^
+         [self.shoplistsitemsService syncDataItems:^
      {
          [self.refreshControl endRefreshing];
      }];
@@ -174,10 +175,14 @@
     // Set the label on the cell and make sure the label color is black (in case this cell
     // has been reused and was previously greyed out
     cell.textLabel.textColor = [UIColor blackColor];
-    cell.textLabel.text = [item valueForKey:@"emoji"];
+    //cell.textLabel.text = [item valueForKey:@"emoji"];
+    cell.textLabel.text = [item valueForKey:@"emoji_Item"];
+
     //cell.textLabel.text = [item valueForKey:@"id_ShopList"];
     //cell.textLabel.text = @"id_ShopList";
-    cell.detailTextLabel.text = [item valueForKey:@"text"];
+    //cell.detailTextLabel.text = [item valueForKey:@"text"];
+    cell.detailTextLabel.text = [item valueForKey:@"name_Item"];
+
     //cell.textLabel.text = [item valueForKey:@"emoji_Item"];
     
 }
@@ -492,8 +497,13 @@
     //    NSLog(
     //}
 
+    NSString *UUID_Item = [[NSUUID UUID] UUIDString];
     
-    NSDictionary *item = @{ @"emoji": emojiItem, @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
+    NSLog(@"GFO => UUID id_Item %@", UUID_Item);
+    
+    
+    //NSDictionary *item = @{ @"emoji": emojiItem, @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
+    NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": emojiItem, @"name_Item" : self.itemText.text, @"complete" : @NO };
     //NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
     //    [self.shoplistsitemsService addShopListItem:item completion:nil];
     [self.shoplistsitemsService addItem:item completion:nil];

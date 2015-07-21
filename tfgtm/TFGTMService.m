@@ -80,13 +80,13 @@
  
 
         self.syncShopLists  = [_client syncTableWithName:@"ShopLists"];
-/*
+
         self.syncUsers      = [_client syncTableWithName:@"Users"];
         self.syncItems      = [_client syncTableWithName:@"Items"];
         self.syncCategories = [_client syncTableWithName:@"Categories"];
         self.syncShopListsItems = [_client syncTableWithName:@"ShopListsItems"];
         self.syncShopListsUsers = [_client syncTableWithName:@"ShopListsUsers"];
-*/
+
         self.syncTable = [_client syncTableWithName:@"TodoItem"];
 
         
@@ -96,10 +96,13 @@
 }
 
 
--(void)addItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+// ToDoItem
+//==========
+
+-(void)addTodoItem:(NSDictionary *)todoitem completion:(QSCompletionBlock)completion
 {
     // Insert the item into the TodoItem table and add to the items array on completion
-    [self.syncTable insert:item completion:^(NSDictionary *result, NSError *error)
+    [self.syncTable insert:todoitem completion:^(NSDictionary *result, NSError *error)
      {
          [self logErrorIfNotNil:error];
          
@@ -112,10 +115,10 @@
      }];
 }
 
--(void)completeItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
+-(void)completeTodoItem:(NSDictionary *)todoitem completion:(QSCompletionBlock)completion
 {
     // Set the item to be complete (we need a mutable copy)
-    NSMutableDictionary *mutable = [item mutableCopy];
+    NSMutableDictionary *mutable = [todoitem mutableCopy];
     [mutable setObject:@YES forKey:@"complete"];
     
     // Update the item in the TodoItem table and remove from the items array on completion
@@ -292,7 +295,7 @@
 
 
  
-/*
+
 
 -(void)addItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
 {
@@ -312,12 +315,14 @@
 
 -(void)completeItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
 {
+    NSLog(@"Complete item %@",item);
+    
     // Set the item to be complete (we need a mutable copy)
     NSMutableDictionary *mutable = [item mutableCopy];
     [mutable setObject:@YES forKey:@"complete"];
     
     // Update the item in the TodoItem table and remove from the items array on completion
-    [self.syncUsers update:mutable completion:^(NSError *error)
+    [self.syncItems update:mutable completion:^(NSError *error)
      {
          [self logErrorIfNotNil:error];
          
@@ -418,7 +423,7 @@
     }];
 }
 
-*/
+
  
 -(void)addShopListItem:(NSDictionary *)shopListItem completion:(QSCompletionBlock)completion
 {

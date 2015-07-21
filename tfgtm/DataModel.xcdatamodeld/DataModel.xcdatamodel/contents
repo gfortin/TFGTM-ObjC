@@ -11,6 +11,7 @@
         <relationship name="id_Item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Items" inverseName="r_id_User" inverseEntity="Items" syncable="YES"/>
     </entity>
     <entity name="Items" syncable="YES">
+        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="emoji_Item" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_Category" optional="YES" attributeType="String" syncable="YES"/>
@@ -101,7 +102,7 @@
     </entity>
     <elements>
         <element name="Categories" positionX="-83" positionY="81" width="128" height="163"/>
-        <element name="Items" positionX="-81" positionY="288" width="128" height="223"/>
+        <element name="Items" positionX="-81" positionY="288" width="128" height="238"/>
         <element name="MS_TableConfig" positionX="-135" positionY="-45" width="128" height="30"/>
         <element name="MS_TableOperationErrors" positionX="-279" positionY="-45" width="128" height="30"/>
         <element name="MS_TableOperations" positionX="9" positionY="-45" width="128" height="30"/>
