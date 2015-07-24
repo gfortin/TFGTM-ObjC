@@ -14,7 +14,12 @@
 // limitations under the License.
 //
 
+
+#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
 #import "QSAppDelegate.h"
+#import "TFGTMService.h"
+
 
 @implementation QSAppDelegate
 
@@ -29,6 +34,11 @@
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor darkGrayColor], NSForegroundColorAttributeName,
                                                            [UIFont fontWithName:@"Helvetica-Light" size:20.0], NSFontAttributeName, nil]];
+    
+    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    
     
     return YES;
 }
@@ -112,6 +122,43 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+// Registration with APNs is successful
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    TFGTMService *tfgtmService = [TFGTMService defaultService];
+    MSClient *client = tfgtmService.client;
+    
+    [client.push registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"Error registering for notifications: %@", error);
+        }
+    }];
+}
+
+// Handle any failure to register
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
+(NSError *)error {
+    NSLog(@"Failed to register for remote notifications: %@", error);
+}
+
+// Use userInfo in the payload to display a UIAlertView.
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"%@", userInfo);
+    
+    NSDictionary *apsPayload = userInfo[@"aps"];
+    NSString *alertString = apsPayload[@"alert"];
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Notification"
+                          message:alertString
+                          delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

@@ -89,7 +89,7 @@
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
     // show only non-completed items
     
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES"];
     
     
     // sort by item text
