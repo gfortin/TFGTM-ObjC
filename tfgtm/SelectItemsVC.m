@@ -25,6 +25,15 @@
 
 @implementation SelectItemsVC
 
+//lazy instantiation
+-(NSMutableArray*)items
+{
+    if (_items == nil) {
+        _items = [[NSMutableArray alloc]init];
+    }
+    return _items;
+}
+
 @synthesize tableViewItems;
 
 
@@ -32,10 +41,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
     // Initialize Data
     
-    items = [NSMutableArray new];
-
     _categories = @[        @"  🍎  Fruits et légumes",
                             @"  🍗  Viandes et poissons",
                             @"  🍞  Pains et pâtisseries",
@@ -46,32 +54,128 @@
                             @"  🍭  Snacks et friandises",
                             @"  ❓  Autres"];
 
+    
+    _fruitsLegumes = @[ @"🍎 Pommes",
+                        @"🍊 Oranges",
+                        @"🍋 Citrons",
+                        @"🍒 Cerises",
+                        @"🍒 Cerises",
+                        @"🍒 Cerises",
+                        @"🍒 Cerises",
+                        @"🍒 Cerises",
+                        @"🍒 Cerises",
+                        @"🍒 Cerises"
+                        ];
+    
+    
+    _viandesPoissons = @[ @"🐓 Poulet",
+                          @"🐂 Boeuf",
+                          @"🐖 Porc",
+                          @"🐟 Thon",
+                          @"🍒 Cerises",
+                          @"🍒 Cerises",
+                          @"🍒 Cerises",
+                          @"🍒 Cerises",
+                          @"🍒 Cerises",
+                          @"🍒 Cerises"
+                        ];
+    
+    _painsPatisseries = @[ @"🍎 painsPatisseries",
+                           @"🍊 painsPatisseries",
+                           @"🍋 painsPatisseries",
+                           @"🍒 painsPatisseries",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises"
+                           ];
+
+    _produitsLaitiers = @[ @"🍎 produitsLaitiers",
+                           @"🍊 produitsLaitiers",
+                           @"🍋 produitsLaitiers",
+                           @"🍒 produitsLaitiers",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises",
+                           @"🍒 Cerises"
+                           ];
+
+    _patesRiz = @[ @"🍎 patesRiz",
+                   @"🍊 patesRiz",
+                   @"🍋 patesRiz",
+                   @"🍒 patesRiz",
+                   @"🍒 Cerises",
+                   @"🍒 Cerises",
+                   @"🍒 Cerises",
+                   @"🍒 Cerises",
+                   @"🍒 Cerises",
+                   @"🍒 Cerises"
+                   ];
+
+    _epices = @[ @"🍎 epices",
+                 @"🍊 epices",
+                 @"🍋 epicess",
+                 @"🍒 epices",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises"
+                 ];
+
+    _boissons =@[ @"🍎 boissons",
+                  @"🍊 boissons",
+                  @"🍋 boissons",
+                  @"🍒 boissons",
+                  @"🍒 Cerises",
+                  @"🍒 Cerises",
+                  @"🍒 Cerises",
+                  @"🍒 Cerises",
+                  @"🍒 Cerises",
+                  @"🍒 Cerises"
+                  ];
+
+    _snacks = @[ @"🍎 _snacks",
+                 @"🍊 _snacks",
+                 @"🍋 _snacks",
+                 @"🍒 _snacks",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises"
+               ];
+    
+    _autres = @[ @"🍎 _autres",
+                 @"🍊 _autres",
+                 @"🍋 _autres",
+                 @"🍒 _autres",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises",
+                 @"🍒 Cerises"
+               ];
+
+    
+    
+    [self.items addObjectsFromArray:_fruitsLegumes];
+    
+    
     // Connect data
     self.categoryPicker.dataSource = self;
     self.categoryPicker.delegate = self;
+
     self.tableViewItems.dataSource = self;
     self.tableViewItems.delegate = self;
 
-    self.tableViewItems.beginUpdates;
-    
-    // Fruits et légumes
-    //===================
-    
-    
-    _fruitsLegumes = @ [        @"🍎", @"Fruits et légumes",
-                                @"🍗", @"Viandes et poissons",
-                                @"🍞", @"Pains et pâtisseries",
-                                @"🍦", @"Produits laitiers",
-                                @"🍚", @"Pâtes, riz et céréales",
-                                @"🌱", @"Épices et condiments",
-                                @"🍵", @"Boissons",
-                                @"🍭", @"Snacks et friandises",
-                                @"❓", @"Autres"];
-
-    
-    //tableViewItems.reloadData;
-    
-    
 
     
 }
@@ -92,13 +196,13 @@
 */
 
 // The number of columns of data
-- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
 // The number of rows of data
-- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return _categories.count;
 }
@@ -110,20 +214,85 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;{
+    
+    //GFO
+    
     self.title = _categories[row];
+    
+    [tableViewItems beginUpdates];
+    
+    
+    [self.items removeAllObjects];
+    
+    
+    
+    switch (row)
+    {
+        case 0:
+            [self.items addObjectsFromArray: _fruitsLegumes];
+            break;
+            
+        case 1:
+            [self.items addObjectsFromArray: _viandesPoissons];
+            break;
+            
+        case 2:
+            [self.items addObjectsFromArray: _painsPatisseries];
+            break;
+            
+        case 3:
+            [self.items addObjectsFromArray: _produitsLaitiers];
+            break;
+            
+        case 4:
+            [self.items addObjectsFromArray: _patesRiz];
+            break;
+            
+        case 5:
+            [self.items addObjectsFromArray: _epices];
+            break;
+            
+        case 6:
+            [self.items addObjectsFromArray: _boissons];
+            break;
+            
+        case 7:
+            [self.items addObjectsFromArray: _snacks];
+            break;
+            
+        case 8:
+            [self.items addObjectsFromArray: _autres];
+            break;
+            
+        default:
+            [self.items addObjectsFromArray: _autres];
+            break;
+    }
+    
+    
+    /*
+     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:([self.items count] - 1) inSection:0];
+
+     [self.tableViewItems insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationRight];
+    */
+     
+    [tableViewItems endUpdates];
+    [tableViewItems reloadData];
+    
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;}
+    return 1;
+}
 
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"_fruitsLegumes count %lu", (unsigned long)[_fruitsLegumes count] );
-    return [_fruitsLegumes count];
+    NSLog(@"numberOfRowsInSection: [self.items count] %lu", (unsigned long)[self.items count] );
+    return [self.items count];
 }
 
 
@@ -132,6 +301,7 @@
     
     NSLog(@"tableView cellForRowAtIndexPath");
     
+    /*
     static NSString *simpleTableIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableViewItems  dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -146,40 +316,52 @@
     
     //[_fruitsLegumes objectAtIndex:indexPath.row];
     return cell;
+    */
+    
+    UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"identifier"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"identifier"];
+    }
+
+    cell.textLabel.font = [UIFont systemFontOfSize:32];
+    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.text =  [self.items [indexPath.row] substringToIndex:2];
+    
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:25];
+    cell.detailTextLabel.text = [self.items [indexPath.row] substringFromIndex:2];
+    
+
+    return cell;
+    
+    
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder]; // hide the on-screen keyboard
+    return YES;
 }
 
 
+/*
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSLog(@"configureCell");
+
     
     // Set the label on the cell and make sure the label color is black (in case this cell
     // has been reused and was previously greyed out
     cell.textLabel.textColor = [UIColor blackColor];
-    //    cell.textLabel.text = [item valueForKey:@"text"];
-    //    cell.textLabel.text = [item valueForKey:@"name_Category"];
-    //    cell.textLabel.text = [item valueForKey:@"name_ShopList"];
-    //    cell.detailTextLabel.text = [item valueForKey:@"name_ShopList"];
     //    cell.textLabel.text = @"🍴";
     cell.textLabel.text =  @"Test textlabel";
     cell.detailTextLabel.text = @"Test detail";
 
     
 }
+*/
 
-
-
-
-
-- (IBAction)addFav:(id)sender {
-    //[tableViewItems beginUpdates];
-    [items addObject:@"Finland"];
-    /*
-     NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:([items count] - 1) inSection:0];
-    [self.tableViewItems insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationRight];
-    [tableViewItems endUpdates];
-     */
-    [tableViewItems reloadData];
-}
 
 
 @end
