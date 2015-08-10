@@ -299,7 +299,10 @@
 
 -(void)addItem:(NSDictionary *)item completion:(QSCompletionBlock)completion
 {
-    // Insert the user into the Users table and add to the users array on completion
+    
+    NSLog(@"GFO => addItem : %@", item);
+    
+    // Insert the Item into the Items table and add to the items array on completion
     [self.syncItems insert:item completion:^(NSDictionary *result, NSError *error)
      {
          [self logErrorIfNotNil:error];

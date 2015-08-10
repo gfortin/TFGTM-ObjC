@@ -267,11 +267,11 @@
     [itemsEmoji setValue:@"🍤" forKey:@"Crevette"];
     [itemsEmoji setValue:@"🍗" forKey:@"Poulet"];
     [itemsEmoji setValue:@"🐓" forKey:@"Coqauvin"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🐂" forKey:@"Boeuf"];
+    [itemsEmoji setValue:@"🐖" forKey:@"Porc"];
+    [itemsEmoji setValue:@"🐑" forKey:@"Mouton"];
+    [itemsEmoji setValue:@"🐇" forKey:@"Lapinàlamoutarde"];
+    [itemsEmoji setValue:@"🐸" forKey:@"Cuissesdegrenouille"];
     [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
     [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
     [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
@@ -296,36 +296,8 @@
      
      // Viandes et poissons
      //===================
-     
-     NSDictionary *item31 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Boeuf",
-     @"emoji_Item" : @"🐂",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item32 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Porc",
-     @"emoji_Item" : @"🐖",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item33 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Mouton",
-     @"emoji_Item" : @"🐑",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item34 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Lapin",
-     @"emoji_Item" : @"🐇",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item35 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Cuisses de grenouille",
-     @"emoji_Item" : @"🐸",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
+ 
+ 
      
      NSDictionary *item36 = @{ @"type_Item" : @YES,
      @"name_Item" : @"Poulet",
@@ -504,8 +476,7 @@
     
     //NSDictionary *item = @{ @"emoji": emojiItem, @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
     NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": emojiItem, @"name_Item" : self.itemText.text, @"complete" : @NO };
-    //NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
-    //    [self.shoplistsitemsService addShopListItem:item completion:nil];
+
     [self.shoplistsitemsService addItem:item completion:nil];
     self.itemText.text = @"";
     self.itemEmoji = @"🍴";

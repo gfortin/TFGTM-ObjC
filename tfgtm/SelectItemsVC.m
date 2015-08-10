@@ -6,7 +6,17 @@
 //  Copyright (c) 2015 MobileServices. All rights reserved.
 //
 
+
+#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
 #import "SelectItemsVC.h"
+#import "TFGTMService.h"
+#import "QSAppDelegate.h"
+
+#import "SSKeychain.h"
+#import "SSKeychainQuery.h"
+
+
 
 @interface SelectItemsVC ()
 {
@@ -21,7 +31,14 @@
             *_snacks,
             *_autres;
 }
+
+@property (strong, nonatomic) TFGTMService *shoplistsitemsService;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
+
+
 @end
+
 
 @implementation SelectItemsVC
 
@@ -175,6 +192,7 @@
 
     self.tableViewItems.dataSource = self;
     self.tableViewItems.delegate = self;
+    self.tableViewItems.allowsMultipleSelection = true;
 
 
     
@@ -212,6 +230,9 @@
 {
     return _categories[row];
 }
+
+
+
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;{
     
@@ -296,6 +317,8 @@
 }
 
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath        *)indexPath
 {
     
@@ -336,6 +359,40 @@
     
     
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;{
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"GFO => ADD %@, %@", cell.textLabel.text, cell.detailTextLabel.text);
+    
+    NSString *UUID_Item = [[NSUUID UUID] UUIDString];
+    
+    NSLog(@"GFO => UUID id_Item %@", UUID_Item);
+    
+    //NSDictionary *item = @{ @"emoji": emojiItem, @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
+    NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": cell.textLabel.text, @"name_Item" : cell.detailTextLabel.text, @"complete" : @NO };
+    //NSDictionary *item = @{ @"id_ShopList" : self.itemText.text };
+    //    [self.shoplistsitemsService addShopListItem:item completion:nil];
+    
+    
+    //GFOGFO
+    [self.shoplistsitemsService addItem:item completion:nil];
+    
+
+    
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(3_0);{
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"Deselect  %@, %@", cell.textLabel.text, cell.detailTextLabel.text);
+    
+    
+}
+
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
