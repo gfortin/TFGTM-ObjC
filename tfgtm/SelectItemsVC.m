@@ -76,7 +76,7 @@
                         @"🍊 Oranges",
                         @"🍋 Citrons",
                         @"🍒 Cerises",
-                        @"🍒 Cerises",
+                        @"🍒 Bananes",
                         @"🍒 Cerises",
                         @"🍒 Cerises",
                         @"🍒 Cerises",
