@@ -237,7 +237,7 @@
     [itemsEmoji setValue:@"🌽" forKey:@"Maï"];
     [itemsEmoji setValue:@"🌽" forKey:@"Mai"];
     [itemsEmoji setValue:@"🍠" forKey:@"Patatedouce"];
-    [itemsEmoji setValue:@"🍇" forKey:@"Melon"];
+    [itemsEmoji setValue:@"🍇" forKey:@"Raisin"];
     [itemsEmoji setValue:@"🍉" forKey:@"Pastèque"];
     [itemsEmoji setValue:@"🍊" forKey:@"Tangerine"];
     [itemsEmoji setValue:@"🍊" forKey:@"Orange"];
@@ -250,7 +250,7 @@
     [itemsEmoji setValue:@"🍑" forKey:@"Pêche"];
     [itemsEmoji setValue:@"🍒" forKey:@"Cerise"];
     [itemsEmoji setValue:@"🍓" forKey:@"Fraise"];
-    [itemsEmoji setValue:@"🍍" forKey:@"Anana"];
+    [itemsEmoji setValue:@"🍍" forKey:@"Ananas"];
     [itemsEmoji setValue:@"🍦" forKey:@"Glace"];
     [itemsEmoji setValue:@"🍼" forKey:@"Lait"];
     [itemsEmoji setValue:@"🍨" forKey:@"Sorbet"];
@@ -272,13 +272,38 @@
     [itemsEmoji setValue:@"🐑" forKey:@"Mouton"];
     [itemsEmoji setValue:@"🐇" forKey:@"Lapinàlamoutarde"];
     [itemsEmoji setValue:@"🐸" forKey:@"Cuissesdegrenouille"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
-    [itemsEmoji setValue:@"🍐" forKey:@"Poire"];
+    [itemsEmoji setValue:@"🍯" forKey:@"miel"];
+    [itemsEmoji setValue:@"🍷" forKey:@"Vinrouge"];
+    [itemsEmoji setValue:@"🍹" forKey:@"Liqueur"];
+    [itemsEmoji setValue:@"🍺" forKey:@"Bière"];
+    [itemsEmoji setValue:@"🍳" forKey:@"Oeuf"];
+    [itemsEmoji setValue:@"🍲" forKey:@"Soupe"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Spaghetti"];
+    [itemsEmoji setValue:@"🍟" forKey:@"Frites"];
+    [itemsEmoji setValue:@"🍵" forKey:@"Thé"];
+    [itemsEmoji setValue:@"☕️" forKey:@"Café"];
+    [itemsEmoji setValue:@"🍫" forKey:@"Chocolat"];
+    [itemsEmoji setValue:@"🍕" forKey:@"Pizza"];
+    [itemsEmoji setValue:@"🍚" forKey:@"Riz"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Gingembre"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Eau"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Céréale"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Sel"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Poivre"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Épices"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Sucre"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Farine"];
+    [itemsEmoji setValue:@"💧" forKey:@"Eau"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Laitue"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Avocat"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Champignon"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Brocoli"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Chou"];
+    [itemsEmoji setValue:@"🍴" forKey:@"Jus"];
+
+
+
+
     
     
     
