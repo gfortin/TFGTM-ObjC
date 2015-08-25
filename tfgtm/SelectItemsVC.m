@@ -36,7 +36,6 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 
-
 @end
 
 
@@ -213,14 +212,23 @@
 }
 */
 
+// returns the view provided by the delegate via pickerView:viewForRow:forComponent:reusingView:
+// or nil if the row/component is not visible or the delegate does not implement
+// pickerView:viewForRow:forComponent:reusingView:
+- (UIView *)viewForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return self.view;
+}
+
+
 // The number of columns of data
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
 // The number of rows of data
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return _categories.count;
 }
@@ -399,6 +407,15 @@
     [textField resignFirstResponder]; // hide the on-screen keyboard
     return YES;
 }
+
+
+- (void)viewWillDisappear:(BOOL)animated; // Called when the view is dismissed, covered or otherwise hidden. Default does nothing
+{
+ 
+    NSLog(@"GFO => Back button pushed");
+}
+
+
 
 
 /*
