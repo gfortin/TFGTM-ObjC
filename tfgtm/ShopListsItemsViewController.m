@@ -9,6 +9,7 @@
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 #import "ShopListsItemsViewController.h"
+#import "InvitationVC.h"
 #import "TFGTMService.h"
 #import "QSAppDelegate.h"
 
@@ -583,8 +584,10 @@
 - (IBAction)inviteAction:(id)sender {
 
     
-    NSLog(@"GFO => email");
+    NSLog(@"GFO => invitation");
     
+    
+    /*
     NSString *recipients = @"mailto:?cc=ghislain.fortin@hotmail.fr&subject=TFGTM : Invitation à ma liste de course";
     
     NSString *body = [NSString stringWithFormat:@"&body=Bonjour, Je t'invite à ma liste de course %@  à l'aide de l'application TheFirstGetTheMilk!", shopListName];
@@ -604,9 +607,21 @@
     
     
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"sms:0648162995"]];
+     
+     */
 
     
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"showInvitation"]) {
+        InvitationVC *destViewController = segue.destinationViewController;
+        destViewController.shopListName = shopListName;
+        
+    }
+}
+
 
 
 @end
