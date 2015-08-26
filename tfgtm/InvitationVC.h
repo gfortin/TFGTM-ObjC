@@ -2,13 +2,15 @@
 //  InvitationVC.h
 //  tfgtm
 //
-//  Created by Isabelle Dextraze on 26/08/2015.
+//  Created by Ghislain Fortin on 26/08/2015.
 //  Copyright (c) 2015 MobileServices. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface InvitationVC : UIViewController
+
+@interface InvitationVC : UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *shopListName;
 

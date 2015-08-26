@@ -2,11 +2,12 @@
 //  InvitationVC.m
 //  tfgtm
 //
-//  Created by Isabelle Dextraze on 26/08/2015.
+//  Created by Ghislain Fortin on 26/08/2015.
 //  Copyright (c) 2015 MobileServices. All rights reserved.
 //
 
 #import "InvitationVC.h"
+
 
 @interface InvitationVC ()
 
@@ -19,18 +20,23 @@
 @synthesize emailInvitation;
 @synthesize telephoneInvitation;
 
-
+//create default values (MUST REWRITE)
+NSString *messageBody = @"Bonjour, Je t'invite à ma liste de courses à l'aide de l'application TheFirstGetTheMilk!";
+NSString *messageSubject = @"Invitation - liste de courses";
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Invitation - liste de course";
+    [pseudoInvitation setDelegate:self];
+    [emailInvitation setDelegate:self];
+    [telephoneInvitation setDelegate:self];
 
-    //self.titleInvitation.text = [NSString stringWithFormat:@"Invitation à ma liste de course : %@", shopListName];
-    self.titleInvitation.text = shopListName;
     
+    self.title = @"Invitation - liste de courses";
+    
+    self.titleInvitation.text = shopListName;
     
     
     //Pour masquer le clavier
@@ -64,8 +70,39 @@
     
     NSLog(@"Action email");
     
+    //get email address from text input
+    NSString *email = self.emailInvitation.text;
     
-     NSString *recipients = @"mailto:?cc=ghislain.fortin@hotmail.fr&subject=TFGTM : Invitation à ma liste de course";
+    //try validate email
+    if ([self validateEmail:email] == NO) {
+        [self makeAlert:@"Merci de saisir une adresse email valide"];
+        //set responder to this text input
+        [self.emailInvitation becomeFirstResponder];
+        
+        return;
+    }else{
+        //create new instane of MFMailComposeViewController
+        MFMailComposeViewController* mc = [[MFMailComposeViewController alloc] init];
+        //set delegate
+        mc.mailComposeDelegate = self;
+        
+        //set message body
+        
+        messageBody = [NSString stringWithFormat:@"Bonjour %@,\n\n   Je t'invite à ma liste de courses '%@' à l'aide de l'application TheFirstGetTheMilk!\n\nBonnes courses! 😋\n", pseudoInvitation.text, shopListName];
+        
+        
+        [mc setMessageBody:messageBody isHTML:NO];
+        //set message subject
+        [mc setSubject:messageSubject];
+        
+        //set message recipients
+        [mc setToRecipients:[NSArray arrayWithObject:email]];
+        
+        //open dialog
+        [self presentViewController:mc animated:YES completion:nil];
+    }
+    /*
+     NSString *recipients = [NSString stringWithFormat: @"mailto:%@?&subject=TFGTM : Invitation à ma liste de course", emailInvitation.text];
      
      NSString *body = [NSString stringWithFormat:@"&body=Bonjour, Je t'invite à ma liste de course %@  à l'aide de l'application TheFirstGetTheMilk!", shopListName];
      
@@ -74,29 +111,160 @@
      email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
      
      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
-     
-     
-     //NSLog(@"GFO => SMS");
-     
+    */
+    
+     /*
      UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Invitation!" message:@"Invitation envoyée par email." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
      [warningAlert show];
-     
+     */
+    
      //[self.navigationController popToRootViewControllerAnimated:YES];
-     [self.navigationController popViewControllerAnimated:YES];
+     //[self.navigationController popViewControllerAnimated:YES];
 
 }
 
 - (IBAction)actionSMS:(id)sender {
     
-    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"sms:0648162995"]];
+    //[[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"sms:0648162995"]];
+    //[[UIApplication sharedApplication] openURL: [NSURL URLWithString:[NSString stringWithFormat:@"sms:%@", telephoneInvitation.text]]];
 
+    //get phone number from input
+    NSString *phone = self.telephoneInvitation.text;
     
-    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Invitation!" message:@"Invitation envoyée par SMS." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [warningAlert show];
+    //try validate phone number
+    if ([self validatePhone:phone] == NO) {
+        [self makeAlert:@"Merci de saisir un numéro de téléphone valide"];
+        //set responder to this text input
+        [self.telephoneInvitation becomeFirstResponder];
+        
+        return;
+        
+    }else{
+        //test if this device can send message
+        if([MFMessageComposeViewController canSendText] ){
+            //create new instance from MFMessageComposeViewController
+            MFMessageComposeViewController* comp = [[MFMessageComposeViewController alloc] init];
+            
+            messageBody = [NSString stringWithFormat:@"Bonjour %@,\n\n   Je t'invite à ma liste de courses '%@' à l'aide de l'application TheFirstGetTheMilk!\n\nBonnes courses! 😋\n", pseudoInvitation.text, shopListName];
+            
+            //set properties
+            comp.body = messageBody;
+            comp.recipients = [NSArray arrayWithObject:phone];
+            comp.messageComposeDelegate = self;
+            
+            //present view controller
+            [self presentViewController:comp animated:YES completion:nil];
+            
+            /*
+             UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Invitation!" message:@"Invitation envoyée par SMS." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            */
+        }
+        else{
+            [self makeAlert:@"Cet appareil ne peut pas envoyer de SMS"];
+        }
+    }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    //[self.navigationController popViewControllerAnimated:YES];
     
 }
+
+
+/*** HELPERS  ***/
+
+
+/**
+ make alert from nsstring
+ **/
+-(void)makeAlert:(NSString *)message{
+    [[[UIAlertView alloc] initWithTitle:@"Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+/**
+ Validate email address
+ **/
+- (BOOL) validateEmail: (NSString *) candidate {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
+
+/**
+ Validate phone number
+ **/
+-(BOOL)validatePhone : (NSString *)phoneNumber{
+    NSString *phoneRegex = @"[0-9]+";
+    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
+    
+    return [test evaluateWithObject:phoneNumber];
+}
+
+
+#pragma mark - mail composer delegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    
+    //if result is possible
+    if(result == MFMailComposeResultSent || result == MFMailComposeResultSaved || result == MFMailComposeResultCancelled){
+        
+        //test result and show alert
+        switch (result) {
+            case MFMailComposeResultCancelled:
+                [self makeAlert:@"Message annulé"];
+                break;
+            case MFMailComposeResultSaved:
+                [self makeAlert:@"Message sauvegardé"];
+                break;
+                //message was sent
+            case MFMailComposeResultSent:
+                [self makeAlert:@"Message bien envoyé"];
+                break;
+            case MFMailComposeResultFailed:
+                [self makeAlert:@"Echec d'envoi de l'email"];
+                break;
+            default:
+                break;
+        }
+    }
+    //else exists error
+    else if(error != nil){
+        //show error
+        [self makeAlert:[error localizedDescription]];
+    }
+    
+    //dismiss view
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+#pragma mark - sms composer delegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    //test result
+    switch (result) {
+        case MessageComposeResultCancelled:
+            [self makeAlert:@"Message annulé"];
+            break;
+            //message was sent
+        case MessageComposeResultSent:
+            [self makeAlert:@"Message bien envoyé"];
+            break;
+        case MessageComposeResultFailed:
+            [self makeAlert:@"Echec d'envoi de message"];
+            break;
+        default:
+            break;
+    }
+    
+    //dismiss view
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -104,10 +272,14 @@
     return YES;
 }
 
+
 -(void)dismissKeyboard {
     [pseudoInvitation resignFirstResponder];
     [emailInvitation resignFirstResponder];
     [telephoneInvitation resignFirstResponder];
 }
+
+
+
 
 @end
