@@ -18,10 +18,39 @@
 @synthesize emailInscription;
 @synthesize passwordInscription;
 @synthesize confirmPasswordInscription;
+@synthesize background;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Paralax effect =========
+    // Set vertical effect
+    UIInterpolatingMotionEffect *verticalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.y"
+     type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    verticalMotionEffect.minimumRelativeValue = @(-30);
+    verticalMotionEffect.maximumRelativeValue = @(30);
+    
+    // Set horizontal effect
+    UIInterpolatingMotionEffect *horizontalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.x"
+     type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontalMotionEffect.minimumRelativeValue = @(-30);
+    horizontalMotionEffect.maximumRelativeValue = @(30);
+    
+    // Create group to combine both
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+    
+    // Add both effects to your view
+    [background addMotionEffect:group];
+    //=============================
+    
+    [self.view sendSubviewToBack:self.background];
+    
     
     //Pour masquer le clavier
     [pseudoInscription setDelegate:self];
@@ -70,7 +99,43 @@
     //[telephoneInvitation resignFirstResponder];
 }
 
+/*** HELPERS  ***/
+
+
+/**
+ make alert from nsstring
+ **/
+-(void)makeAlert:(NSString *)message{
+    [[[UIAlertView alloc] initWithTitle:@"Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+/**
+ Validate email address
+ **/
+- (BOOL) validateEmail: (NSString *) candidate {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:candidate];
+}
+
 
 - (IBAction)validateInscription:(id)sender {
+    
+    //get email address from text input
+    NSString *email = self.emailInscription.text;
+    
+    //try validate email
+    if ([self validateEmail:email] == NO) {
+        [self makeAlert:@"Merci de saisir une adresse email valide"];
+        //set responder to this text input
+        [self.emailInscription becomeFirstResponder];
+        return;
+    }
+    
+    
+    [self performSegueWithIdentifier:@"InscriptionToShopLists" sender:self];
+
+    
 }
 @end

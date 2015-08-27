@@ -19,6 +19,7 @@
 @synthesize pseudoInvitation;
 @synthesize emailInvitation;
 @synthesize telephoneInvitation;
+@synthesize background;
 
 //create default values (MUST REWRITE)
 NSString *messageBody = @"Bonjour, Je t'invite à ma liste de courses à l'aide de l'application TheFirstGetTheMilk!";
@@ -28,6 +29,33 @@ NSString *messageSubject = @"Invitation - liste de courses";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Paralax effect =========
+    // Set vertical effect
+    UIInterpolatingMotionEffect *verticalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.y"
+     type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    verticalMotionEffect.minimumRelativeValue = @(-30);
+    verticalMotionEffect.maximumRelativeValue = @(30);
+    
+    // Set horizontal effect
+    UIInterpolatingMotionEffect *horizontalMotionEffect =
+    [[UIInterpolatingMotionEffect alloc]
+     initWithKeyPath:@"center.x"
+     type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    horizontalMotionEffect.minimumRelativeValue = @(-30);
+    horizontalMotionEffect.maximumRelativeValue = @(30);
+    
+    // Create group to combine both
+    UIMotionEffectGroup *group = [UIMotionEffectGroup new];
+    group.motionEffects = @[horizontalMotionEffect, verticalMotionEffect];
+    
+    // Add both effects to your view
+    [background addMotionEffect:group];
+    //=============================
+    
+    
     
     //Pour masquer le clavier
     [pseudoInvitation setDelegate:self];
@@ -69,8 +97,18 @@ NSString *messageSubject = @"Invitation - liste de courses";
     NSString *email = self.emailInvitation.text;
     
     //try validate email
+    if ([self.pseudoInvitation.text  isEqual: @""]) {
+        [self makeAlert:@"Merci de saisir un nom ou un pseudo."];
+        //set responder to this text input
+        [self.pseudoInvitation becomeFirstResponder];
+        
+        return;
+    }
+    
+    
+    //try validate email
     if ([self validateEmail:email] == NO) {
-        [self makeAlert:@"Merci de saisir une adresse email valide"];
+        [self makeAlert:@"Merci de saisir une adresse email valide."];
         //set responder to this text input
         [self.emailInvitation becomeFirstResponder];
         

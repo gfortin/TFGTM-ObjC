@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailInscription;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInscription;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordInscription;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
 
 - (IBAction)validateInscription:(id)sender;
 

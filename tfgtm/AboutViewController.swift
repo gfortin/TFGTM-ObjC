@@ -12,6 +12,8 @@ class AboutViewController: UIViewController {
     
     @IBOutlet weak var aboutWebView: UIWebView!
     
+    @IBOutlet weak var background: UIImageView!
+    
     let urlGEP = "http://www.groupe-ecolepratique.com"
     
      //     self.window.title = "A propos"
@@ -20,6 +22,28 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
     
         self.title = "TheFirstGetTheMilk!"
+        
+        
+        // Set vertical effect
+        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
+            type: .TiltAlongVerticalAxis)
+        verticalMotionEffect.minimumRelativeValue = -30
+        verticalMotionEffect.maximumRelativeValue = 30
+        
+        // Set horizontal effect
+        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x",
+            type: .TiltAlongHorizontalAxis)
+        horizontalMotionEffect.minimumRelativeValue = -30
+        horizontalMotionEffect.maximumRelativeValue = 30
+        
+        // Create group to combine both
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
+        
+        // Add both effects to your view
+        background.addMotionEffect(group)
+        
+        
         
         var tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("webTFGTM", ofType:"html",inDirectory: "web")!)
         

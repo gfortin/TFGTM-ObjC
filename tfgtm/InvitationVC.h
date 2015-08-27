@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pseudoInvitation;
 @property (weak, nonatomic) IBOutlet UITextField *emailInvitation;
 @property (weak, nonatomic) IBOutlet UITextField *telephoneInvitation;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
+
 
 
 - (IBAction)actionEmail:(id)sender;

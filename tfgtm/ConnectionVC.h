@@ -10,6 +10,7 @@
 
 @interface ConnectionVC : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UITextField *emailConnection;
 @property (weak, nonatomic) IBOutlet UITextField *passwordConnection;
 
