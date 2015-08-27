@@ -37,6 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+ 
+    // Set this in every view controller so that the back button displays < instead of the root view controller name
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     
     // Create the tfgtmService - this creates the Mobile Service client inside the wrapped service

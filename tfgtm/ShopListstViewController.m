@@ -36,6 +36,7 @@
 
 @synthesize shopListSelect;
 @synthesize strUserID;
+@synthesize itemText;
 
 
 #pragma mark * UIView methods
@@ -44,6 +45,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Pour masquer le clavier
+    /*
+    [itemText setDelegate:self];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+     */
+    
     
     // Create the shoplistsService - this creates the Mobile Service client inside the wrapped service
     self.shoplistsService = [TFGTMService defaultService];
@@ -341,6 +351,11 @@
     }
 }
 
+-(void)dismissKeyboard {
+    [itemText resignFirstResponder];
+}
+
+
 /*
 - (void) loginAndGetData
 {
@@ -377,5 +392,6 @@
     }
  }
  */
+
 
 @end

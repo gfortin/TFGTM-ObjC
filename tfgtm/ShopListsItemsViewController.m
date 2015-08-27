@@ -31,6 +31,7 @@
 @implementation ShopListsItemsViewController
 
 @synthesize shopListName;
+@synthesize itemText;
 
 #pragma mark * UIView methods
 
@@ -39,6 +40,14 @@
 {
     [super viewDidLoad];
     
+    //Pour masquer le clavier
+    /*
+    [itemText setDelegate:self];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    */
+
     self.title = shopListName;
     
     //shopListLabel.text = @"Ma liste";
@@ -622,6 +631,9 @@
     }
 }
 
+-(void)dismissKeyboard {
+    [itemText resignFirstResponder];
+}
 
 
 @end

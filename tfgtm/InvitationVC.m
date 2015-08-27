@@ -29,24 +29,19 @@ NSString *messageSubject = @"Invitation - liste de courses";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //Pour masquer le clavier
     [pseudoInvitation setDelegate:self];
     [emailInvitation setDelegate:self];
     [telephoneInvitation setDelegate:self];
-
-    
-    self.title = @"Invitation - liste de courses";
-    
-    self.titleInvitation.text = shopListName;
-    
-    
-    //Pour masquer le clavier
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
+    self.title = @"Invitation - liste de courses";
+    self.titleInvitation.text = shopListName;
+    
     pseudoInvitation.autocorrectionType = UITextAutocorrectionTypeNo;
     emailInvitation.autocorrectionType = UITextAutocorrectionTypeNo;
-    
     
 }
 

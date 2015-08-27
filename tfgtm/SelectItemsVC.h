@@ -17,7 +17,6 @@
 @property (strong, nonatomic) NSMutableArray *items, *emoji;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchItem;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewItems;
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component;

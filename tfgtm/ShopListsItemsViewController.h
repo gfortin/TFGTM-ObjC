@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *shopListName;
 
