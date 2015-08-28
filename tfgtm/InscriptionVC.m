@@ -106,7 +106,7 @@
  make alert from nsstring
  **/
 -(void)makeAlert:(NSString *)message{
-    [[[UIAlertView alloc] initWithTitle:@"Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"⚠️ Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 /**
@@ -125,13 +125,44 @@
     //get email address from text input
     NSString *email = self.emailInscription.text;
     
+    //try validate pseudo
+    if ([self.pseudoInscription.text  isEqual: @""]) {
+        [self makeAlert:@"Merci de saisir un identifiant."];
+        [self.pseudoInscription becomeFirstResponder];
+        return;
+    }
+    
     //try validate email
     if ([self validateEmail:email] == NO) {
         [self makeAlert:@"Merci de saisir une adresse email valide"];
-        //set responder to this text input
         [self.emailInscription becomeFirstResponder];
         return;
     }
+    
+    //try validate password
+    if ([self.passwordInscription.text  isEqual: @""]) {
+        [self makeAlert:@"Merci de saisir un mot de passe."];
+        [self.passwordInscription becomeFirstResponder];
+        return;
+    }
+
+    //try validate confirmation password
+    if ([self.confirmPasswordInscription.text  isEqual: @""]) {
+        [self makeAlert:@"Merci de confirmer le mot de passe."];
+        [self.confirmPasswordInscription becomeFirstResponder];
+        return;
+    }
+    
+    //try validate password
+    if ([self.passwordInscription.text  isEqual: self.confirmPasswordInscription.text]) {
+        NSLog(@"Password = Confirmation"); }
+    else
+    {
+        [self makeAlert:@"Merci de saisir un mot de passe."];
+        [self.passwordInscription becomeFirstResponder];
+        return;
+    }
+    
     
     
     [self performSegueWithIdentifier:@"InscriptionToShopLists" sender:self];

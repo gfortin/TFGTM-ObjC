@@ -222,13 +222,14 @@
         
         
         if (client.currentUser != nil) {
-            
-        //[self performSegueWithIdentifier:@"showShopLists" sender:self];
-    
+        /*
         NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
         UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [warningAlert show];
-
+        */
+         
+        //[self performSegueWithIdentifier:@"showShopLists" sender:self];
+            
         }
         
 

@@ -101,7 +101,7 @@
  make alert from nsstring
  **/
 -(void)makeAlert:(NSString *)message{
-    [[[UIAlertView alloc] initWithTitle:@"Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"⚠️ Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 /**
@@ -126,11 +126,24 @@
         [self.emailConnection becomeFirstResponder];
         
         return;
-    }else{
-        [self performSegueWithIdentifier:@"ConnectionToShopLists" sender:self];
-
     }
     
+    //try validate password
+    if ([self.passwordConnection.text  isEqual: @""]) {
+        [self makeAlert:@"Merci de saisir le mot de passe."];
+        [self.passwordConnection becomeFirstResponder];
+        return;
+    }
+    
+    
+    //try validate password
+    if ([self.passwordConnection.text  isEqual: @"rcdsm2015"]) {
+        [self performSegueWithIdentifier:@"ConnectionToShopLists" sender:self];
+    }else{
+        [self makeAlert:@"Mot de passe incorrect."];
+        [self.passwordConnection becomeFirstResponder];
+        return;
+    }
     
 }
 @end

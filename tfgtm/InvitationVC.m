@@ -96,7 +96,7 @@ NSString *messageSubject = @"Invitation - liste de courses";
     //get email address from text input
     NSString *email = self.emailInvitation.text;
     
-    //try validate email
+    //try validate pseudo
     if ([self.pseudoInvitation.text  isEqual: @""]) {
         [self makeAlert:@"Merci de saisir un nom ou un pseudo."];
         //set responder to this text input
@@ -121,7 +121,7 @@ NSString *messageSubject = @"Invitation - liste de courses";
         
         //set message body
         
-        messageBody = [NSString stringWithFormat:@"Bonjour %@,\n\n   Je t'invite à ma liste de courses '%@' à l'aide de l'application TheFirstGetTheMilk!\n\nBonnes courses! 😋\n", pseudoInvitation.text, shopListName];
+        messageBody = [NSString stringWithFormat:@"Bonjour %@,\n\nJe t'invite à ma liste de courses '%@' à l'aide de l'application TheFirstGetTheMilk!\n\nBonnes courses! 😋\n", pseudoInvitation.text, shopListName];
         
         
         [mc setMessageBody:messageBody isHTML:NO];
@@ -164,6 +164,15 @@ NSString *messageSubject = @"Invitation - liste de courses";
     //get phone number from input
     NSString *phone = self.telephoneInvitation.text;
     
+    //try validate pseudo
+    if ([self.pseudoInvitation.text  isEqual: @""]) {
+        [self makeAlert:@"Merci de saisir un nom ou un pseudo."];
+        //set responder to this text input
+        [self.pseudoInvitation becomeFirstResponder];
+        
+        return;
+    }
+    
     //try validate phone number
     if ([self validatePhone:phone] == NO) {
         [self makeAlert:@"Merci de saisir un numéro de téléphone valide"];
@@ -178,7 +187,7 @@ NSString *messageSubject = @"Invitation - liste de courses";
             //create new instance from MFMessageComposeViewController
             MFMessageComposeViewController* comp = [[MFMessageComposeViewController alloc] init];
             
-            messageBody = [NSString stringWithFormat:@"Bonjour %@,\n\n   Je t'invite à ma liste de courses '%@' à l'aide de l'application TheFirstGetTheMilk!\n\nBonnes courses! 😋\n", pseudoInvitation.text, shopListName];
+            messageBody = [NSString stringWithFormat:@"Bonjour %@,\n\nJe t'invite à ma liste de courses '%@' à l'aide de l'application TheFirstGetTheMilk!\n\nBonnes courses! 😋\n", pseudoInvitation.text, shopListName];
             
             //set properties
             comp.body = messageBody;
@@ -211,7 +220,7 @@ NSString *messageSubject = @"Invitation - liste de courses";
  make alert from nsstring
  **/
 -(void)makeAlert:(NSString *)message{
-    [[[UIAlertView alloc] initWithTitle:@"Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"⚠️ Attention!" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 /**
