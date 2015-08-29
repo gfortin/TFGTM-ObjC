@@ -17,9 +17,24 @@
 @synthesize emailConnection;
 @synthesize passwordConnection;
 @synthesize background;
+@synthesize adView;
+
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    [adView setHidden:NO];
+    NSLog(@"GFO => Affiche publicité");
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    [adView setHidden:YES];
+    NSLog(@"GFO => Masque publicité");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    adView.delegate = self;
+    [adView setHidden:YES];
     
     // Paralax effect =========
     // Set vertical effect
@@ -145,5 +160,9 @@
         return;
     }
     
+    
+    
 }
+
+
 @end

@@ -13,10 +13,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFGTM-1024x1024.png" id="D10-Wn-sCG">
-                                <rect key="frame" x="-18" y="36" width="388" height="466"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✉️ Adresse email :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="acP-Sg-rB2">
                                 <rect key="frame" x="16" y="158" width="288" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -80,11 +76,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFGTM-1024x1024.png" id="D10-Wn-sCG">
+                                <rect key="frame" x="-18" y="36" width="388" height="466"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mMJ-Gx-mEb">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="P0F-PG-g7n"/>
                     <connections>
+                        <outlet property="adView" destination="mMJ-Gx-mEb" id="Ico-17-Zi3"/>
                         <outlet property="background" destination="D10-Wn-sCG" id="1VN-Mo-s2A"/>
                         <outlet property="confirmPasswordInscription" destination="XFw-h9-CSO" id="B4C-ti-A7j"/>
                         <outlet property="emailInscription" destination="xwf-hl-VuS" id="vSo-zV-xyV"/>
@@ -146,11 +151,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nFL-rd-DF4">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="wKw-YL-4QG"/>
                     <connections>
+                        <outlet property="adView" destination="nFL-rd-DF4" id="ZRa-RV-2me"/>
                         <outlet property="background" destination="SVH-ZC-4b9" id="PRH-Zh-bBy"/>
                         <outlet property="emailConnection" destination="bAc-pG-LWx" id="R3f-Ph-2xv"/>
                         <outlet property="passwordConnection" destination="p60-aF-ce1" id="aNs-Ni-JPo"/>
@@ -502,13 +512,13 @@
         <!--InvitationVC-->
         <scene sceneID="QFu-29-ygT">
             <objects>
-                <viewController title="InvitationVC" id="I1r-dE-GME" customClass="InvitationVC" sceneMemberID="viewController">
+                <viewController id="I1r-dE-GME" customClass="InvitationVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4uB-qU-vAj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFGTM-1024x1024.png" id="8F9-xE-ogo">
-                                <rect key="frame" x="-12" y="64" width="391" height="474"/>
+                                <rect key="frame" x="-12" y="64" width="391" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📞  Numéro de téléphone :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EhL-bU-FXl">
@@ -545,7 +555,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xh5-hC-qdy">
-                                <rect key="frame" x="57" y="375" width="206" height="36"/>
+                                <rect key="frame" x="57" y="382" width="206" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Inviter par email">
@@ -568,8 +578,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="M3j-Kh-rpp">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LUp-oK-OCc">
-                                <rect key="frame" x="56" y="434" width="206" height="36"/>
+                                <rect key="frame" x="57" y="442" width="206" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Inviter par SMS">
@@ -584,6 +598,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mEZ-NX-xaT"/>
                     <connections>
+                        <outlet property="adView" destination="M3j-Kh-rpp" id="KRa-f8-Tsv"/>
                         <outlet property="background" destination="8F9-xE-ogo" id="7iX-yx-607"/>
                         <outlet property="emailInvitation" destination="bSX-uY-zs8" id="FmT-Ol-L6S"/>
                         <outlet property="pseudoInvitation" destination="Js7-CN-84d" id="bSn-6L-Orx"/>

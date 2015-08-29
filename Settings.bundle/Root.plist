@@ -16,7 +16,7 @@
 			<key>Title</key>
 			<string>Identifiant</string>
 			<key>Key</key>
-			<string>user_identifier</string>
+			<string>userIdentifier</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -24,7 +24,7 @@
 			<key>Title</key>
 			<string>Mot de passe</string>
 			<key>Key</key>
-			<string>user_password</string>
+			<string>userPassword</string>
 			<key>IsSecure</key>
 			<true/>
 		</dict>
@@ -32,7 +32,7 @@
 			<key>DefaultValue</key>
 			<false/>
 			<key>Key</key>
-			<string>auto_connection</string>
+			<string>autoconnect</string>
 			<key>Title</key>
 			<string>Connexion automatique</string>
 			<key>Type</key>
@@ -56,11 +56,11 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>1.0</string>
+			<string>(update needed)</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
-			<string>version_preference</string>
+			<string>appVersion</string>
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>

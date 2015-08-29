@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface InscriptionVC : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate>
+
+@interface InscriptionVC : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate, ADBannerViewDelegate>
+{
+    ADBannerView *adView;
+}
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 
 @property (weak, nonatomic) IBOutlet UITextField *pseudoInscription;
 @property (weak, nonatomic) IBOutlet UITextField *emailInscription;

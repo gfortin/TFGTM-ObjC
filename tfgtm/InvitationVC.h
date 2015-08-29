@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
+#import <iAd/iAd.h>
 
 
-@interface InvitationVC : UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+
+@interface InvitationVC : UIViewController<MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ADBannerViewDelegate>{
+    ADBannerView *adView;
+}
+
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 
 @property (nonatomic, strong) NSString *shopListName;
 

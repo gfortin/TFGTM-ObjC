@@ -17,6 +17,7 @@
 #import "SSKeychainQuery.h"
 
 
+
 @interface ConnectViewController ()
 
 //@property (strong, nonatomic) AuthService *authService;
@@ -30,14 +31,28 @@
 
 @implementation ConnectViewController
 
+//@synthesize adView;
 @synthesize strUserID;
 @synthesize strConnectClient;
 @synthesize background;
 
 
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    [adView setHidden:NO];
+    NSLog(@"GFO => Affiche publicité");
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    [adView setHidden:YES];
+    NSLog(@"GFO => Masque publicité");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    adView.delegate = self;
+    [adView setHidden:YES];
     
     // Paralax effect =========
     // Set vertical effect
@@ -75,8 +90,27 @@
     self.tfgtmService = [TFGTMService defaultService];
     
     // Let's load the user ID and token when the app starts.
-    [self loadAuthInfo];
+
+    BOOL user = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"Identifier"];
+    if(user)
+    {
+    NSLog(@"user");
+    }
     
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    [[NSUserDefaults standardUserDefaults] setObject:version forKey:@"version_preference"];
+    
+    
+    BOOL autoLog = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"autoconnect"];
+    if (autoLog)
+    {
+        NSLog(@"AUTOLOG ON");
+        [self loadAuthInfo];
+    }
+    else
+    {
+        NSLog(@"AUTOLOG OFF");
+    }
     
 }
 
@@ -219,21 +253,14 @@
     
         MSClient *client = self.tfgtmService.client;
         
-        BOOL autolog = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"auto_connection"];
-        
-        if (autolog)
-        {
                 if (client.currentUser != nil)
-            {
-        
+                {
                     NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
                     UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [warningAlert show];
          
                     [self performSegueWithIdentifier:@"showShopLists" sender:self];
-            }
-        }
-        
+                }
 
     }
 
@@ -260,8 +287,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
 }
-
-
 
 
 @end

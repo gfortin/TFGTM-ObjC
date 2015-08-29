@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConnectViewController : UIViewController<NSFetchedResultsControllerDelegate>
+#import <iAd/iAd.h>
+
+
+@interface ConnectViewController : UIViewController<NSFetchedResultsControllerDelegate, ADBannerViewDelegate>{
+    ADBannerView *adView;
+}
 
 
 @property (nonatomic, strong) NSString *strUserID;

@@ -38,6 +38,7 @@
 		932D715A1B3604C70067BE48 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D71591B3604C70067BE48 /* KeychainItemWrapper.m */; };
 		932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */; };
 		933715D51B906B2500402410 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 933715D41B906B2500402410 /* Settings.bundle */; };
+		933715D71B9175CD00402410 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933715D61B9175CD00402410 /* iAd.framework */; };
 		936A2B111B8F0B8E00B80C3B /* ConnectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A2B101B8F0B8E00B80C3B /* ConnectionVC.m */; };
 		936A2B141B8F0BD800B80C3B /* InscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A2B131B8F0BD800B80C3B /* InscriptionVC.m */; };
 		93CB083A1B54827E00B3A068 /* SelectItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB08391B54827E00B3A068 /* SelectItemsVC.m */; };
@@ -91,6 +92,7 @@
 		932D715B1B3615A20067BE48 /* ShopListsItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsItemsViewController.h; sourceTree = "<group>"; };
 		932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsItemsViewController.m; sourceTree = "<group>"; };
 		933715D41B906B2500402410 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		933715D61B9175CD00402410 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		936A2B0F1B8F0B8E00B80C3B /* ConnectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionVC.h; sourceTree = "<group>"; };
 		936A2B101B8F0B8E00B80C3B /* ConnectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionVC.m; sourceTree = "<group>"; };
 		936A2B121B8F0BD800B80C3B /* InscriptionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InscriptionVC.h; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933715D71B9175CD00402410 /* iAd.framework in Frameworks */,
 				9325D89A1B34AD6000F491C9 /* Security.framework in Frameworks */,
 				9325D8981B34AD4A00F491C9 /* NotificationCenter.framework in Frameworks */,
 				689C609F1A5F3F4D00E96D29 /* CoreData.framework in Frameworks */,
@@ -144,6 +147,7 @@
 		03D1001C16EC579A0005A1A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				933715D61B9175CD00402410 /* iAd.framework */,
 				9325D8991B34AD6000F491C9 /* Security.framework */,
 				9325D8971B34AD4A00F491C9 /* NotificationCenter.framework */,
 				689C609E1A5F3F4D00E96D29 /* CoreData.framework */,
@@ -260,7 +264,7 @@
 				ORGANIZATIONNAME = MobileServices;
 				TargetAttributes = {
 					03D1001916EC579A0005A1A9 = {
-						DevelopmentTeam = 7QSKLAB93X;
+						DevelopmentTeam = G2EQ9J6MF6;
 					};
 				};
 			};

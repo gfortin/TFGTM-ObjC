@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface ConnectionVC : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate>
+
+
+@interface ConnectionVC : UIViewController<UINavigationControllerDelegate, UITextFieldDelegate, ADBannerViewDelegate>{
+    ADBannerView *adView;
+}
+@property (nonatomic, retain) IBOutlet ADBannerView *adView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *background;
 @property (weak, nonatomic) IBOutlet UITextField *emailConnection;

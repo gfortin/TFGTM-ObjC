@@ -20,15 +20,30 @@
 @synthesize emailInvitation;
 @synthesize telephoneInvitation;
 @synthesize background;
+@synthesize adView;
+
 
 //create default values (MUST REWRITE)
 NSString *messageBody = @"Bonjour, Je t'invite à ma liste de courses à l'aide de l'application TheFirstGetTheMilk!";
 NSString *messageSubject = @"Invitation - liste de courses";
 
 
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    [adView setHidden:NO];
+    NSLog(@"GFO => Affiche publicité");
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    [adView setHidden:YES];
+    NSLog(@"GFO => Masque publicité");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    // Publicité
+    adView.delegate = self;
+    [adView setHidden:YES];
     
     // Paralax effect =========
     // Set vertical effect
