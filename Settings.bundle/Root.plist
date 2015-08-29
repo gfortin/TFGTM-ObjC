@@ -18,14 +18,14 @@
 			<key>Key</key>
 			<string>userIdentifier</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTextFieldSpecifier</string>
-            <key>Title</key>
-            <string>Email</string>
-            <key>Key</key>
-            <string>userEmail</string>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Email</string>
+			<key>Key</key>
+			<string>userEmail</string>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
@@ -54,7 +54,7 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<string>PSTitleValueSpecifier</string>
 			<key>Title</key>
 			<string>Crédit</string>
 			<key>Key</key>
@@ -70,8 +70,18 @@
 			<key>Title</key>
 			<string>Version</string>
 			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<string>PSTitleValueSpecifier</string>
 		</dict>
+        <dict>
+            <key>DefaultValue</key>
+            <string></string>
+            <key>Key</key>
+            <string>appDate</string>
+            <key>Title</key>
+            <string>Date de mise à jour</string>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+        </dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

@@ -92,6 +92,8 @@
     // Let's load the user ID and token when the app starts.
 
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *date = @"15/09/2015";
+
     NSString *signature = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleSignature"];
 
     NSLog(@"GFO => Version : %@", version);
@@ -99,6 +101,7 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:version forKey:@"appVersion"];
+    [defaults setValue:date forKey:@"appDate"];
     [defaults synchronize];
     
     BOOL user = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"userIdentifier"];
