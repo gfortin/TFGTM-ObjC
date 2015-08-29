@@ -33,12 +33,17 @@
 @synthesize shopListName;
 @synthesize itemText;
 
+//create default values (MUST REWRITE)
+NSInteger newItems = 0;
+
 #pragma mark * UIView methods
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+     newItems = 0;
     
     //Pour masquer le clavier
     /*
@@ -260,10 +265,10 @@
     [itemsEmoji setValue:@"🍑" forKey:@"Pêche"];
     [itemsEmoji setValue:@"🍒" forKey:@"Cerise"];
     [itemsEmoji setValue:@"🍓" forKey:@"Fraise"];
-    [itemsEmoji setValue:@"🍍" forKey:@"Ananas"];
+    [itemsEmoji setValue:@"🍍" forKey:@"Anana"];
     [itemsEmoji setValue:@"🍦" forKey:@"Glace"];
     [itemsEmoji setValue:@"🍼" forKey:@"Lait"];
-    [itemsEmoji setValue:@"🍨" forKey:@"Sorbet"];
+    [itemsEmoji setValue:@"🍧" forKey:@"Sorbet"];
     [itemsEmoji setValue:@"🍞" forKey:@"Pain"];
     [itemsEmoji setValue:@"🍪" forKey:@"Biscuit"];
     [itemsEmoji setValue:@"🍮" forKey:@"Flan"];
@@ -282,161 +287,31 @@
     [itemsEmoji setValue:@"🐑" forKey:@"Mouton"];
     [itemsEmoji setValue:@"🐇" forKey:@"Lapinàlamoutarde"];
     [itemsEmoji setValue:@"🐸" forKey:@"Cuissesdegrenouille"];
-    [itemsEmoji setValue:@"🍯" forKey:@"miel"];
+    [itemsEmoji setValue:@"🍯" forKey:@"Miel"];
     [itemsEmoji setValue:@"🍷" forKey:@"Vinrouge"];
+    [itemsEmoji setValue:@"🍷" forKey:@"Vin"];
     [itemsEmoji setValue:@"🍹" forKey:@"Liqueur"];
+    [itemsEmoji setValue:@"🍹" forKey:@"Cocktail"];
     [itemsEmoji setValue:@"🍺" forKey:@"Bière"];
     [itemsEmoji setValue:@"🍳" forKey:@"Oeuf"];
     [itemsEmoji setValue:@"🍲" forKey:@"Soupe"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Pâte"];
     [itemsEmoji setValue:@"🍝" forKey:@"Spaghetti"];
-    [itemsEmoji setValue:@"🍟" forKey:@"Frites"];
+    [itemsEmoji setValue:@"🍟" forKey:@"Frite"];
     [itemsEmoji setValue:@"🍵" forKey:@"Thé"];
     [itemsEmoji setValue:@"☕️" forKey:@"Café"];
     [itemsEmoji setValue:@"🍫" forKey:@"Chocolat"];
     [itemsEmoji setValue:@"🍕" forKey:@"Pizza"];
     [itemsEmoji setValue:@"🍚" forKey:@"Riz"];
     [itemsEmoji setValue:@"💧" forKey:@"Eau"];
+    [itemsEmoji setValue:@"🎃" forKey:@"Citrouille"];
+    [itemsEmoji setValue:@"🎂" forKey:@"Gâteau"];
+    [itemsEmoji setValue:@"💊" forKey:@"Médicament"];
+    [itemsEmoji setValue:@"🚬" forKey:@"Cigarette"];
+    [itemsEmoji setValue:@"🍣" forKey:@"Sushi"];
+    [itemsEmoji setValue:@"🍶" forKey:@"Saké"];
+    [itemsEmoji setValue:@"🍔" forKey:@"Hamburger"];
 
-
-
-    
-    
-    
-    
-    
-    
-/*
-     
-
- 
-     
-     // Snacks et friandises
- 
- 
-     
-     // Viandes et poissons
-     //===================
- 
- 
-     
-     NSDictionary *item36 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Poulet",
-     @"emoji_Item" : @"🐓",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
-     
-
-     
-
-     
-     NSDictionary *item39 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Oeuf",
-     @"emoji_Item" : @"🐣",
-     @"id_Category" : @"5C1FE337-AA80-4C40-8254-CDD6E1894533",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     // Epices et condiments
-     //===================
-     
-     NSDictionary *item40 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Miel",
-     @"emoji_Item" : @"🍯",
-     @"id_Category" : @"6D7BC989-2D17-4C28-8ADA-61DC692254A5",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item41 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Sel",
-     @"emoji_Item" : @"🍴",
-     @"id_Category" : @"6D7BC989-2D17-4C28-8ADA-61DC692254A5",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item42 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Poivre",
-     @"emoji_Item" : @"🍴",
-     @"id_Category" : @"6D7BC989-2D17-4C28-8ADA-61DC692254A5",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     // Pâtes, riz et céréales
-     //===================
-     
-     NSDictionary *item43 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Riz",
-     @"emoji_Item" : @"🍚",
-     @"id_Category" : @"A1DB608C-D0A6-4B86-922D-7FC2AED5D939",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item44 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Pâtes",
-     @"emoji_Item" : @"🍝",
-     @"id_Category" : @"A1DB608C-D0A6-4B86-922D-7FC2AED5D939",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item45 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Sushi",
-     @"emoji_Item" : @"🍣",
-     @"id_Category" : @"A1DB608C-D0A6-4B86-922D-7FC2AED5D939",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     // Boissons
-     //===================
-     
-     NSDictionary *item46 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Eau",
-     @"emoji_Item" : @"💧",
-     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item47 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Vin",
-     @"emoji_Item" : @"🍷",
-     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item48 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Bière",
-     @"emoji_Item" : @"🍺",
-     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item49 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Mousseux",
-     @"emoji_Item" : @"🍸",
-     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item50 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Café",
-     @"emoji_Item" : @"☕️",
-     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item51 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Thé",
-     @"emoji_Item" : @"🍵",
-     @"id_Category" : @"1B6C6848-C545-4E2E-BB36-2B6ED8A687E6",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     // Autres
-     
-     NSDictionary *item52 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Soupe",
-     @"emoji_Item" : @"🍜",
-     @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item53 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Pizza",
-     @"emoji_Item" : @"🍕",
-     @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
-     @"id_User" : @"TFGTM_Admin" };
-     
-     NSDictionary *item54 = @{ @"type_Item" : @YES,
-     @"name_Item" : @"Frites",
-     @"emoji_Item" : @"🍟",
-     @"id_Category" : @"A8E3A4B7-74DB-42BC-B21D-354B97955CBC",
-     @"id_User" : @"TFGTM_Admin" };
-     */
-    
     
     
     
@@ -500,6 +375,10 @@
     [self.shoplistsitemsService addItem:item completion:nil];
     self.itemText.text = @"";
     self.itemEmoji = @"🍴";
+    
+    newItems = newItems + 1;
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = newItems;
 
 }
 

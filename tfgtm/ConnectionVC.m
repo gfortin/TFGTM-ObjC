@@ -150,6 +150,9 @@
         return;
     }
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:self.emailConnection.text forKey:@"userEmail"];
+    [defaults synchronize];
     
     //try validate password
     if ([self.passwordConnection.text  isEqual: @"rcdsm2015"]) {

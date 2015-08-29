@@ -178,6 +178,11 @@
         return;
     }
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:self.pseudoInscription.text forKey:@"userIdentifier"];
+    [defaults setValue:self.emailInscription.text forKey:@"userEmail"];
+    [defaults setValue:self.passwordInscription.text forKey:@"userPassword"];
+    [defaults synchronize];
     
     
     [self performSegueWithIdentifier:@"InscriptionToShopLists" sender:self];

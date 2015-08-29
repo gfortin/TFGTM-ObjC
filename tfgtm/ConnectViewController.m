@@ -91,13 +91,23 @@
     
     // Let's load the user ID and token when the app starts.
 
-    BOOL user = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"Identifier"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *signature = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleSignature"];
+
+    NSLog(@"GFO => Version : %@", version);
+    NSLog(@"GFO => Signature : %@", signature);
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:version forKey:@"appVersion"];
+    [defaults synchronize];
+    
+    BOOL user = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"userIdentifier"];
     if(user)
     {
     NSLog(@"user");
     }
     
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
     [[NSUserDefaults standardUserDefaults] setObject:version forKey:@"version_preference"];
     
     
@@ -255,6 +265,13 @@
         
                 if (client.currentUser != nil)
                 {
+                    /*
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    [defaults setValue:self.emailConnection.text forKey:@"userEmail"];
+                    [defaults synchronize];
+                    
+                    NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", userPseudo];
+                    */
                     NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
                     UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [warningAlert show];

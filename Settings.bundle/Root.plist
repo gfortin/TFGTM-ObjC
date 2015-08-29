@@ -18,6 +18,14 @@
 			<key>Key</key>
 			<string>userIdentifier</string>
 		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTextFieldSpecifier</string>
+            <key>Title</key>
+            <string>Email</string>
+            <key>Key</key>
+            <string>userEmail</string>
+        </dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
@@ -56,13 +64,9 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>(update needed)</string>
-			<key>IsSecure</key>
-			<false/>
+			<string></string>
 			<key>Key</key>
 			<string>appVersion</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
 			<key>Title</key>
 			<string>Version</string>
 			<key>Type</key>
