@@ -30,9 +30,9 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 			<key>Key</key>
-			<string>enabled_preference</string>
+			<string>auto_connection</string>
 			<key>Title</key>
 			<string>Connexion automatique</string>
 			<key>Type</key>

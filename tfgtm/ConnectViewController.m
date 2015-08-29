@@ -219,17 +219,19 @@
     
         MSClient *client = self.tfgtmService.client;
         
+        BOOL autolog = (BOOL)[[NSUserDefaults standardUserDefaults] valueForKey:@"auto_connection"];
         
+        if (autolog)
+        {
+                if (client.currentUser != nil)
+            {
         
-        if (client.currentUser != nil) {
-        /*
-        NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
-        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [warningAlert show];
-        */
+                    NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
+                    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [warningAlert show];
          
-        //[self performSegueWithIdentifier:@"showShopLists" sender:self];
-            
+                    [self performSegueWithIdentifier:@"showShopLists" sender:self];
+            }
         }
         
 
