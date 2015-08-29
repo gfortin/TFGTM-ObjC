@@ -243,15 +243,17 @@
                         <barButtonItem key="backBarButtonItem" title="Listes de courses" id="15Q-hT-BzU"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="tZa-CO-jx8">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="JhE-cq-40M">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="28" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
                                     <segue destination="nn3-DA-8zF" kind="push" id="JsM-e7-sji"/>
                                 </connections>
                             </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="settings.png" style="plain" id="MsA-vp-52c">
+                            <connections>
+                                <action selector="settings:" destination="PsD-7a-zsW" id="iTg-cz-bIx"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="hNe-LF-0Sj">
@@ -760,9 +762,9 @@
                                                     <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Nom_Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jpM-gR-Ih5">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Nom_Item" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000000000000009" id="jpM-gR-Ih5">
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -816,6 +818,7 @@
         <image name="Logo_Windows.png" width="1121" height="1229"/>
         <image name="ShopBasket.png" width="200" height="192"/>
         <image name="TFGTM-1024x1024.png" width="1024" height="1024"/>
+        <image name="settings.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

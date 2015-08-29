@@ -144,8 +144,7 @@
                  @"🍃 Coriande"
                  ];
 
-    _boissons =@[ @"🍶 Saké",
-                  @"💧 Eau",
+    _boissons =@[ @"💧 Eau",
                   @"☕️ Café",
                   @"🍵 Thé",
                   @"🍺 Bières",
@@ -153,17 +152,18 @@
                   @"🍹 Liqueur",
                   @"🍷 Vin rouge",
                   @"🍷 Vin rosé",
-                  @"🍸 Vin blanc"
+                  @"🍸 Vin blanc",
+                  @"🍶 Saké"
                   ];
 
     _snacks = @[ @"🍕 Pizza",
                  @"🍟 Frites",
                  @"🍔 Hamburger",
                  @"🍫 Chocolat",
-                 @"🍲 Soupe",
                  @"🐖 Hot-dogs",
                  @"🍞 Sandwich",
                  @"🐓 Poulet pané",
+                 @"🍲 Soupe",
                  @"🍴 Panini",
                  @"🍴 Bretzel"
                ];
@@ -180,6 +180,7 @@
                  @"💦 Savon à vaiselle"
                ];
 
+
     
     
     [self.items addObjectsFromArray:_fruitsLegumes];
@@ -192,7 +193,6 @@
     self.tableViewItems.dataSource = self;
     self.tableViewItems.delegate = self;
     self.tableViewItems.allowsMultipleSelection = true;
-
 
     
 }

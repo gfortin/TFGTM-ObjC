@@ -394,4 +394,8 @@
  */
 
 
+- (IBAction)settings:(id)sender {
+    //code for opening settings app in iOS 8
+    [[UIApplication sharedApplication] openURL:[NSURL  URLWithString:UIApplicationOpenSettingsURLString]];
+}
 @end

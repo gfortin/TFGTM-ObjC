@@ -39,6 +39,9 @@
 		932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */; };
 		933715D51B906B2500402410 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 933715D41B906B2500402410 /* Settings.bundle */; };
 		933715D71B9175CD00402410 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933715D61B9175CD00402410 /* iAd.framework */; };
+		933715DB1B9230F900402410 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 933715D81B9230F900402410 /* settings@2x.png */; };
+		933715DC1B9230F900402410 /* settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 933715D91B9230F900402410 /* settings@3x.png */; };
+		933715DD1B9230F900402410 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 933715DA1B9230F900402410 /* settings.png */; };
 		936A2B111B8F0B8E00B80C3B /* ConnectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A2B101B8F0B8E00B80C3B /* ConnectionVC.m */; };
 		936A2B141B8F0BD800B80C3B /* InscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A2B131B8F0BD800B80C3B /* InscriptionVC.m */; };
 		93CB083A1B54827E00B3A068 /* SelectItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB08391B54827E00B3A068 /* SelectItemsVC.m */; };
@@ -93,6 +96,9 @@
 		932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsItemsViewController.m; sourceTree = "<group>"; };
 		933715D41B906B2500402410 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		933715D61B9175CD00402410 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		933715D81B9230F900402410 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		933715D91B9230F900402410 /* settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@3x.png"; sourceTree = "<group>"; };
+		933715DA1B9230F900402410 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		936A2B0F1B8F0B8E00B80C3B /* ConnectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionVC.h; sourceTree = "<group>"; };
 		936A2B101B8F0B8E00B80C3B /* ConnectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionVC.m; sourceTree = "<group>"; };
 		936A2B121B8F0BD800B80C3B /* InscriptionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InscriptionVC.h; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 		9325D8A21B34BBE500F491C9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				933715D81B9230F900402410 /* settings@2x.png */,
+				933715D91B9230F900402410 /* settings@3x.png */,
+				933715DA1B9230F900402410 /* settings.png */,
 				9308451B1B52728400CCF38A /* info.png */,
 				932D714A1B35DAC00067BE48 /* Logo_Facebook.png */,
 				932D714B1B35DAC00067BE48 /* Logo_GooglePlus.png */,
@@ -291,15 +300,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				930558A31B4B1ACF005646C2 /* web in Resources */,
+				933715DB1B9230F900402410 /* settings@2x.png in Resources */,
 				9308451C1B52728400CCF38A /* info.png in Resources */,
 				03D1002816EC579A0005A1A9 /* InfoPlist.strings in Resources */,
 				9325D8A41B34BC0300F491C9 /* TFGTM-1024x1024.png in Resources */,
 				9325D8A61B34BEA500F491C9 /* Images.xcassets in Resources */,
 				932D714E1B35DAC00067BE48 /* Logo_GooglePlus.png in Resources */,
 				932D714D1B35DAC00067BE48 /* Logo_Facebook.png in Resources */,
+				933715DD1B9230F900402410 /* settings.png in Resources */,
 				930558681B4AF429005646C2 /* ShopBasket.png in Resources */,
 				932D714F1B35DAC00067BE48 /* Logo_Windows.png in Resources */,
 				933715D51B906B2500402410 /* Settings.bundle in Resources */,
+				933715DC1B9230F900402410 /* settings@3x.png in Resources */,
 				03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

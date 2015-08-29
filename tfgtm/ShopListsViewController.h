@@ -14,6 +14,9 @@
 
 
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
+
 - (IBAction)onAdd:(id)sender;
+
+- (IBAction)settings:(id)sender;
 
 @end
