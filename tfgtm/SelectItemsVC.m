@@ -75,12 +75,12 @@
                         @"🍊 Oranges",
                         @"🍋 Citrons",
                         @"🍒 Cerises",
-                        @"🍒 Bananes",
-                        @"🍒 Cerises",
-                        @"🍒 Cerises",
-                        @"🍒 Cerises",
-                        @"🍒 Cerises",
-                        @"🍒 Cerises"
+                        @"🍅 Tomates",
+                        @"🍌 Bananes",
+                        @"🍐 Poires",
+                        @"🍇 Raisins",
+                        @"🍍 Ananas",
+                        @"🍆 Aubergine"
                         ];
     
     
@@ -88,96 +88,96 @@
                           @"🐂 Boeuf",
                           @"🐖 Porc",
                           @"🐟 Thon",
-                          @"🍒 Cerises",
-                          @"🍒 Cerises",
-                          @"🍒 Cerises",
-                          @"🍒 Cerises",
-                          @"🍒 Cerises",
-                          @"🍒 Cerises"
+                          @"🐓 Coq au vin",
+                          @"🐑 Mouton",
+                          @"🐇 Lapin à la moutarde",
+                          @"🐸 Cuisses de grenouilles",
+                          @"🍣 Sushi",
+                          @"🍤 Crevette"
                         ];
     
-    _painsPatisseries = @[ @"🍎 painsPatisseries",
-                           @"🍊 painsPatisseries",
-                           @"🍋 painsPatisseries",
-                           @"🍒 painsPatisseries",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises"
+    _painsPatisseries = @[ @"🍞 Pain tranché",
+                           @"🍪 Biscuits",
+                           @"🍮 Flan",
+                           @"🍩 Beignets",
+                           @"🍰 Fraisier",
+                           @"🎂 Gâteau",
+                           @"🍞 Baguette",
+                           @"🍞 Croissant",
+                           @"🍞 Pain au chocolat",
+                           @"🍞 Brioche"
                            ];
 
-    _produitsLaitiers = @[ @"🍎 produitsLaitiers",
-                           @"🍊 produitsLaitiers",
-                           @"🍋 produitsLaitiers",
-                           @"🍒 produitsLaitiers",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises",
-                           @"🍒 Cerises"
+    _produitsLaitiers = @[ @"🍧 Sorbet",
+                           @"🍼 Lait",
+                           @"🍦 Glace",
+                           @"🍒 Yaourt",
+                           @"🐐 Fromage de chèvre",
+                           @"🐄 Fromage de vache",
+                           @"🐑 Fromage de brebis",
+                           @"🐄 Camembert",
+                           @"❄️ Crème fraiche",
+                           @"🔥 Crème brulée"
                            ];
 
-    _patesRiz = @[ @"🍎 patesRiz",
-                   @"🍊 patesRiz",
-                   @"🍋 patesRiz",
-                   @"🍒 patesRiz",
-                   @"🍒 Cerises",
-                   @"🍒 Cerises",
-                   @"🍒 Cerises",
-                   @"🍒 Cerises",
-                   @"🍒 Cerises",
-                   @"🍒 Cerises"
+    _patesRiz = @[ @"🍝 Spaghettis",
+                   @"🍝 Pâtes",
+                   @"🍚 Riz",
+                   @"🍒 Pennes",
+                   @"🍝 Coquillettes",
+                   @"🍝 Torsades",
+                   @"🍝 Raviolis",
+                   @"🍝 Fetutinis",
+                   @"🍝 Linguinis",
+                   @"🍚 Riz basmati"
                    ];
 
-    _epices = @[ @"🍎 epices",
-                 @"🍊 epices",
-                 @"🍋 epicess",
-                 @"🍒 epices",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises"
+    _epices = @[ @"🍴 Curry",
+                 @"🌱 Herbes de provence",
+                 @"🍃 Epices à poisson",
+                 @"🔥 Piment d'espelette",
+                 @"🌱 Paprika",
+                 @"🍴 Sel",
+                 @"🍴 Poivre",
+                 @"🍴 Cumin",
+                 @"🍃 Thym",
+                 @"🍃 Coriande"
                  ];
 
-    _boissons =@[ @"🍎 boissons",
-                  @"🍊 boissons",
-                  @"🍋 boissons",
-                  @"🍒 boissons",
-                  @"🍒 Cerises",
-                  @"🍒 Cerises",
-                  @"🍒 Cerises",
-                  @"🍒 Cerises",
-                  @"🍒 Cerises",
-                  @"🍒 Cerises"
+    _boissons =@[ @"🍶 Saké",
+                  @"💧 Eau",
+                  @"☕️ Café",
+                  @"🍵 Thé",
+                  @"🍺 Bières",
+                  @"🍹 Cocktail",
+                  @"🍹 Liqueur",
+                  @"🍷 Vin rouge",
+                  @"🍷 Vin rosé",
+                  @"🍸 Vin blanc"
                   ];
 
-    _snacks = @[ @"🍎 _snacks",
-                 @"🍊 _snacks",
-                 @"🍋 _snacks",
-                 @"🍒 _snacks",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises"
+    _snacks = @[ @"🍕 Pizza",
+                 @"🍟 Frites",
+                 @"🍔 Hamburger",
+                 @"🍫 Chocolat",
+                 @"🍲 Soupe",
+                 @"🐖 Hot-dogs",
+                 @"🍞 Sandwich",
+                 @"🐓 Poulet pané",
+                 @"🍴 Panini",
+                 @"🍴 Bretzel"
                ];
     
-    _autres = @[ @"🍎 _autres",
-                 @"🍊 _autres",
-                 @"🍋 _autres",
-                 @"🍒 _autres",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises",
-                 @"🍒 Cerises"
+    _autres = @[ @"🚬 Cigarettes",
+                 @"💊 Médicament",
+                 @"🍳 Oeufs",
+                 @"🍯 Miel",
+                 @"🍭 Sucettes",
+                 @"🍬 Bonbon",
+                 @"🍬 Friandise",
+                 @"💦 Shampoing",
+                 @"💦 Savon",
+                 @"💦 Savon à vaiselle"
                ];
 
     
