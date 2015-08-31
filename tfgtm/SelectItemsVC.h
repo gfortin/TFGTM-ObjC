@@ -13,11 +13,15 @@
     
 }
 
+
 //this will hold the data
 @property (strong, nonatomic) NSMutableArray *items, *emoji;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPicker;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewItems;
+
+@property (strong, nonatomic) NSString *selectedItem;
+
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component;
 

@@ -36,6 +36,7 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 
+
 @end
 
 
@@ -52,10 +53,8 @@
 
 @synthesize tableViewItems;
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     
     // Initialize Data
@@ -90,7 +89,7 @@
                           @"🐟 Thon",
                           @"🐓 Coq au vin",
                           @"🐑 Mouton",
-                          @"🐇 Lapin à la moutarde",
+                          @"🐇 Lapin",
                           @"🐸 Cuisses de grenouilles",
                           @"🍣 Sushi",
                           @"🍤 Crevette"
@@ -111,7 +110,7 @@
     _produitsLaitiers = @[ @"🍧 Sorbet",
                            @"🍼 Lait",
                            @"🍦 Glace",
-                           @"🍒 Yaourt",
+                           @"🍚 Yaourt",
                            @"🐐 Fromage de chèvre",
                            @"🐄 Fromage de vache",
                            @"🐑 Fromage de brebis",
@@ -123,12 +122,12 @@
     _patesRiz = @[ @"🍝 Spaghettis",
                    @"🍝 Pâtes",
                    @"🍚 Riz",
-                   @"🍒 Pennes",
+                   @"🍝 Pennes",
                    @"🍝 Coquillettes",
                    @"🍝 Torsades",
                    @"🍝 Raviolis",
-                   @"🍝 Fetutinis",
-                   @"🍝 Linguinis",
+                   @"🍝 Fettucinis",
+                   @"🍝 Linguines",
                    @"🍚 Riz basmati"
                    ];
 
@@ -373,6 +372,10 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"GFO => ADD %@, %@", cell.textLabel.text, cell.detailTextLabel.text);
     
+    NSString *itemSelected = cell.detailTextLabel.text;
+    
+    NSLog(itemSelected);
+    
     NSString *UUID_Item = [[NSUUID UUID] UUIDString];
     
     NSLog(@"GFO => UUID id_Item %@", UUID_Item);
@@ -385,10 +388,19 @@
     
     //GFOGFO
     [self.shoplistsitemsService addItem:item completion:nil];
-    
+  
+    /*
+    [itemsSelected addObject:[tableView cellForRowAtIndexPath:indexPath]];
 
+    int x = 0;
+    for(; x<[itemsSelected count]; x++)
+        NSLog(@"value at index %i is %@", x, [itemsSelected objectAtIndex:x]);
+     */
+    //NSLog(@"%@",self.itemsSelected);
     
-    
+    self.selectedItem = cell.detailTextLabel.text;
+    [self performSegueWithIdentifier:@"itemSelectedSegue" sender:self];
+
     
 }
 

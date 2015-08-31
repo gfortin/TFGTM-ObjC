@@ -13,6 +13,9 @@
 #import "TFGTMService.h"
 #import "QSAppDelegate.h"
 
+#import "SelectItemsVC.h"
+
+
 #import "SSKeychain.h"
 #import "SSKeychainQuery.h"
 
@@ -509,6 +512,20 @@ NSInteger newItems = 0;
         
     }
 }
+
+- (IBAction)unwindFromModalViewController:(UIStoryboardSegue *)segue
+{
+    
+    if ([segue.sourceViewController isKindOfClass:[SelectItemsVC class]]) {
+        SelectItemsVC *itemVC = segue.sourceViewController;
+        // if the user clicked Cancel, we don't want to change the color
+        if (itemVC.selectedItem) {
+            self.itemText.text = itemVC.selectedItem;
+        }
+    }
+    
+}
+
 
 -(void)dismissKeyboard {
     [itemText resignFirstResponder];
