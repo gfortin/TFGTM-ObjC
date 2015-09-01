@@ -358,7 +358,7 @@
     cell.textLabel.textAlignment = UITextAlignmentCenter;
     cell.textLabel.text =  [self.items [indexPath.row] substringToIndex:2];
     
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:25];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:20];
     cell.detailTextLabel.text = [self.items [indexPath.row] substringFromIndex:2];
     
 

@@ -15,7 +15,6 @@
 		03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */; };
 		03D1004716EC58300005A1A9 /* ShopListstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* ShopListstViewController.m */; };
 		03D1004A16EC58490005A1A9 /* TFGTMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004916EC58490005A1A9 /* TFGTMService.m */; };
-		03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */; };
 		5F5C80951B8DBD1A0044FF99 /* InvitationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5C80941B8DBD1A0044FF99 /* InvitationVC.m */; };
 		689C609F1A5F3F4D00E96D29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689C609E1A5F3F4D00E96D29 /* CoreData.framework */; };
 		689C60A41A5F4D1B00E96D29 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 689C60A21A5F4D1B00E96D29 /* DataModel.xcdatamodeld */; };
@@ -44,8 +43,9 @@
 		933715DD1B9230F900402410 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 933715DA1B9230F900402410 /* settings.png */; };
 		936A2B111B8F0B8E00B80C3B /* ConnectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A2B101B8F0B8E00B80C3B /* ConnectionVC.m */; };
 		936A2B141B8F0BD800B80C3B /* InscriptionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A2B131B8F0BD800B80C3B /* InscriptionVC.m */; };
+		93C814A01B947D5800313410 /* ManualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8149F1B947D5800313410 /* ManualVC.swift */; };
+		93C814A21B95E35900313410 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C814A11B95E35900313410 /* MainStoryboard_iPhone.storyboard */; };
 		93CB083A1B54827E00B3A068 /* SelectItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB08391B54827E00B3A068 /* SelectItemsVC.m */; };
-		93D5AE3F1B36F68F003E31FE /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D5AE3E1B36F68F003E31FE /* ItemsViewController.m */; };
 		93DE06891B4C4A4A0040F668 /* SelectItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE06881B4C4A4A0040F668 /* SelectItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,6 @@
 		03D1004616EC58300005A1A9 /* ShopListstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListstViewController.m; sourceTree = "<group>"; };
 		03D1004816EC58490005A1A9 /* TFGTMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFGTMService.h; sourceTree = "<group>"; };
 		03D1004916EC58490005A1A9 /* TFGTMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFGTMService.m; sourceTree = "<group>"; };
-		03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		5F5C80931B8DBD1A0044FF99 /* InvitationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationVC.h; sourceTree = "<group>"; };
 		5F5C80941B8DBD1A0044FF99 /* InvitationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationVC.m; sourceTree = "<group>"; };
 		689C609E1A5F3F4D00E96D29 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -103,10 +102,10 @@
 		936A2B101B8F0B8E00B80C3B /* ConnectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionVC.m; sourceTree = "<group>"; };
 		936A2B121B8F0BD800B80C3B /* InscriptionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InscriptionVC.h; sourceTree = "<group>"; };
 		936A2B131B8F0BD800B80C3B /* InscriptionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InscriptionVC.m; sourceTree = "<group>"; };
+		93C8149F1B947D5800313410 /* ManualVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualVC.swift; sourceTree = "<group>"; };
+		93C814A11B95E35900313410 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		93CB08381B54827E00B3A068 /* SelectItemsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectItemsVC.h; sourceTree = "<group>"; };
 		93CB08391B54827E00B3A068 /* SelectItemsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectItemsVC.m; sourceTree = "<group>"; };
-		93D5AE3D1B36F68F003E31FE /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
-		93D5AE3E1B36F68F003E31FE /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
 		93DE06881B4C4A4A0040F668 /* SelectItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectItemsViewController.swift; path = ../SelectItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,8 +167,8 @@
 		03D1002316EC579A0005A1A9 /* tfgtm */ = {
 			isa = PBXGroup;
 			children = (
+				93C814A11B95E35900313410 /* MainStoryboard_iPhone.storyboard */,
 				689C60A21A5F4D1B00E96D29 /* DataModel.xcdatamodeld */,
-				03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */,
 				936A2B121B8F0BD800B80C3B /* InscriptionVC.h */,
 				936A2B131B8F0BD800B80C3B /* InscriptionVC.m */,
 				936A2B0F1B8F0B8E00B80C3B /* ConnectionVC.h */,
@@ -177,6 +176,7 @@
 				5F5C80931B8DBD1A0044FF99 /* InvitationVC.h */,
 				5F5C80941B8DBD1A0044FF99 /* InvitationVC.m */,
 				9305586A1B4AF706005646C2 /* AboutViewController.swift */,
+				93C8149F1B947D5800313410 /* ManualVC.swift */,
 				93DE06881B4C4A4A0040F668 /* SelectItemsViewController.swift */,
 				932D71521B35E9F90067BE48 /* ConnectViewController.h */,
 				932D71531B35E9F90067BE48 /* ConnectViewController.m */,
@@ -188,8 +188,6 @@
 				932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */,
 				93CB08381B54827E00B3A068 /* SelectItemsVC.h */,
 				93CB08391B54827E00B3A068 /* SelectItemsVC.m */,
-				93D5AE3D1B36F68F003E31FE /* ItemsViewController.h */,
-				93D5AE3E1B36F68F003E31FE /* ItemsViewController.m */,
 				932D71551B3604820067BE48 /* AuthService.h */,
 				932D71561B3604820067BE48 /* AuthService.m */,
 				03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */,
@@ -309,10 +307,10 @@
 				932D714D1B35DAC00067BE48 /* Logo_Facebook.png in Resources */,
 				933715DD1B9230F900402410 /* settings.png in Resources */,
 				930558681B4AF429005646C2 /* ShopBasket.png in Resources */,
+				93C814A21B95E35900313410 /* MainStoryboard_iPhone.storyboard in Resources */,
 				932D714F1B35DAC00067BE48 /* Logo_Windows.png in Resources */,
 				933715D51B906B2500402410 /* Settings.bundle in Resources */,
 				933715DC1B9230F900402410 /* settings@3x.png in Resources */,
-				03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C814A01B947D5800313410 /* ManualVC.swift in Sources */,
 				93CB083A1B54827E00B3A068 /* SelectItemsVC.m in Sources */,
 				03D1002A16EC579A0005A1A9 /* main.m in Sources */,
 				936A2B111B8F0B8E00B80C3B /* ConnectionVC.m in Sources */,
@@ -338,7 +337,6 @@
 				03D1004A16EC58490005A1A9 /* TFGTMService.m in Sources */,
 				932D71571B3604820067BE48 /* AuthService.m in Sources */,
 				689C60A41A5F4D1B00E96D29 /* DataModel.xcdatamodeld in Sources */,
-				93D5AE3F1B36F68F003E31FE /* ItemsViewController.m in Sources */,
 				932D715A1B3604C70067BE48 /* KeychainItemWrapper.m in Sources */,
 				9325D89F1B34AE5700F491C9 /* SSKeychain.m in Sources */,
 			);

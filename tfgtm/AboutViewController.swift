@@ -21,8 +21,10 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.title = "TheFirstGetTheMilk!"
+        self.title = "À propos..."
         
+        
+        //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         
         // Set vertical effect
         let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",

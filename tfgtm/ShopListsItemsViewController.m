@@ -282,12 +282,14 @@ NSInteger newItems = 0;
     [itemsEmoji setValue:@"🍬" forKey:@"Bonbon"];
     [itemsEmoji setValue:@"🍭" forKey:@"Sucette"];
     [itemsEmoji setValue:@"🐟" forKey:@"Poisson"];
+    [itemsEmoji setValue:@"🐟" forKey:@"Thon"];
     [itemsEmoji setValue:@"🍤" forKey:@"Crevette"];
     [itemsEmoji setValue:@"🍗" forKey:@"Poulet"];
     [itemsEmoji setValue:@"🐓" forKey:@"Coqauvin"];
     [itemsEmoji setValue:@"🐂" forKey:@"Boeuf"];
     [itemsEmoji setValue:@"🐖" forKey:@"Porc"];
     [itemsEmoji setValue:@"🐑" forKey:@"Mouton"];
+    [itemsEmoji setValue:@"🐇" forKey:@"Lapin"];
     [itemsEmoji setValue:@"🐇" forKey:@"Lapinàlamoutarde"];
     [itemsEmoji setValue:@"🐸" forKey:@"Cuissesdegrenouille"];
     [itemsEmoji setValue:@"🍯" forKey:@"Miel"];
@@ -306,6 +308,7 @@ NSInteger newItems = 0;
     [itemsEmoji setValue:@"🍫" forKey:@"Chocolat"];
     [itemsEmoji setValue:@"🍕" forKey:@"Pizza"];
     [itemsEmoji setValue:@"🍚" forKey:@"Riz"];
+    [itemsEmoji setValue:@"🍚" forKey:@"Rizbasmati"];
     [itemsEmoji setValue:@"💧" forKey:@"Eau"];
     [itemsEmoji setValue:@"🎃" forKey:@"Citrouille"];
     [itemsEmoji setValue:@"🎂" forKey:@"Gâteau"];
@@ -314,6 +317,50 @@ NSInteger newItems = 0;
     [itemsEmoji setValue:@"🍣" forKey:@"Sushi"];
     [itemsEmoji setValue:@"🍶" forKey:@"Saké"];
     [itemsEmoji setValue:@"🍔" forKey:@"Hamburger"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Paintranché"];
+    [itemsEmoji setValue:@"🍮" forKey:@"Flan"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Baguette"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Croissant"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Painauchocolat"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Brioche"];
+    [itemsEmoji setValue:@"🍧" forKey:@"Sorbet"];
+    [itemsEmoji setValue:@"🐐" forKey:@"Fromagedechèvre"];
+    [itemsEmoji setValue:@"🐄" forKey:@"Fromagedevache"];
+    [itemsEmoji setValue:@"🐑" forKey:@"Fromagedebrebi"];
+    [itemsEmoji setValue:@"🔥" forKey:@"Crèmebrulée"];
+    [itemsEmoji setValue:@"❄️" forKey:@"Crèmefraiche"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Spaghetti"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Pâtes"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Penne"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Coquillette"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Torsades"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Ravioli"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Fettucini"];
+    [itemsEmoji setValue:@"🍝" forKey:@"Linguine"];
+    [itemsEmoji setValue:@"🌱" forKey:@"Herbesdeprovence"];
+    [itemsEmoji setValue:@"🍃" forKey:@"Epicesàpoisson"];
+    [itemsEmoji setValue:@"🔥" forKey:@"Pimentd'espelette"];
+    [itemsEmoji setValue:@"🌱" forKey:@"Paprika"];
+    [itemsEmoji setValue:@"🍃" forKey:@"Thym"];
+    [itemsEmoji setValue:@"🍃" forKey:@"Coriande"];
+    [itemsEmoji setValue:@"🍹" forKey:@"Cocktail"];
+    [itemsEmoji setValue:@"🍹" forKey:@"Liqueur"];
+    [itemsEmoji setValue:@"🍷" forKey:@"Vinrouge"];
+    [itemsEmoji setValue:@"🍷" forKey:@"Vinrosé"];
+    [itemsEmoji setValue:@"🍸" forKey:@"Vinblanc"];
+    [itemsEmoji setValue:@"🐖" forKey:@"Hot-dog"];
+    [itemsEmoji setValue:@"🍞" forKey:@"Sandwich"];
+    [itemsEmoji setValue:@"🐓" forKey:@"Pouletpané"];
+    [itemsEmoji setValue:@"🍲" forKey:@"Soupe"];
+    [itemsEmoji setValue:@"🚬" forKey:@"Cigarette"];
+    [itemsEmoji setValue:@"💊" forKey:@"Médicament"];
+    [itemsEmoji setValue:@"💦" forKey:@"Shampoing"];
+    [itemsEmoji setValue:@"💦" forKey:@"Savon"];
+    [itemsEmoji setValue:@"💦" forKey:@"Savonàvaiselle"];
+    [itemsEmoji setValue:@"🍬" forKey:@"Friandise"];
+    [itemsEmoji setValue:@"🍬" forKey:@"Bonbon"];
+    [itemsEmoji setValue:@"🍭" forKey:@"Sucette"];
+
 
     
     
@@ -520,7 +567,12 @@ NSInteger newItems = 0;
         SelectItemsVC *itemVC = segue.sourceViewController;
         // if the user clicked Cancel, we don't want to change the color
         if (itemVC.selectedItem) {
-            self.itemText.text = itemVC.selectedItem;
+            
+            NSString *keyValue = itemVC.selectedItem;
+            if([keyValue hasPrefix: @" "])
+            {keyValue = [keyValue substringFromIndex:1];}
+            
+            self.itemText.text = keyValue;
         }
     }
     
