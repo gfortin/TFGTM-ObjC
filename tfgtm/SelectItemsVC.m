@@ -85,7 +85,7 @@
                         ];
     
     
-    _viandesPoissons = @[ @"🐓 Poulet",
+    _viandesPoissons = @[ @"🍗 Poulet",
                           @"🐂 Boeuf",
                           @"🐖 Porc",
                           @"🐟 Thon",
