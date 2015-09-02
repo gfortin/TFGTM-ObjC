@@ -323,10 +323,6 @@
                                 <rect key="frame" x="-14" y="28" width="138" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_GooglePlus.png" id="HaS-Nc-gZN">
-                                <rect key="frame" x="68" y="317" width="51" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_Windows.png" id="bnZ-aI-IiP">
                                 <rect key="frame" x="72" y="380" width="42" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -379,6 +375,10 @@
                                     <segue destination="xR8-VI-d2h" kind="push" id="09f-ze-PkF"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_GooglePlus.png" id="HaS-Nc-gZN">
+                                <rect key="frame" x="72" y="318" width="42" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -710,13 +710,6 @@
                                     <accessibilityTraits key="traits" none="YES" playsSound="YES"/>
                                 </accessibility>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catégorie :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jEh-cZ-4cv">
-                                <rect key="frame" x="16" y="77" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="22" sectionFooterHeight="22" id="NT4-cS-4Zv">
                                 <rect key="frame" x="0.0" y="260" width="320" height="308"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -764,6 +757,13 @@
                                     <segue destination="Udv-6v-iPi" kind="unwind" identifier="itemSelectedSegue" unwindAction="unwindFromModalViewController:" id="gwq-6b-quj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catégories :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jEh-cZ-4cv">
+                                <rect key="frame" x="16" y="77" width="288" height="23"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -799,7 +799,7 @@
     </scenes>
     <resources>
         <image name="Logo_Facebook.png" width="267" height="267"/>
-        <image name="Logo_GooglePlus.png" width="512" height="512"/>
+        <image name="Logo_GooglePlus.png" width="400" height="400"/>
         <image name="Logo_Windows.png" width="1121" height="1229"/>
         <image name="ShopBasket.png" width="200" height="192"/>
         <image name="TFGTM-1024x1024.png" width="1024" height="1024"/>
@@ -811,6 +811,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QLJ-if-wGW"/>
+        <segue reference="yN8-V8-Pl9"/>
     </inferredMetricsTieBreakers>
 </document>

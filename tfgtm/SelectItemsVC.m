@@ -56,6 +56,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Ajouter un article";
+
     
     // Initialize Data
     
@@ -162,8 +164,8 @@
                  @"🐖 Hot-dogs",
                  @"🍞 Sandwich",
                  @"🐓 Poulet pané",
-                 @"🍲 Soupe",
-                 @"🍴 Panini",
+                 @"🍬 Friandise",
+                 @"🍭 Sucettes",
                  @"🍴 Bretzel"
                ];
     
@@ -171,9 +173,9 @@
                  @"💊 Médicament",
                  @"🍳 Oeufs",
                  @"🍯 Miel",
-                 @"🍭 Sucettes",
-                 @"🍬 Bonbon",
-                 @"🍬 Friandise",
+                 @"💦 Sucettes",
+                 @"💦 Bonbon",
+                 @"💦 Ravitalisant",
                  @"💦 Shampoing",
                  @"💦 Savon",
                  @"💦 Savon à vaiselle"
@@ -245,7 +247,7 @@
     
     //GFO
     
-    self.title = _categories[row];
+    //self.title = _categories[row];
     
     [tableViewItems beginUpdates];
     
