@@ -99,10 +99,48 @@
     
     // A mettre en place une liste de ShopListsUsers
     
+    
+    //=== Read ShopListsUsers ======
+    
+    NSLog(@"GFO => Read ShopListsUsers for userID : %@", strUserID);
+    
+    MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
+    
+    NSPredicate *predicateShopListUser = [NSPredicate predicateWithFormat:@"id_user == %@", strUserID];
+    MSTable *table = [client tableWithName:@"ShopListsUsers"];
+    
+    NSMutableArray *shopListsID;
+    
+    // Query the ShopListsUsers table and update the items property with the results from the service
+    [table readWithPredicate:predicateShopListUser completion:^(MSQueryResult *result, NSError *error) {
+        if(error) {
+            NSLog(@"ERROR %@", error);
+        } else {
+            for(NSDictionary *item in result.items) {
+                NSLog(@"ShopListsUsers id_shoplist: %@", [item objectForKey:@"id_shoplist"]);
+                [shopListsID addObject:[item objectForKey:@"id_shoplist"]];
+            }
+        }
+    }];
+    
+    //NSArray *slid = shopListsID;
+    
+    NSLog(@"GFO 1 : %@",shopListsID[1]);
+    NSLog(@"GFO 2 : %@",shopListsID[2]);
+
+    
+    //===================================
+    
     // show only picnic and repas pour demain
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '263E498C-81D4-4B9B-B928-EBBA45F16EC0' OR id == '43EB2B10-4410-42DE-B8C4-D3A13EB8F727'"];
+    
+    NSArray *shopListsIds = [NSArray arrayWithObjects: @"54121F41-F3C5-4349-939C-C9ECE7BCA457",
+                                                    @"897C1A91-00ED-4CAF-B3AA-54F7A3C7F2DA", nil];
+    
     // show only non-completed items
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES"];
+    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES AND id IN %@", predicateIN];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES AND id IN %@", shopListsIds];
+
     
     // sort by item text
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"ms_createdAt" ascending:YES]];

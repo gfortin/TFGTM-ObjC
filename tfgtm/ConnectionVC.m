@@ -42,16 +42,16 @@
     [[UIInterpolatingMotionEffect alloc]
      initWithKeyPath:@"center.y"
      type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-    verticalMotionEffect.minimumRelativeValue = @(-30);
-    verticalMotionEffect.maximumRelativeValue = @(30);
+    verticalMotionEffect.minimumRelativeValue = @(-40);
+    verticalMotionEffect.maximumRelativeValue = @(40);
     
     // Set horizontal effect
     UIInterpolatingMotionEffect *horizontalMotionEffect =
     [[UIInterpolatingMotionEffect alloc]
      initWithKeyPath:@"center.x"
      type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-    horizontalMotionEffect.minimumRelativeValue = @(-30);
-    horizontalMotionEffect.maximumRelativeValue = @(30);
+    horizontalMotionEffect.minimumRelativeValue = @(-40);
+    horizontalMotionEffect.maximumRelativeValue = @(40);
     
     // Create group to combine both
     UIMotionEffectGroup *group = [UIMotionEffectGroup new];
