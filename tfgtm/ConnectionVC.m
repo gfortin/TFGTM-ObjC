@@ -78,7 +78,19 @@
     // Set this in every view controller so that the back button displays < instead of the root view controller name
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    // Do any additional setup after loading the view.
+    // Load settings
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
+    //self.pseudoInscription.text = [defaults valueForKey:@"userIdentifier"];
+    self.emailConnection.text = [defaults valueForKey:@"userEmail"];
+    self.passwordConnection.text = [defaults valueForKey:@"userPassword"];
+
+    /*
+    [defaults setValue:self.pseudoInscription.text forKey:@"userIdentifier"];
+    [defaults setValue:self.emailInscription.text forKey:@"userEmail"];
+    [defaults setValue:self.passwordInscription.text forKey:@"userPassword"];
+     */
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
