@@ -419,15 +419,15 @@ NSInteger newItems = 0;
     NSLog(@"GFO => UUID id_Item %@", UUID_Item);
     
     
-    //NSDictionary *item = @{ @"emoji": emojiItem, @"user": @"ghislain.fortin@hotmail.fr", @"text" : self.itemText.text, @"complete" : @NO };
     NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": emojiItem, @"name_Item" : self.itemText.text, @"complete" : @NO };
 
     [self.shoplistsitemsService addItem:item completion:nil];
     self.itemText.text = @"";
     self.itemEmoji = @"🍴";
     
-    newItems = newItems + 1;
     
+    // BadgeNumber incrementation
+    newItems = newItems + 1;
     [UIApplication sharedApplication].applicationIconBadgeNumber = newItems;
 
 }

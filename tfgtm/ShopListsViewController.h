@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShopListsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITextFieldDelegate>
+@interface ShopListsViewController : UITableViewController<UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *shopListSelect;
 @property (nonatomic, strong) NSString *strUserID;

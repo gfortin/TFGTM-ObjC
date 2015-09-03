@@ -8,7 +8,19 @@
 
 #import "InscriptionVC.h"
 
+
+#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+#import "TFGTMService.h"
+#import "QSAppDelegate.h"
+#import "SSKeychain.h"
+#import "SSKeychainQuery.h"
+
+
+
 @interface InscriptionVC ()
+
+@property (strong, nonatomic) TFGTMService *inscriptionService;
+
 
 @end
 
@@ -185,8 +197,31 @@
     [defaults synchronize];
     
     
+    NSString *UUID_User = [[NSUUID UUID] UUIDString];
+    
+    NSLog(@"GFO => UUID id_User %@", UUID_User);
+    
+    NSDictionary *user = @{ @"id": UUID_User, @"email_User": self.emailInscription.text, @"pseudo_User" : self.pseudoInscription.text, @"password_User" : self.passwordInscription.text };
+    
+    [self.inscriptionService addUser:user completion:nil];
+    
+    
     [self performSegueWithIdentifier:@"InscriptionToShopLists" sender:self];
 
     
 }
+
+/*
+- (void) refresh
+{
+    [self.refreshControl beginRefreshing];
+    
+    [self.inscriptionService syncDataShopLists:^
+     
+     {
+         [self.refreshControl endRefreshing];
+     }];
+}
+ */
+
 @end

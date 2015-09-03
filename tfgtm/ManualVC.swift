@@ -39,6 +39,21 @@ class ManualVC: UIViewController {
         background.addMotionEffect(group)
         
         
+        var tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("DocUtil", ofType:"html",inDirectory: "web")!)
+        
+        let reqPage = NSURLRequest(URL: tryPage!)
+        var requestPage = NSURLRequest(URL: tryPage!)
+        
+        // === Swift 2 ===============================
+        //let reqPage = NSURLRequest(URL: tryPage)
+        //var requestPage = NSURLRequest(URL: tryPage)
+        
+        
+        
+        manualWebView.loadRequest(requestPage)
+        
+        
+        
     }
     
     
