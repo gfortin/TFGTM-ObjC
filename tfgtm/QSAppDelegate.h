@@ -14,6 +14,10 @@
 // limitations under the License.
 //
 
+//Ajout Client App existante
+#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
@@ -24,6 +28,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+//Ajout Client application existante
+@property (strong, nonatomic) MSClient *client;
+
 
 - (NSURL *)applicationDocumentsDirectory;
 

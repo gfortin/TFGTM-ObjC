@@ -39,6 +39,9 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
     
+    // Ajout client pour Application existante
+    self.client = [MSClient clientWithApplicationURLString:@"https://tfgtm.azure-mobile.net/"
+                                            applicationKey:@"DorhkRlJvPtclEoBghfFIobYnguVff69"];
     
     return YES;
 }
@@ -160,5 +163,8 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
                           otherButtonTitles:nil];
     [alert show];
 }
+
+
+
 
 @end

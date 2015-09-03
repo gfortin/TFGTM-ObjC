@@ -201,10 +201,22 @@
     
     NSLog(@"GFO => UUID id_User %@", UUID_User);
     
+    
+    MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
+    
     NSDictionary *user = @{ @"id": UUID_User, @"email_User": self.emailInscription.text, @"pseudo_User" : self.pseudoInscription.text, @"password_User" : self.passwordInscription.text };
+    MSTable *itemTable = [client tableWithName:@"Users"];
     
-    [self.inscriptionService addUser:user completion:nil];
+    [itemTable insert:user completion:^(NSDictionary *insertedItem, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"User inserted, id: %@", [insertedItem objectForKey:@"id"]);
+        }
+    }];
     
+    //[self.inscriptionService addUser:user completion:nil];
+
     
     [self performSegueWithIdentifier:@"InscriptionToShopLists" sender:self];
 
