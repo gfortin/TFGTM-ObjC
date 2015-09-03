@@ -9,7 +9,6 @@
 #import "ShopListsViewController.h"
 #import "ShopListsItemsViewController.h"
 #import "TFGTMService.h"
-//#import "ShopListsService.h"
 #import "QSAppDelegate.h"
 
 #import "SSKeychain.h"
@@ -22,7 +21,6 @@
 @interface ShopListsViewController ()
 
 // Private properties
-//@property (strong, nonatomic) ShopListsService *shoplistsService;
 @property (strong, nonatomic) TFGTMService *shoplistsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
@@ -35,6 +33,7 @@
 @implementation ShopListsViewController
 
 @synthesize shopListSelect;
+@synthesize shopListSelectID;
 @synthesize strUserID;
 @synthesize itemText;
 
@@ -183,8 +182,9 @@
 {
     NSManagedObject *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     shopListSelect = [item valueForKey:@"name_ShopList"];
+    shopListSelectID = [item valueForKey:@"id"];
 
-    NSLog(@"Select indexPath %@", shopListSelect);
+    NSLog(@"Select shopList %@ %@", shopListSelect, shopListSelectID);
     return true;
 }
 
@@ -370,7 +370,7 @@
     if ([segue.identifier isEqualToString:@"showShopListItems"]) {
         ShopListsItemsViewController *destViewController = segue.destinationViewController;
         destViewController.shopListName = shopListSelect;
-
+        destViewController.shopListID = shopListSelectID;
     }
 }
 
@@ -378,43 +378,6 @@
     [itemText resignFirstResponder];
 }
 
-
-/*
-- (void) loginAndGetData
-{
-    MSClient *client = self.shoplistsService.client;
-    if (client.currentUser != nil) {
-        return;
-    }
-    
-    [client loginWithProvider:@"google" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-        
-        // Sauvegarde de l'authentification
-        [self saveAuthInfo];
-        
-        [self refresh];
-    }];
-}
-
-// Store Authentication Tokens in App
-// https://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started-users/
-
-
-- (void) saveAuthInfo {
-    [SSKeychain setPassword:self.shoplistsService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.shoplistsService.client.currentUser.userId];
-}
-
-
-- (void)loadAuthInfo {
-    NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
-    if (userid) {
-        NSLog(@"userid: %@", userid);
-        self.shoplistsService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
-        self.shoplistsService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
-        
-    }
- }
- */
 
 
 - (IBAction)settings:(id)sender {

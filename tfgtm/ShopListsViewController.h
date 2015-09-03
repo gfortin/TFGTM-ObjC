@@ -9,6 +9,7 @@
 @interface ShopListsViewController : UITableViewController<UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *shopListSelect;
+@property (nonatomic, strong) NSString *shopListSelectID;
 @property (nonatomic, strong) NSString *strUserID;
 
 

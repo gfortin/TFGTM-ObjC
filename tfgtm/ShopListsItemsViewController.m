@@ -34,6 +34,7 @@
 @implementation ShopListsItemsViewController
 
 @synthesize shopListName;
+@synthesize shopListID;
 @synthesize itemText;
 
 //create default values (MUST REWRITE)
@@ -422,6 +423,34 @@ NSInteger newItems = 0;
     NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": emojiItem, @"name_Item" : self.itemText.text, @"complete" : @NO };
 
     [self.shoplistsitemsService addItem:item completion:nil];
+
+    
+    
+    //=== Insert ShopListsItems ======
+    
+    NSString *UUID_ShopListsItem = [[NSUUID UUID] UUIDString];
+    NSLog(@"GFO => UUID id ShopListsItems %@", UUID_ShopListsItem);
+    
+    MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
+    
+    NSDictionary *shopListItem = @{ @"id": UUID_ShopListsItem, @"id_item": UUID_Item, @"id_shoplist" : shopListID };
+    MSTable *itemTable = [client tableWithName:@"ShopListsItems"];
+    
+    [itemTable insert:shopListItem completion:^(NSDictionary *insertedItem, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"ShopListItem inserted, id: %@", [insertedItem objectForKey:@"id"]);
+        }
+    }];
+    
+    //===================================
+    
+    
+    
+    
+    
+    
     self.itemText.text = @"";
     self.itemEmoji = @"🍴";
     
@@ -556,6 +585,8 @@ NSInteger newItems = 0;
     if ([segue.identifier isEqualToString:@"showInvitation"]) {
         InvitationVC *destViewController = segue.destinationViewController;
         destViewController.shopListName = shopListName;
+        //destViewController.shopListID = shopListID;
+
         
     }
 }

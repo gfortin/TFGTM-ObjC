@@ -11,6 +11,8 @@
 @interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSString *shopListName;
+@property (nonatomic, strong) NSString *shopListID;
+
 
 
 - (IBAction)inviteAction:(id)sender;
