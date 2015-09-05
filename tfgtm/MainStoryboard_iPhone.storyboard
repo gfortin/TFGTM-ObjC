@@ -454,10 +454,6 @@
                                     <outlet property="delegate" destination="nn3-DA-8zF" id="Gmq-WV-cC7"/>
                                 </connections>
                             </webView>
-                            <imageView userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TFGTM-1024x1024.png" id="Uyf-yD-fSB">
-                                <rect key="frame" x="-29" y="-18" width="429" height="632"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -476,7 +472,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="background" destination="Uyf-yD-fSB" id="d5N-F5-tRP"/>
                         <outlet property="manualWebView" destination="urk-J9-R5u" id="iwn-Zl-zcP"/>
                     </connections>
                 </viewController>
@@ -811,6 +806,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QLJ-if-wGW"/>
+        <segue reference="yN8-V8-Pl9"/>
     </inferredMetricsTieBreakers>
 </document>

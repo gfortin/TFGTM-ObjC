@@ -46,7 +46,6 @@
 		93C814A01B947D5800313410 /* ManualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C8149F1B947D5800313410 /* ManualVC.swift */; };
 		93C814A21B95E35900313410 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93C814A11B95E35900313410 /* MainStoryboard_iPhone.storyboard */; };
 		93CB083A1B54827E00B3A068 /* SelectItemsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CB08391B54827E00B3A068 /* SelectItemsVC.m */; };
-		93DE06891B4C4A4A0040F668 /* SelectItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DE06881B4C4A4A0040F668 /* SelectItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,7 +105,6 @@
 		93C814A11B95E35900313410 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		93CB08381B54827E00B3A068 /* SelectItemsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectItemsVC.h; sourceTree = "<group>"; };
 		93CB08391B54827E00B3A068 /* SelectItemsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectItemsVC.m; sourceTree = "<group>"; };
-		93DE06881B4C4A4A0040F668 /* SelectItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectItemsViewController.swift; path = ../SelectItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +175,6 @@
 				5F5C80941B8DBD1A0044FF99 /* InvitationVC.m */,
 				9305586A1B4AF706005646C2 /* AboutViewController.swift */,
 				93C8149F1B947D5800313410 /* ManualVC.swift */,
-				93DE06881B4C4A4A0040F668 /* SelectItemsViewController.swift */,
 				932D71521B35E9F90067BE48 /* ConnectViewController.h */,
 				932D71531B35E9F90067BE48 /* ConnectViewController.m */,
 				03D1004816EC58490005A1A9 /* TFGTMService.h */,
@@ -325,7 +322,6 @@
 				93CB083A1B54827E00B3A068 /* SelectItemsVC.m in Sources */,
 				03D1002A16EC579A0005A1A9 /* main.m in Sources */,
 				936A2B111B8F0B8E00B80C3B /* ConnectionVC.m in Sources */,
-				93DE06891B4C4A4A0040F668 /* SelectItemsViewController.swift in Sources */,
 				932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */,
 				936A2B141B8F0BD800B80C3B /* InscriptionVC.m in Sources */,
 				03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */,

@@ -12,13 +12,14 @@ import UIKit
 class ManualVC: UIViewController {
 
     @IBOutlet var manualWebView: UIWebView!
-    @IBOutlet var background: UIImageView!
+
 
     override func viewDidLoad() {
             super.viewDidLoad()
 
             self.title = "Manuel"
     
+        /*
         // Set vertical effect
         let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y",
             type: .TiltAlongVerticalAxis)
@@ -37,9 +38,19 @@ class ManualVC: UIViewController {
         
         // Add both effects to your view
         background.addMotionEffect(group)
+        */
         
+        //var tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("DocUtil", ofType:"html",inDirectory: "web")!)
+
+        //var tryPage = NSURL(string: "https://sway.com/NcTGBiPAElN26VHe")
+
         
-        var tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("DocUtil", ofType:"html",inDirectory: "web")!)
+        var tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("1710-Documentation utilisateur iPhone", ofType:"pdf",inDirectory: "web")!)
+        
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
+        {
+            tryPage = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("1710-Documentation utilisateur", ofType:"pdf",inDirectory: "web")!)
+        }
         
         let reqPage = NSURLRequest(URL: tryPage!)
         var requestPage = NSURLRequest(URL: tryPage!)

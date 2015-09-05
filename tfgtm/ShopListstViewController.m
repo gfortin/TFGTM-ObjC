@@ -100,34 +100,34 @@
     // A mettre en place une liste de ShopListsUsers
     
     
-    //=== Read ShopListsUsers ======
-    
-    NSLog(@"GFO => Read ShopListsUsers for userID : %@", strUserID);
-    
-    MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
-    
-    NSPredicate *predicateShopListUser = [NSPredicate predicateWithFormat:@"id_user == %@", strUserID];
-    MSTable *table = [client tableWithName:@"ShopListsUsers"];
-    
-    NSMutableArray *shopListsID;
-    
-    // Query the ShopListsUsers table and update the items property with the results from the service
-    [table readWithPredicate:predicateShopListUser completion:^(MSQueryResult *result, NSError *error) {
-        if(error) {
-            NSLog(@"ERROR %@", error);
-        } else {
-            for(NSDictionary *item in result.items) {
-                NSLog(@"ShopListsUsers id_shoplist: %@", [item objectForKey:@"id_shoplist"]);
-                [shopListsID addObject:[item objectForKey:@"id_shoplist"]];
+    if (strUserID) {
+        //=== Read ShopListsUsers ======
+        
+        NSLog(@"GFO => Read ShopListsUsers for userID : %@", strUserID);
+        
+        MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
+        
+        NSPredicate *predicateShopListUser = [NSPredicate predicateWithFormat:@"id_user == %@", strUserID];
+        MSTable *table = [client tableWithName:@"ShopListsUsers"];
+        
+        NSMutableArray *shopListsID;
+        
+        // Query the ShopListsUsers table and update the items property with the results from the service
+        [table readWithPredicate:predicateShopListUser completion:^(MSQueryResult *result, NSError *error) {
+            if(error) {
+                NSLog(@"ERROR %@", error);
+            } else {
+                for(NSDictionary *item in result.items) {
+                    NSLog(@"ShopListsUsers id_shoplist: %@", [item objectForKey:@"id_shoplist"]);
+                    [shopListsID addObject:[item objectForKey:@"id_shoplist"]];
+                }
             }
-        }
-    }];
+        }];
+        NSLog(@"GFO 1 : %@",shopListsID[1]);
+        NSLog(@"GFO 2 : %@",shopListsID[2]);
+    }
     
     //NSArray *slid = shopListsID;
-    
-    NSLog(@"GFO 1 : %@",shopListsID[1]);
-    NSLog(@"GFO 2 : %@",shopListsID[2]);
-
     
     //===================================
     
@@ -139,7 +139,8 @@
     
     // show only non-completed items
     //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES AND id IN %@", predicateIN];
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES AND id IN %@", shopListsIds];
+    //    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES AND id IN %@", shopListsIds];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES"];
 
     
     // sort by item text
@@ -292,26 +293,26 @@
     NSDictionary *item = @{ @"id": UUID_ShopList, @"name_ShopList" : self.itemText.text, @"complete" : @NO };
     [self.shoplistsService addShopList:item completion:nil];
     
-  
+    
     //=== Insert ShopListsUsers ======
-
-    NSString *UUID_ShopListsUsers = [[NSUUID UUID] UUIDString];
-    NSLog(@"GFO => UUID id ShopListsUsers %@", UUID_ShopListsUsers);
-    
-    MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
-    
-    NSDictionary *shopListUser = @{ @"id": UUID_ShopListsUsers, @"id_user": strUserID, @"id_shoplist" : UUID_ShopList };
-    MSTable *itemTable = [client tableWithName:@"ShopListsUsers"];
-    
-    [itemTable insert:shopListUser completion:^(NSDictionary *insertedItem, NSError *error) {
-        if (error) {
-            NSLog(@"Error: %@", error);
-        } else {
-            NSLog(@"ShopListUser inserted, id: %@", [insertedItem objectForKey:@"id"]);
-        }
-    }];
-    
-    //===================================
+    if (strUserID)
+    {
+        NSString *UUID_ShopListsUsers = [[NSUUID UUID] UUIDString];
+        NSLog(@"GFO => UUID id ShopListsUsers %@", UUID_ShopListsUsers);
+        
+        MSClient *client = [(QSAppDelegate *) [[UIApplication sharedApplication] delegate] client];
+        
+        NSDictionary *shopListUser = @{ @"id": UUID_ShopListsUsers, @"id_user": strUserID, @"id_shoplist" : UUID_ShopList };
+        MSTable *itemTable = [client tableWithName:@"ShopListsUsers"];
+        
+        [itemTable insert:shopListUser completion:^(NSDictionary *insertedItem, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", error);
+            } else {
+                NSLog(@"ShopListUser inserted, id: %@", [insertedItem objectForKey:@"id"]);
+            }
+        }];
+    }
     
     
     self.itemText.text = @"";

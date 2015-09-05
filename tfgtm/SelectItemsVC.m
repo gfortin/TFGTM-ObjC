@@ -68,7 +68,7 @@
                             @"  🍚  Pâtes, riz et céréales",
                             @"  🌱  Épices et condiments",
                             @"  🍵  Boissons",
-                            @"  🍭  Snacks et friandises",
+                            @"  🍕  Snacks",
                             @"  ❓  Autres"];
 
     
@@ -81,6 +81,12 @@
                         @"🍐 Poires",
                         @"🍇 Raisins",
                         @"🍍 Ananas",
+                        @"🍊 Mandarines",
+                        @"🍉 Pastèque",
+                        @"🍑 Pêches",
+                        @"🍓 Fraises",
+                        @"🌽 Maïs",
+                        @"🎃 Citrouille",
                         @"🍆 Aubergine"
                         ];
     
@@ -88,12 +94,18 @@
     _viandesPoissons = @[ @"🍗 Poulet",
                           @"🐂 Boeuf",
                           @"🐖 Porc",
-                          @"🐟 Thon",
-                          @"🐓 Coq au vin",
+                          @"🍣 Sushi",
+                          @"🍖 Côtelettes",
                           @"🐑 Mouton",
                           @"🐇 Lapin",
+                          @"🐟 Poisson",
+                          @"🐟 Thon",
+                          @"🐟 Saumon",
+                          @"🐟 Merlu",
+                          @"🐟 Truite",
+                          @"🐟 Sardines",
+                          @"🐓 Coq au vin",
                           @"🐸 Cuisses de grenouilles",
-                          @"🍣 Sushi",
                           @"🍤 Crevette"
                         ];
     
@@ -106,19 +118,31 @@
                            @"🍞 Baguette",
                            @"🍞 Croissant",
                            @"🍞 Pain au chocolat",
-                           @"🍞 Brioche"
+                           @"🍞 Brioche",
+                           @"🍪 Cookies",
+                           @"🍞 Pain de tradition",
+                           @"🍞 Croissant aux amandes",
+                           @"🍞 Pain aux raisins",
+                           @"🍞 Miche",
+                           @"🍞 Pain de mie"
                            ];
 
-    _produitsLaitiers = @[ @"🍧 Sorbet",
+    _produitsLaitiers = @[ @"🍧 Glace",
                            @"🍼 Lait",
-                           @"🍦 Glace",
-                           @"🍚 Yaourt",
+                           @"🍦 Glace vanille",
+                           @"🍚 Yaourt nature",
+                           @"🍚 Yaourt vanille",
+                           @"🍫 Mousse au chocolat",
                            @"🐐 Fromage de chèvre",
-                           @"🐄 Fromage de vache",
                            @"🐑 Fromage de brebis",
+                           @"🐄 Fromage de vache",
                            @"🐄 Camembert",
-                           @"❄️ Crème fraiche",
-                           @"🔥 Crème brulée"
+                           @"❄️ Crème fraîche",
+                           @"🔥 Crème brulée",
+                           @"🍼 Lait entier",
+                           @"🍼 Lait écrémé",
+                           @"🍼 Lait demi-écrémé",
+                           @"🍫 Lait au chocolat"
                            ];
 
     _patesRiz = @[ @"🍝 Spaghettis",
@@ -130,7 +154,13 @@
                    @"🍝 Raviolis",
                    @"🍝 Fettucinis",
                    @"🍝 Linguines",
-                   @"🍚 Riz basmati"
+                   @"🍚 Riz basmati",
+                   @"🍚 Riz sauvage",
+                   @"🍚 Riz noir",
+                   @"🍚 Riz gluant",
+                   @"🍚 Riz long grain",
+                   @"🍚 Riz thaï",
+                   @"🍚 Riz rond"
                    ];
 
     _epices = @[ @"🍴 Curry",
@@ -140,9 +170,15 @@
                  @"🌱 Paprika",
                  @"🍴 Sel",
                  @"🍴 Poivre",
-                 @"🍴 Cumin",
+                 @"🍃 Cumin",
+                 @"🍃 Marjolaine",
+                 @"🍃 Origan",
+                 @"🍃 Sauge",
+                 @"🍃 Basilic",
+                 @"🍴 Clous de girofle",
+                 @"🍃 Curcuma",
                  @"🍃 Thym",
-                 @"🍃 Coriande"
+                 @"🍃 Coriandre"
                  ];
 
     _boissons =@[ @"💧 Eau",
@@ -151,9 +187,15 @@
                   @"🍺 Bières",
                   @"🍹 Cocktail",
                   @"🍹 Liqueur",
+                  @"🍊 Jus d'oranges",
+                  @"🍏 Jus de pommes",
+                  @"🍇 Jus de raisins",
+                  @"🍍 Jus d'ananas",
+                  @"🍊 Jus de clémentines",
                   @"🍷 Vin rouge",
                   @"🍷 Vin rosé",
                   @"🍸 Vin blanc",
+                  @"🍸 Mousseux",
                   @"🍶 Saké"
                   ];
 
@@ -161,25 +203,38 @@
                  @"🍟 Frites",
                  @"🍔 Hamburger",
                  @"🍫 Chocolat",
-                 @"🐖 Hot-dogs",
+                 @"🐖 Hot-dog",
                  @"🍞 Sandwich",
                  @"🐓 Poulet pané",
-                 @"🍬 Friandise",
+                 @"🍬 Friandises",
                  @"🍭 Sucettes",
-                 @"🍴 Bretzel"
+                 @"🍴 Bretzel",
+                 @"🍴 Chips",
+                 @"🍴 Cacahuètes",
+                 @"🍴 Pistaches",
+                 @"🍴 Noix de cajou",
+                 @"🍴 Noix du brésil",
+                 @"🍗 Ailes de poulet"
+
                ];
     
     _autres = @[ @"🚬 Cigarettes",
                  @"💊 Médicament",
                  @"🍳 Oeufs",
                  @"🍯 Miel",
-                 @"💦 Sucettes",
-                 @"💦 Bonbon",
-                 @"💦 Ravitalisant",
+                 @"🍭 Sucettes",
+                 @"🍬 Bonbon",
+                 @"💦 Après-shampoing",
                  @"💦 Shampoing",
+                 @"💦 Gel de douche",
+                 @"💦 Mousse à raser",
+                 @"💦 Savon de Marseille",
+                 @"💦 Lave-vitres",
+                 @"💦 Assouplissant",
+                 @"💦 Eau de javel",
                  @"💦 Savon",
-                 @"💦 Savon à vaiselle"
-               ];
+                 @"💦 Liquide vaisselle"
+                ];
 
 
     
