@@ -12,8 +12,6 @@
 @property (nonatomic, strong) NSString *shopListSelectID;
 @property (nonatomic, strong) NSString *strUserID;
 
-
-
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
 
 - (IBAction)onAdd:(id)sender;

@@ -63,9 +63,12 @@
     NSLog(@"GFO => strUserID : %@", strUserID );
     
     // have refresh control reload all data from server
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Synchronisation des listes de courses..."];
     [self.refreshControl addTarget:self
                             action:@selector(onRefresh:)
                   forControlEvents:UIControlEventValueChanged];
+    
+
     
     NSError *error;
     if (![[self fetchedResultsController] performFetch:&error]) {
@@ -75,6 +78,8 @@
 
     // Set this in every view controller so that the back button displays < instead of the root view controller name
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+
+
     
     // load the data
     //[self loginAndGetData];
@@ -418,9 +423,10 @@
 }
 
 
-
 - (IBAction)settings:(id)sender {
     //code for opening settings app in iOS 8
     [[UIApplication sharedApplication] openURL:[NSURL  URLWithString:UIApplicationOpenSettingsURLString]];
 }
+
+
 @end

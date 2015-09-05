@@ -72,6 +72,7 @@ NSInteger newItems = 0;
     
     
     // have refresh control reload all data from server
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Synchronisation des articles..."];
     [self.refreshControl addTarget:self
                             action:@selector(onRefresh:)
                   forControlEvents:UIControlEventValueChanged];
