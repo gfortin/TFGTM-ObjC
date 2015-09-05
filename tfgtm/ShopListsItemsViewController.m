@@ -108,7 +108,9 @@ NSInteger newItems = 0;
     //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id == '1F65C2BB-D79B-4E82-BFC1-A236F1417A78'"];
     // show only non-completed items
     
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES"];
+    //fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"complete != YES AND id_ShopList == %@", shopListID];
+
     
     
     // sort by item text
@@ -440,8 +442,8 @@ NSInteger newItems = 0;
     
     NSLog(@"GFO => UUID id_Item %@", UUID_Item);
     
-    
-    NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": emojiItem, @"name_Item" : self.itemText.text, @"complete" : @NO };
+    //ajout de id_ShopList
+    NSDictionary *item = @{ @"id": UUID_Item, @"emoji_Item": emojiItem, @"name_Item" : self.itemText.text, @"complete" : @NO, @"id_ShopList" : shopListID};
 
     [self.shoplistsitemsService addItem:item completion:nil];
 

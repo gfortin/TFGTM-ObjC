@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Categories" syncable="YES">
         <attribute name="emoji_Category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,6 +15,7 @@
         <attribute name="emoji_Item" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_Category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_ShopList" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_User" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ms_createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="ms_deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -102,7 +103,7 @@
     </entity>
     <elements>
         <element name="Categories" positionX="-83" positionY="81" width="128" height="163"/>
-        <element name="Items" positionX="-81" positionY="288" width="128" height="238"/>
+        <element name="Items" positionX="-81" positionY="288" width="128" height="255"/>
         <element name="MS_TableConfig" positionX="-135" positionY="-45" width="128" height="30"/>
         <element name="MS_TableOperationErrors" positionX="-279" positionY="-45" width="128" height="30"/>
         <element name="MS_TableOperations" positionX="9" positionY="-45" width="128" height="30"/>

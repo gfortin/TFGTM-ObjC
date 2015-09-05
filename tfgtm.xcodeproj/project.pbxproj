@@ -13,7 +13,7 @@
 		03D1002816EC579A0005A1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D1002616EC579A0005A1A9 /* InfoPlist.strings */; };
 		03D1002A16EC579A0005A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002916EC579A0005A1A9 /* main.m */; };
 		03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */; };
-		03D1004716EC58300005A1A9 /* ShopListstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* ShopListstViewController.m */; };
+		03D1004716EC58300005A1A9 /* ShopListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* ShopListsViewController.m */; };
 		03D1004A16EC58490005A1A9 /* TFGTMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004916EC58490005A1A9 /* TFGTMService.m */; };
 		5F5C80951B8DBD1A0044FF99 /* InvitationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5C80941B8DBD1A0044FF99 /* InvitationVC.m */; };
 		689C609F1A5F3F4D00E96D29 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689C609E1A5F3F4D00E96D29 /* CoreData.framework */; };
@@ -60,7 +60,7 @@
 		03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSAppDelegate.h; sourceTree = "<group>"; };
 		03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSAppDelegate.m; sourceTree = "<group>"; };
 		03D1004516EC58300005A1A9 /* ShopListsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListsViewController.h; sourceTree = "<group>"; };
-		03D1004616EC58300005A1A9 /* ShopListstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListstViewController.m; sourceTree = "<group>"; };
+		03D1004616EC58300005A1A9 /* ShopListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListsViewController.m; sourceTree = "<group>"; };
 		03D1004816EC58490005A1A9 /* TFGTMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFGTMService.h; sourceTree = "<group>"; };
 		03D1004916EC58490005A1A9 /* TFGTMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFGTMService.m; sourceTree = "<group>"; };
 		5F5C80931B8DBD1A0044FF99 /* InvitationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationVC.h; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				03D1004816EC58490005A1A9 /* TFGTMService.h */,
 				03D1004916EC58490005A1A9 /* TFGTMService.m */,
 				03D1004516EC58300005A1A9 /* ShopListsViewController.h */,
-				03D1004616EC58300005A1A9 /* ShopListstViewController.m */,
+				03D1004616EC58300005A1A9 /* ShopListsViewController.m */,
 				932D715B1B3615A20067BE48 /* ShopListsItemsViewController.h */,
 				932D715C1B3615A20067BE48 /* ShopListsItemsViewController.m */,
 				93CB08381B54827E00B3A068 /* SelectItemsVC.h */,
@@ -325,7 +325,7 @@
 				932D715D1B3615A20067BE48 /* ShopListsItemsViewController.m in Sources */,
 				936A2B141B8F0BD800B80C3B /* InscriptionVC.m in Sources */,
 				03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */,
-				03D1004716EC58300005A1A9 /* ShopListstViewController.m in Sources */,
+				03D1004716EC58300005A1A9 /* ShopListsViewController.m in Sources */,
 				9305586B1B4AF706005646C2 /* AboutViewController.swift in Sources */,
 				5F5C80951B8DBD1A0044FF99 /* InvitationVC.m in Sources */,
 				932D71541B35E9F90067BE48 /* ConnectViewController.m in Sources */,
