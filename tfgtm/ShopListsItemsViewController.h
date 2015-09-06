@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITextFieldDelegate>
+
+@interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITextFieldDelegate, UIWebViewDelegate>
 
 @property (nonatomic, strong) NSString *shopListName;
 @property (nonatomic, strong) NSString *shopListID;
-
 
 
 - (IBAction)inviteAction:(id)sender;
