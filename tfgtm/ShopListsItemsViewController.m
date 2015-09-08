@@ -14,7 +14,7 @@
 #import "QSAppDelegate.h"
 
 #import "SelectItemsVC.h"
-#import <WebKit/WebKit.h>
+//#import <WebKit/WebKit.h>
 
 
 #import "SSKeychain.h"
@@ -26,7 +26,7 @@
 @property (strong, nonatomic) TFGTMService *shoplistsitemsService;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
-@property (weak, nonatomic) IBOutlet UIWebView *googleImageWV;
+//@property (weak, nonatomic) IBOutlet UIWebView *googleImageWV;
 
 @end
 
@@ -38,7 +38,7 @@
 @synthesize shopListName;
 @synthesize shopListID;
 @synthesize itemText;
-@synthesize googleImageWV;
+//@synthesize googleImageWV;
 
 //create default values (MUST REWRITE)
 NSInteger newItems = 0;
@@ -254,12 +254,13 @@ NSInteger newItems = 0;
         return;
     }
 
+    /*
     NSString * urlText = [NSString stringWithFormat:@"https://www.google.fr/search?tbm=isch&q=%@", self.itemText.text];
     
     //[[self.googleImage mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlText]]];
     [self.googleImageWV loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlText]]];
     [self.googleImageWV setAlpha:0.3];
-    
+    */
     
     NSMutableDictionary *itemsEmoji=[[NSMutableDictionary alloc] init];
     [itemsEmoji setValue:@"🍅" forKey:@"Tomate"];

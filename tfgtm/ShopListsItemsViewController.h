@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
+//#import <WebKit/WebKit.h>
 
 
 @interface ShopListsItemsViewController : UITableViewController<NSFetchedResultsControllerDelegate, UITextFieldDelegate, UIWebViewDelegate>
