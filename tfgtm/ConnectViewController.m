@@ -268,15 +268,15 @@
         
                 if (client.currentUser != nil)
                 {
-                    /*
-                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                    [defaults setValue:self.emailConnection.text forKey:@"userEmail"];
-                    [defaults synchronize];
+                     // Load settings
+                     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                     [defaults synchronize];
+                     NSString *pseudoInscription = [defaults valueForKey:@"userIdentifier"];
                     
-                    NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", userPseudo];
-                    */
-                    NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
-                    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Bienvenu!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    NSString *alertMessage = [NSString stringWithFormat: @"Bienvenue %@!", pseudoInscription];
+                    
+                    //NSString *alertMessage = [NSString stringWithFormat: @"Connexion avec %@ ", strUserID];
+                    UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"👤 Connexion automatique" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [warningAlert show];
          
                     [self performSegueWithIdentifier:@"showShopLists" sender:self];
